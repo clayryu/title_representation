@@ -1,0 +1,18 @@
+{
+    "os": "Linux-5.15.0-52-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-11-21T06:30:13.792228",
+    "startedAt": "2022-11-21T06:30:11.173869",
+    "docker": null,
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/clay/userdata/irish-maler-cleaned/train.py",
+    "codePath": "train.py",
+    "host": "4763e88da2a1",
+    "username": "clay",
+    "executable": "/bin/python3"
+}

@@ -1,0 +1,18 @@
+{
+    "os": "Linux-5.15.0-52-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-10-28T22:52:22.387423",
+    "startedAt": "2022-10-28T22:52:20.167369",
+    "docker": null,
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/clay/userdata/irish-maler-cleaned/emb_train.py",
+    "codePath": "emb_train.py",
+    "host": "4763e88da2a1",
+    "username": "clay",
+    "executable": "/bin/python3"
+}

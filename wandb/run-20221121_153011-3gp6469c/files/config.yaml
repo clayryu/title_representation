@@ -1,0 +1,97 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.21
+    framework: huggingface
+    huggingface_version: 4.21.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.10
+    start_time: 1669012211
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 53
+      - 55
+      - 75
+      3:
+      - 1
+      - 16
+      4: 3.8.10
+      5: 0.12.21
+      6: 4.21.2
+      8:
+      - 5
+aug_type:
+  desc: null
+  value: stat
+batch_size:
+  desc: null
+  value: 32
+data_params:
+  desc: null
+  value: '{''key_aug'': ''stat''}'
+device:
+  desc: null
+  value: cuda
+grad_clip:
+  desc: null
+  value: 1.0
+lr:
+  desc: null
+  value: 0.001
+model_name:
+  desc: null
+  value: pitch_dur
+model_type:
+  desc: null
+  value: pitch_dur
+nn_params:
+  desc: null
+  value: '{''vocab_name'': ''NoteMusicTokenVocab'', ''note_embedder_name'': ''MultiEmbedding'',
+    ''model_name'': ''MeasureHierarchyModel'', ''emb'': {''emb_size'': 256, ''main'':
+    192, ''pitch_class'': 32, ''octave'': 32, ''dur'': 192, ''m_idx'': 128, ''m_idx_mod4'':
+    64, ''m_offset'': 128, ''is_onbeat'': 32, ''is_middle_beat'': 32, ''key'': 64,
+    ''meter'': 64, ''unit_length'': 64, ''rhythm'': 64, ''root'': 32, ''mode'': 32,
+    ''key_sig'': 32, ''numer'': 32, ''denom'': 32, ''is_compound'': 32, ''is_triple'':
+    32, ''total_size'': 1312}, ''note'': {''hidden_size'': 256, ''num_layers'': 3,
+    ''dropout'': 0.1}, ''measure'': {''hidden_size'': 256, ''num_layers'': 3, ''dropout'':
+    0.1, ''num_attention_head'': 8}}'
+no_log:
+  desc: null
+  value: false
+num_epoch_per_log:
+  desc: null
+  value: 2
+num_iter:
+  desc: null
+  value: 100000
+num_iter_per_valid:
+  desc: null
+  value: 5000
+num_workers:
+  desc: null
+  value: 2
+path:
+  desc: null
+  value: abc_dataset/folk_rnn_abc_key_cleaned/
+save_dir:
+  desc: null
+  value: experiments/20221121-153009-MeasureHierarchyModel_256_32_100000_0.001
+scheduler_factor:
+  desc: null
+  value: 0.3
+scheduler_patience:
+  desc: null
+  value: 3
+seed:
+  desc: null
+  value: 42
+yml_path:
+  desc: null
+  value: yamls/test.yaml
