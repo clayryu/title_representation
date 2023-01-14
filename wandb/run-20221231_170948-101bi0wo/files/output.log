@@ -1,0 +1,11 @@
+
+  0%|                                                                                                                                                                                                                                                                        | 0/200 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 90, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 381, in validate
+    abc_emb_all[start_idx:end_idx] = emb1
+RuntimeError: The expanded size of the tensor (128) must match the existing size (32) at non-singleton dimension 1.  Target sizes: [512, 128].  Tensor sizes: [512, 32]

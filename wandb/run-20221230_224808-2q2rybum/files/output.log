@@ -1,0 +1,28 @@
+
+  0%|                                                                                                                                                                                                                                                                        | 0/200 [00:00<?, ?it/s]
+ 29%|█████████████████████████████████████████████████████████████████████████▍                                                                                                                                                                                       | 4/14 [00:00<00:00, 11.25it/s]
+
+Saving the model with best validation loss: Epoch 1, Loss: 0.4961
+
+ 29%|█████████████████████████████████████████████████████████████████████████▍                                                                                                                                                                                       | 4/14 [00:00<00:00, 15.68it/s]
+ 43%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                                                                                                                                  | 6/14 [00:00<00:00, 15.54it/s]
+
+  2%|███▊                                                                                                                                                                                                                                                            | 3/200 [00:34<37:34, 11.44s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 83, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 124, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 274, in get_loss_pred_from_single_batch
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 49, in forward
+    emb_hidden, last_emb_hidden = self.emb_rnn(final_hidden)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 953, in forward
+    result = _VF.gru(input, batch_sizes, hx, self._flat_weights, self.bias,
+KeyboardInterrupt

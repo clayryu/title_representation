@@ -1,0 +1,1 @@
+{"train.total": 0.021686993539333344, "train.time": 0.6609818935394287, "_timestamp": 1672471070, "_runtime": 687, "_step": 418, "validation_loss": 0.4972912669181824, "validation_acc": 0.011673246236907228, "train_loss": 0.018590521751312688, "train_acc": 6.784393584243358, "_wandb": {"runtime": 688}}

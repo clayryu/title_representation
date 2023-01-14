@@ -100,3 +100,32 @@ def pack_collate_title(raw_batch:list):
     
     return packed_melody, torch.stack(title, dim=0)
   
+def pack_collate_title(raw_batch:list):
+    '''
+  This function takes a list of data, and returns two PackedSequences
+  
+  Argument
+    raw_batch: A list of MelodyDataset[idx]. Each item in the list is a tuple of (melody, shifted_melody)
+               melody and shifted_melody has a shape of [num_notes (+1 if you don't consider "start" and "end" token as note), 2]
+  Returns
+    packed_melody (torch.nn.utils.rnn.PackedSequence)
+    packed_shifted_melody (torch.nn.utils.rnn.PackedSequence)
+
+  TODO: Complete this function
+    '''  
+    
+    melody = [mel_pair[0] for mel_pair in raw_batch]
+    title = [pair[1] for pair in raw_batch] #pair[1] 
+    
+    packed_melody = pack_sequence(melody, enforce_sorted=False)
+    #packed_shifted_melody = pack_sequence(shifted_melody, enforce_sorted=False)
+    
+    if len(raw_batch[0]) == 2:
+      return packed_melody, torch.stack(title, dim=0)
+    elif len(raw_batch[0]) == 3:
+      measure_numbers = [mel_pair[2] for mel_pair in raw_batch]
+      packed_measure_numbers = pack_sequence(measure_numbers, enforce_sorted=False)
+      return packed_melody, torch.stack(title, dim=0), packed_measure_numbers
+    else:
+      raise ValueError("Unknown raw_batch format")
+  

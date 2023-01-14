@@ -1,0 +1,9 @@
+  0%|                                                                                                                                                                                                                                                                                         | 0/200 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 90, in train_by_num_epoch
+    validation_loss, validation_acc = self.validate()
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 391, in validate
+    position = np.where(sorted_cos_idx[idx][-topk:-1][::-1] == idx).item()
+AttributeError: 'tuple' object has no attribute 'item'

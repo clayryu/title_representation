@@ -1,0 +1,159 @@
+
+  0%|                                                                                                               | 0/50 [00:00<?, ?it/s]
+ 13%|█████████████▍                                                                                       | 16/120 [00:01<00:06, 15.36it/s]
+
+
+
+
+ 71%|████████████████████████████████████████████████████████████████████████▊                             | 10/14 [00:00<00:00, 16.17it/s]
+
+Saving the model with best validation loss: Epoch 1, Loss: 0.5009
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+ 86%|███████████████████████████████████████████████████████████████████████████████████████▍              | 12/14 [00:00<00:00, 16.20it/s]
+
+Saving the model with best validation loss: Epoch 2, Loss: 0.4983
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 95%|███████████████████████████████████████████████████████████████████████████████████████████████     | 114/120 [00:07<00:00, 15.38it/s]
+
+
+  6%|██████▏                                                                                                | 3/50 [00:53<14:00, 17.89s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 73%|██████████████████████████████████████████████████████████████████████████                           | 88/120 [00:05<00:01, 16.02it/s]
+
+  8%|████████▏                                                                                              | 4/50 [01:11<13:42, 17.89s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 77%|█████████████████████████████████████████████████████████████████████████████▍                       | 92/120 [00:05<00:01, 14.83it/s]
+
+ 10%|██████████▎                                                                                            | 5/50 [01:29<13:26, 17.93s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+ 12%|████████████▎                                                                                          | 6/50 [01:47<13:02, 17.78s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+  0%|                                                                                                               | 0/14 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 71%|████████████████████████████████████████████████████████████████████████▊                             | 10/14 [00:00<00:00, 16.52it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+ 18%|██████████████████▌                                                                                    | 9/50 [02:39<12:01, 17.59s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 14%|██████████████▋                                                                                        | 2/14 [00:00<00:00, 17.46it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 86%|███████████████████████████████████████████████████████████████████████████████████████▍              | 12/14 [00:00<00:00, 16.12it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+ 24%|████████████████████████▍                                                                             | 12/50 [03:31<11:03, 17.47s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 26%|██████████████████████████▌                                                                           | 13/50 [03:49<10:45, 17.44s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 29%|█████████████████████████████▍                                                                         | 4/14 [00:00<00:00, 16.02it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 30%|██████████████████████████████▌                                                                       | 15/50 [04:24<10:10, 17.45s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+ 32%|████████████████████████████████▋                                                                     | 16/50 [04:41<09:54, 17.47s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 34%|██████████████████████████████████▋                                                                   | 17/50 [04:59<09:38, 17.54s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+
+ 29%|█████████████████████████████▍                                                                         | 4/14 [00:00<00:00, 15.94it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+Traceback (most recent call last):
+  File "emb_train.py", line 141, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 91, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 389, in validate
+    for idx, batch in enumerate(tqdm(loader, leave=False)):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 503, in __getitem__
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 503, in <listcomp>
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 356, in __call__
+    return self(wrd) + self.encode_m_idx(m_idx) + self.encode_m_offset(m_offset, header)
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 364, in __call__
+    return [main, dur, pitch_class, octave]
+KeyboardInterrupt

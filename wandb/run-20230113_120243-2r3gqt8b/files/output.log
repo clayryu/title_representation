@@ -1,0 +1,56 @@
+
+  0%|                                                                                                                                                                                                                                                                                        | 0/1000 [00:00<?, ?it/s]
+ 12%|██████████████████████████████████▍                                                                                                                                                                                                                                                | 1/8 [00:00<00:06,  1.10it/s]
+
+
+
+
+  0%|                                                                                                                                                                                                                                                                                           | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 1, Loss: 0.3000
+ 12%|██████████████████████████████████▍                                                                                                                                                                                                                                                | 1/8 [00:00<00:05,  1.27it/s]
+
+
+
+
+  0%|                                                                                                                                                                                                                                                                                           | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 2, Loss: 0.2999
+ 12%|██████████████████████████████████▍                                                                                                                                                                                                                                                | 1/8 [00:00<00:05,  1.32it/s]
+
+
+
+
+  0%|                                                                                                                                                                                                                                                                                           | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 3, Loss: 0.2999
+ 12%|██████████████████████████████████▍                                                                                                                                                                                                                                                | 1/8 [00:00<00:05,  1.29it/s]
+
+
+
+
+  0%|                                                                                                                                                                                                                                                                                           | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 4, Loss: 0.2998
+ 12%|██████████████████████████████████▍                                                                                                                                                                                                                                                | 1/8 [00:00<00:05,  1.27it/s]
+
+
+
+
+  0%|                                                                                                                                                                                                                                                                                           | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 5, Loss: 0.2995
+ 12%|██████████████████████████████████▍                                                                                                                                                                                                                                                | 1/8 [00:00<00:05,  1.27it/s]
+
+
+
+
+  1%|█▌                                                                                                                                                                                                                                                                            | 6/1000 [01:25<3:55:31, 14.22s/it]
+  1%|█▌                                                                                                                                                                                                                                                                            | 6/1000 [01:30<4:08:49, 15.02s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 141, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 84, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 134, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 296, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 31, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

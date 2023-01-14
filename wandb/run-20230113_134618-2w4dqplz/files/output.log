@@ -1,0 +1,54 @@
+
+  0%|                                                                                                                                                                                                                                                                                        | 0/1000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                                    | 6/8 [00:04<00:01,  1.26it/s]
+
+  0%|▎                                                                                                                                                                                                                                                                             | 1/1000 [00:14<3:58:17, 14.31s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                                    | 6/8 [00:04<00:01,  1.26it/s]
+
+  0%|▌                                                                                                                                                                                                                                                                             | 2/1000 [00:28<3:58:42, 14.35s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 62%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                                                                       | 5/8 [00:04<00:02,  1.24it/s]
+
+  0%|▊                                                                                                                                                                                                                                                                             | 3/1000 [00:42<3:58:04, 14.33s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 62%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                                                                       | 5/8 [00:03<00:02,  1.25it/s]
+
+  0%|█                                                                                                                                                                                                                                                                             | 4/1000 [00:57<3:56:57, 14.27s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 62%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                                                                       | 5/8 [00:04<00:02,  1.21it/s]
+
+  0%|█▎                                                                                                                                                                                                                                                                            | 5/1000 [01:11<3:55:46, 14.22s/it]
+  0%|                                                                                                                                                                                                                                                                                           | 0/8 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 141, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 91, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 392, in validate
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 49, in forward
+    final_hidden, _ = self.final_rnn(cat_hidden)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 953, in forward
+    result = _VF.gru(input, batch_sizes, hx, self._flat_weights, self.bias,
+KeyboardInterrupt

@@ -1,0 +1,70 @@
+2022-12-28 22:21:57,389 INFO    MainThread:77999 [internal.py:wandb_internal():90] W&B internal server running at pid: 77999, started at: 2022-12-28 22:21:57.389540
+2022-12-28 22:21:57,393 INFO    WriterThread:77999 [datastore.py:open_for_write():75] open: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/run-3qendluh.wandb
+2022-12-28 22:21:57,396 DEBUG   SenderThread:77999 [sender.py:send():236] send: header
+2022-12-28 22:21:57,396 DEBUG   SenderThread:77999 [sender.py:send():236] send: run
+2022-12-28 22:21:57,728 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: check_version
+2022-12-28 22:21:57,731 INFO    SenderThread:77999 [dir_watcher.py:__init__():216] watching files in: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files
+2022-12-28 22:21:57,731 INFO    SenderThread:77999 [sender.py:_start_run_threads():815] run started: 3qendluh with start time 1672233715
+2022-12-28 22:21:57,731 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:21:57,731 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:21:57,732 DEBUG   SenderThread:77999 [sender.py:send_request():250] send_request: check_version
+2022-12-28 22:21:57,813 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: run_start
+2022-12-28 22:21:57,823 DEBUG   HandlerThread:77999 [meta.py:__init__():35] meta init
+2022-12-28 22:21:57,823 DEBUG   HandlerThread:77999 [meta.py:__init__():49] meta init done
+2022-12-28 22:21:57,823 DEBUG   HandlerThread:77999 [meta.py:probe():209] probe
+2022-12-28 22:21:57,836 DEBUG   HandlerThread:77999 [meta.py:_setup_git():199] setup git
+2022-12-28 22:21:57,858 DEBUG   HandlerThread:77999 [meta.py:_setup_git():206] setup git done
+2022-12-28 22:21:57,858 DEBUG   HandlerThread:77999 [meta.py:_save_pip():53] save pip
+2022-12-28 22:21:57,859 DEBUG   HandlerThread:77999 [meta.py:_save_pip():67] save pip done
+2022-12-28 22:21:57,859 DEBUG   HandlerThread:77999 [meta.py:probe():247] probe done
+2022-12-28 22:21:57,954 DEBUG   SenderThread:77999 [sender.py:send():236] send: files
+2022-12-28 22:21:57,955 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-metadata.json with policy now
+2022-12-28 22:21:57,962 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: stop_status
+2022-12-28 22:21:57,963 DEBUG   SenderThread:77999 [sender.py:send_request():250] send_request: stop_status
+2022-12-28 22:21:58,189 DEBUG   SenderThread:77999 [sender.py:send():236] send: telemetry
+2022-12-28 22:21:58,190 DEBUG   SenderThread:77999 [sender.py:send():236] send: telemetry
+2022-12-28 22:21:58,741 INFO    Thread-17 :77999 [upload_job.py:push():138] Uploaded file /tmp/tmpa7rcgozrwandb/1b7obrxb-wandb-metadata.json
+2022-12-28 22:21:58,749 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/wandb-metadata.json
+2022-12-28 22:21:58,750 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/requirements.txt
+2022-12-28 22:21:58,750 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/wandb-summary.json
+2022-12-28 22:21:58,750 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/output.log
+2022-12-28 22:22:00,299 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:00,567 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:00,568 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:00,568 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:00,569 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:00,693 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:00,693 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:00,693 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:00,694 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:00,735 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/wandb-summary.json
+2022-12-28 22:22:00,735 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/output.log
+2022-12-28 22:22:01,102 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:01,102 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:01,103 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:01,103 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:01,357 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:01,358 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:01,358 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:01,358 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:01,514 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:01,514 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:01,515 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:01,515 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:01,736 INFO    Thread-13 :77999 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20221228_222155-3qendluh/files/wandb-summary.json
+2022-12-28 22:22:01,894 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:01,895 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:01,895 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:01,895 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:02,226 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:02,227 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:02,227 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:02,227 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:02,362 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:02,362 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:02,363 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:02,363 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2022-12-28 22:22:02,602 DEBUG   HandlerThread:77999 [handler.py:handle_request():140] handle_request: partial_history
+2022-12-28 22:22:02,602 DEBUG   SenderThread:77999 [sender.py:send():236] send: history
+2022-12-28 22:22:02,603 DEBUG   SenderThread:77999 [sender.py:send():236] send: summary
+2022-12-28 22:22:02,603 INFO    SenderThread:77999 [sender.py:_save_file():952] saving file wandb-summary.json with policy end

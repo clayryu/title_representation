@@ -1,5 +1,6 @@
 import torch
 from torch.linalg import norm
+from torch.nn import CosineEmbeddingLoss
 
 def get_batch_contrastive_loss(emb1, emb2, margin=0.4):
   num_batch = len(emb1)
@@ -14,3 +15,4 @@ def get_batch_contrastive_loss(emb1, emb2, margin=0.4):
 
   loss  = torch.clamp(margin - (positive_sim - negative_sim), min=0)
   return loss.mean()
+

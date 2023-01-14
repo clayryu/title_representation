@@ -1,0 +1,9 @@
+  0%|                                                                                                                                                                                                                                                                         | 0/10 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 83, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 139, in _train_by_single_batch
+    loss_dict['lr'] = self.optimizer.param_groups[0]['lr']
+AttributeError: 'EmbTrainerMeasure' object has no attribute 'optimizer'

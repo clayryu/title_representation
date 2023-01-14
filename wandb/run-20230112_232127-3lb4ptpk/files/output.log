@@ -1,0 +1,11 @@
+  0%|                                                                                                               | 0/50 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 141, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 83, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 133, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 292, in get_loss_pred_from_single_batch
+    if self.loss == CosineEmbeddingLoss():
+AttributeError: 'EmbTrainerMeasureMRR' object has no attribute 'loss'

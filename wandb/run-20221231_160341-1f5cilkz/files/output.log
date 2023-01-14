@@ -1,0 +1,33 @@
+
+  0%|                                                                                                                                                                                                                                                                         | 0/10 [00:00<?, ?it/s]
+ 25%|████████████████████████████████████████████████████████████████▌                                                                                                                                                                                                 | 2/8 [00:01<00:04,  1.32it/s]
+
+
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 7/8 [00:05<00:00,  1.20it/s]
+
+Saving the model with best validation loss: Epoch 1, Loss: 0.4991
+An arbitrary loader is used instead of Validation loader
+
+
+
+  0%|                                                                                                                                                                                                                                                                          | 0/1 [00:00<?, ?it/s]
+
+ 20%|███████████████████████████████████████████████████▍                                                                                                                                                                                                             | 2/10 [00:36<02:26, 18.26s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 82, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    return self.collate_fn(data)
+  File "/home/clay/userdata/title_generation/emb_utils.py", line 120, in pack_collate_title
+    packed_melody = pack_sequence(melody, enforce_sorted=False)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/utils/rnn.py", line 482, in pack_sequence
+    return pack_padded_sequence(pad_sequence(sequences), lengths, enforce_sorted=enforce_sorted)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/utils/rnn.py", line 260, in pack_padded_sequence
+    _VF._pack_padded_sequence(input, lengths, batch_first)
+KeyboardInterrupt

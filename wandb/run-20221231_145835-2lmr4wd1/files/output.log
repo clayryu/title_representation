@@ -1,0 +1,24 @@
+
+  0%|                                                                                                                                                                                                                                                                        | 0/300 [00:00<?, ?it/s]
+
+
+  1%|█▋                                                                                                                                                                                                                                                              | 2/300 [00:17<42:06,  8.48s/it]
+  1%|█▋                                                                                                                                                                                                                                                              | 2/300 [00:22<56:19, 11.34s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 83, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 124, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 274, in get_loss_pred_from_single_batch
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 49, in forward
+    emb_hidden, last_emb_hidden = self.emb_rnn(final_hidden)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/rnn.py", line 953, in forward
+    result = _VF.gru(input, batch_sizes, hx, self._flat_weights, self.bias,
+RuntimeError: CUDA out of memory. Tried to allocate 1.14 GiB (GPU 0; 23.69 GiB total capacity; 20.70 GiB already allocated; 88.06 MiB free; 22.42 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

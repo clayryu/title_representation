@@ -1,0 +1,24 @@
+
+  0%|                                                                                                                                                                                                                                                                        | 0/300 [00:00<?, ?it/s]
+
+  0%|▊                                                                                                                                                                                                                                                               | 1/300 [00:08<43:14,  8.68s/it]
+
+
+  1%|██▌                                                                                                                                                                                                                                                             | 3/300 [00:25<41:14,  8.33s/it]
+Saving the model with best validation loss: Epoch 3, Loss: 0.4906
+
+  1%|███▍                                                                                                                                                                                                                                                            | 4/300 [00:37<46:47,  9.48s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 132, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 83, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 124, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 277, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, margin=0.5)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 29, in get_batch_contrastive_loss
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 29, in <listcomp>
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+KeyboardInterrupt
