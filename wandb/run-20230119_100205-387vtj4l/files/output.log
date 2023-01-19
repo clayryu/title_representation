@@ -1,0 +1,22 @@
+
+  0%|                                                                                                             | 0/3000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                                                   | 1/3000 [00:10<9:01:22, 10.83s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+Saving the model with best validation loss: Epoch 2, Loss: 0.3000
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|▏                                                                                                  | 5/3000 [00:53<8:52:01, 10.66s/it]
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]

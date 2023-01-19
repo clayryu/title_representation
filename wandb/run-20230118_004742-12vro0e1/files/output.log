@@ -1,0 +1,53 @@
+
+  0%|                                                                                                             | 0/4000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+ 62%|█████████████████████████████████████████████████████████████████                                       | 5/8 [00:01<00:00,  4.29it/s]
+Saving the model with best validation loss: Epoch 1, Loss: 0.2999
+ 12%|█████████████                                                                                           | 1/8 [00:00<00:01,  4.32it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                   | 2/4000 [00:09<5:29:46,  4.95s/it]
+An arbitrary loader is used instead of Validation loader
+
+ 75%|██████████████████████████████████████████████████████████████████████████████                          | 6/8 [00:01<00:00,  4.31it/s]
+Saving the model with best validation loss: Epoch 3, Loss: 0.2997
+ 38%|███████████████████████████████████████                                                                 | 3/8 [00:00<00:01,  4.36it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 4, Loss: 0.2993
+  0%|                                                                                                                | 0/8 [00:00<?, ?it/s]
+
+
+  0%|                                                                                                   | 5/4000 [00:24<5:24:13,  4.87s/it]
+Saving the model with best validation loss: Epoch 5, Loss: 0.2986
+ 62%|█████████████████████████████████████████████████████████████████                                       | 5/8 [00:01<00:00,  4.37it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 6, Loss: 0.2976
+ 12%|█████████████                                                                                           | 1/8 [00:00<00:01,  4.34it/s]
+
+
+  0%|▏                                                                                                  | 7/4000 [00:34<5:23:57,  4.87s/it]
+Saving the model with best validation loss: Epoch 7, Loss: 0.2948
+ 75%|██████████████████████████████████████████████████████████████████████████████                          | 6/8 [00:01<00:00,  4.28it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 8, Loss: 0.2894
+ 38%|███████████████████████████████████████                                                                 | 3/8 [00:00<00:01,  4.26it/s]
+
+  0%|▏                                                                                                  | 9/4000 [00:45<5:35:52,  5.05s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 152, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 84, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 134, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 296, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 31, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt
+Saving the model with best validation loss: Epoch 9, Loss: 0.2887

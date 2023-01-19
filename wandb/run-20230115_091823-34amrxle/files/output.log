@@ -1,0 +1,78 @@
+
+  0%|                                                  | 0/1000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+  0%|                                                     | 0/1 [00:00<?, ?it/s]
+
+Saving the model with best validation loss: Epoch 1, Loss: 0.3000
+An arbitrary loader is used instead of Validation loader
+
+
+ 62%|████████████████████████████▏                | 5/8 [00:03<00:02,  1.49it/s]
+
+  0%|                                        | 2/1000 [00:31<4:17:24, 15.48s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+ 75%|█████████████████████████████████▊           | 6/8 [00:04<00:01,  1.33it/s]
+
+
+  0%|                                        | 3/1000 [00:46<4:12:01, 15.17s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+ 75%|█████████████████████████████████▊           | 6/8 [00:04<00:01,  1.46it/s]
+
+
+  0%|▏                                       | 4/1000 [01:00<4:05:27, 14.79s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+ 62%|████████████████████████████▏                | 5/8 [00:03<00:02,  1.33it/s]
+
+  0%|▏                                       | 5/1000 [01:15<4:06:33, 14.87s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+ 75%|█████████████████████████████████▊           | 6/8 [00:04<00:01,  1.33it/s]
+
+
+  1%|▏                                       | 6/1000 [01:30<4:07:30, 14.94s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                     | 0/1 [00:00<?, ?it/s]
+
+Saving the model with best validation loss: Epoch 7, Loss: 0.2828
+An arbitrary loader is used instead of Validation loader
+
+
+ 62%|████████████████████████████▏                | 5/8 [00:03<00:02,  1.49it/s]
+
+  1%|▎                                       | 8/1000 [01:59<4:05:09, 14.83s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+  0%|                                                     | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+  0%|                                                     | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+Traceback (most recent call last):
+  File "emb_train.py", line 149, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 91, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 393, in validate
+    emb2 = self.ttl_model(title.to(self.device))
+KeyboardInterrupt

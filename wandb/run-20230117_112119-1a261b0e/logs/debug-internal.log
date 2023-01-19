@@ -1,0 +1,33 @@
+2023-01-17 11:21:21,679 INFO    MainThread:921202 [internal.py:wandb_internal():90] W&B internal server running at pid: 921202, started at: 2023-01-17 11:21:21.679186
+2023-01-17 11:21:21,683 INFO    WriterThread:921202 [datastore.py:open_for_write():75] open: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/run-1a261b0e.wandb
+2023-01-17 11:21:21,685 DEBUG   SenderThread:921202 [sender.py:send():236] send: header
+2023-01-17 11:21:21,686 DEBUG   SenderThread:921202 [sender.py:send():236] send: run
+2023-01-17 11:21:21,983 DEBUG   HandlerThread:921202 [handler.py:handle_request():140] handle_request: check_version
+2023-01-17 11:21:21,986 INFO    SenderThread:921202 [dir_watcher.py:__init__():216] watching files in: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/files
+2023-01-17 11:21:21,986 INFO    SenderThread:921202 [sender.py:_start_run_threads():815] run started: 1a261b0e with start time 1673922080
+2023-01-17 11:21:21,986 DEBUG   SenderThread:921202 [sender.py:send():236] send: summary
+2023-01-17 11:21:21,986 INFO    SenderThread:921202 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-17 11:21:21,987 DEBUG   SenderThread:921202 [sender.py:send_request():250] send_request: check_version
+2023-01-17 11:21:22,074 DEBUG   HandlerThread:921202 [handler.py:handle_request():140] handle_request: run_start
+2023-01-17 11:21:22,082 DEBUG   HandlerThread:921202 [meta.py:__init__():35] meta init
+2023-01-17 11:21:22,083 DEBUG   HandlerThread:921202 [meta.py:__init__():49] meta init done
+2023-01-17 11:21:22,083 DEBUG   HandlerThread:921202 [meta.py:probe():209] probe
+2023-01-17 11:21:22,093 DEBUG   HandlerThread:921202 [meta.py:_setup_git():199] setup git
+2023-01-17 11:21:22,110 DEBUG   HandlerThread:921202 [meta.py:_setup_git():206] setup git done
+2023-01-17 11:21:22,110 DEBUG   HandlerThread:921202 [meta.py:_save_pip():53] save pip
+2023-01-17 11:21:22,111 DEBUG   HandlerThread:921202 [meta.py:_save_pip():67] save pip done
+2023-01-17 11:21:22,111 DEBUG   HandlerThread:921202 [meta.py:probe():247] probe done
+2023-01-17 11:21:22,206 DEBUG   SenderThread:921202 [sender.py:send():236] send: files
+2023-01-17 11:21:22,206 INFO    SenderThread:921202 [sender.py:_save_file():952] saving file wandb-metadata.json with policy now
+2023-01-17 11:21:22,213 DEBUG   HandlerThread:921202 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-17 11:21:22,214 DEBUG   SenderThread:921202 [sender.py:send_request():250] send_request: stop_status
+2023-01-17 11:21:22,438 DEBUG   SenderThread:921202 [sender.py:send():236] send: telemetry
+2023-01-17 11:21:22,438 DEBUG   SenderThread:921202 [sender.py:send():236] send: telemetry
+2023-01-17 11:21:22,987 INFO    Thread-17 :921202 [upload_job.py:push():138] Uploaded file /tmp/tmp75urvq8qwandb/1tq9ax7w-wandb-metadata.json
+2023-01-17 11:21:23,001 INFO    Thread-13 :921202 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/files/wandb-summary.json
+2023-01-17 11:21:23,002 INFO    Thread-13 :921202 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/files/requirements.txt
+2023-01-17 11:21:23,002 INFO    Thread-13 :921202 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/files/wandb-metadata.json
+2023-01-17 11:21:23,002 INFO    Thread-13 :921202 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/files/output.log
+2023-01-17 11:21:29,016 INFO    Thread-13 :921202 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230117_112119-1a261b0e/files/output.log
+2023-01-17 11:21:37,443 DEBUG   HandlerThread:921202 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-17 11:21:37,444 DEBUG   SenderThread:921202 [sender.py:send_request():250] send_request: stop_status

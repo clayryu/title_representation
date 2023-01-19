@@ -11,8 +11,9 @@ def get_batch_contrastive_loss(emb1, emb2, margin=0.4):
   cos_sim_value = dot_product_value / emb1_norm.unsqueeze(1) / emb2_norm.unsqueeze(0)
   positive_sim = cos_sim_value.diag().unsqueeze(1) # N x 1 
   non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+  # tuple of two lists, each list has len = N*(N-1)
+  # 512 * 511
   negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
 
   loss  = torch.clamp(margin - (positive_sim - negative_sim), min=0)
   return loss.mean()
-

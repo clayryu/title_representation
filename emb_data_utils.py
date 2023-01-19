@@ -169,8 +169,9 @@ def update_config(config, args):
   return config
 
 class ABCset:
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='dict'):
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='dict', tune_length=None):
     if isinstance(dir_path, str) or isinstance(dir_path, Path):
+      self.tune_length = tune_length
       self.dir = Path(dir_path)
       self.abc_list = list(self.dir.rglob('*.abc')) + list(self.dir.rglob('*.ABC'))
       self.abc_list.sort()
@@ -267,8 +268,8 @@ def pack_collate(raw_batch:list):
 
 
 class PitchDurSplitSet(ABCset):
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab'):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name)
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab', tune_length=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
 
   def _get_vocab(self, vocab_path, vocab_name):
     entire_char_list = [splitted for tune in self.data for token in tune for splitted in split_note(token)]
@@ -290,8 +291,8 @@ class PitchDurSplitSet(ABCset):
 
 
 class MeasureOffsetSet(PitchDurSplitSet):
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab'):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name)
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab', tune_length=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
 
   def _check_tune_validity(self, tune):
     if len(tune.measures) == 0 or tune.measures[-1].number == 0:
@@ -359,8 +360,8 @@ class MeasureOffsetSet(PitchDurSplitSet):
     return tune_tensor[:-1], tune_tensor[1:]
 
 class MeasureNumberSet(MeasureOffsetSet):
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab'):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name)
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', tune_length=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
     # self.vocab = getattr(vocab_utils, vocab_name)('cleaned_vocab_1005.json')
     # self.filter_tune_by_vocab_exists()
 
@@ -464,12 +465,23 @@ class MeasureNumberSet(MeasureOffsetSet):
     return testset
 
 class ABCsetTitle(MeasureNumberSet):
-  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab'):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name)
+  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', tune_length=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
     #self._get_title_emb()
   
   def _prepare_data(self):
     data = [ [self._tune_to_list_of_str(tune), tune.header, tune.header["tune title"]] for tune in self.tune_list]
+    '''
+    # sampling sequence in dataset
+    self.data=[]
+    if self.tune_length is not None:
+      for x in data:
+        if len(x[0]) < self.tune_length:
+          continue
+        sampled_num = random.randint(0,len(x[0])-self.tune_length)
+        self.data.append(x[0][sampled_num:sampled_num+self.tune_length])
+    else:
+    '''
     self.data = [x[0] for x in data]
     self.header = [x[1] for x in data]
     self.title_in_text_avail = [x[2] for x in data]

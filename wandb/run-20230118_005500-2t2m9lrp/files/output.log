@@ -1,0 +1,35 @@
+
+  0%|                                                                                                             | 0/6000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                                                  | 1/6000 [00:08<14:14:54,  8.55s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 2, Loss: 0.3000
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                  | 3/6000 [00:25<14:05:45,  8.46s/it]
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 4, Loss: 0.3000
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+Saving the model with best validation loss: Epoch 5, Loss: 0.3000
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 152, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 91, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 408, in validate
+    loss = get_batch_contrastive_loss(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 31, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

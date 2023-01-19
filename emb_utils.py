@@ -90,16 +90,7 @@ def prepare_abc_title(paths: list):
           title_in_text.append(filtered_tunes[0].title)
           
     return tune_list, error_list, filtered_tunes_list, title_in_text
-  
-def pack_collate_title(raw_batch:list):
-    
-    melody = [pair[0] for pair in raw_batch]
-    title = [pair[1] for pair in raw_batch] #pair[1] 
-    
-    packed_melody = pack_sequence(melody, enforce_sorted=False)
-    
-    return packed_melody, torch.stack(title, dim=0)
-  
+
 def pack_collate_title(raw_batch:list):
     '''
   This function takes a list of data, and returns two PackedSequences
@@ -128,4 +119,30 @@ def pack_collate_title(raw_batch:list):
       return packed_melody, torch.stack(title, dim=0), packed_measure_numbers
     else:
       raise ValueError("Unknown raw_batch format")
+    
+def pack_collate_title_sampling(raw_batch:list, sample_num=30):
+    
+  melody = []
+  if sample_num is not None:
+    for mel_pair in raw_batch:
+      if len(mel_pair[0]) < sample_num:
+        continue
+      sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+      melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
+  else:
+    melody = [mel_pair[0] for mel_pair in raw_batch]
+  
+  title = [pair[1] for pair in raw_batch] #pair[1] 
+  
+  packed_melody = pack_sequence(melody, enforce_sorted=False)
+  #packed_shifted_melody = pack_sequence(shifted_melody, enforce_sorted=False)
+  
+  if len(raw_batch[0]) == 2:
+    return packed_melody, torch.stack(title, dim=0)
+  elif len(raw_batch[0]) == 3:
+    measure_numbers = [mel_pair[2] for mel_pair in raw_batch]
+    packed_measure_numbers = pack_sequence(measure_numbers, enforce_sorted=False)
+    return packed_melody, torch.stack(title, dim=0), packed_measure_numbers
+  else:
+    raise ValueError("Unknown raw_batch format")
   

@@ -1,0 +1,21 @@
+
+  0%|                                                                                                             | 0/6000 [00:00<?, ?it/s]
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+
+
+  0%|                                                                                                  | 1/6000 [00:08<14:17:24,  8.58s/it]
+Saving the model with best validation loss: Epoch 1, Loss: 0.3000
+  0%|                                                                                                                | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 152, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 91, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 424, in validate
+    sorted_cos_idx = np.argsort(cos_sim, axis=-1)
+  File "<__array_function__ internals>", line 180, in argsort
+  File "/home/clay/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 1120, in argsort
+    return _wrapfunc(a, 'argsort', axis=axis, kind=kind, order=order)
+  File "/home/clay/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 57, in _wrapfunc
+    return bound(*args, **kwds)
+KeyboardInterrupt
