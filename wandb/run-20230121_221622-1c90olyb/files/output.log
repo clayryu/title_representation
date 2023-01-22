@@ -1,0 +1,36 @@
+
+  0%|                                                                                                                                          | 0/3000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 1, Loss: 12.0995
+  0%|                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+
+Saving the model with best validation loss: Epoch 3, Loss: 12.0994
+  0%|                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 160, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 98, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 419, in validate
+    for idx, batch in enumerate(tqdm(loader, leave=False)):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 519, in __getitem__
+    tune_tensor = torch.cat([tune_tensor, header_tensor.repeat(len(tune_tensor), 1)], dim=-1)
+KeyboardInterrupt

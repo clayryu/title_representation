@@ -1,0 +1,11 @@
+
+  0%|                                                                                                                                          | 0/6000 [00:00<?, ?it/s]
+  0%|                                                                                                                                          | 0/6000 [00:05<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 161, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 77, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 140, in _train_by_single_batch
+    if not isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
+AttributeError: 'EmbTrainerMeasureMRR' object has no attribute 'scheduler'

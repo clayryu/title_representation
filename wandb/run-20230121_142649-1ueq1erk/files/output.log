@@ -1,0 +1,24 @@
+
+  0%|                                                                                                             | 0/1500 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                   | 1/1500 [00:15<6:17:53, 15.13s/it]
+Saving the model with best validation loss: Epoch 1, Loss: 0.4000
+An arbitrary loader is used instead of Validation loader
+
+
+ 50%|████████████████████████████████████████████████████                                                    | 1/2 [00:03<00:03,  3.49s/it]
+
+  0%|▏                                                                                                  | 2/1500 [00:31<6:29:27, 15.60s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|▏                                                                                                  | 2/1500 [00:44<9:17:17, 22.32s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 160, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 93, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 453, in validate
+    euc_sim = torch.norm(abc_emb_all[:, None] - ttl_emb_all, p=2, dim=-1)
+KeyboardInterrupt

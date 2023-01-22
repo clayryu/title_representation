@@ -117,6 +117,7 @@ class ABC_cnn_emb_Model(nn.Module):
     super().__init__()
     self.emb_size = emb_size
     self.emb_ratio = emb_ratio
+    self.hidden_size = hidden_size
     if vocab_size is not None and net_param is not None and trans_emb is None:
       self.vocab_size_dict = vocab_size
       self.net_param = net_param
@@ -128,36 +129,36 @@ class ABC_cnn_emb_Model(nn.Module):
     self.emb_total_size = sum(self.emb_total_list)
     
     self.conv_layer = nn.Sequential(
-      nn.Conv1d(in_channels=self.emb_total_size, out_channels=128, kernel_size=1, stride=1, padding=0),
-      nn.BatchNorm1d(128),
+      nn.Conv1d(in_channels=self.emb_total_size, out_channels=self.hidden_size, kernel_size=1, stride=1, padding=0),
+      nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
-      nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
-      nn.BatchNorm1d(128),
-      nn.ReLU(),
-      nn.Dropout(0.5),
-      nn.MaxPool1d(2),
-      nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
-      nn.BatchNorm1d(128),
+      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
+      nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
       nn.Dropout(0.5),
       nn.MaxPool1d(2),
-      nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
-      nn.BatchNorm1d(128),
+      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
+      nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
       nn.Dropout(0.5),
       nn.MaxPool1d(2),
-      # nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=0),
+      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
+      nn.BatchNorm1d(self.hidden_size),
+      nn.ReLU(),
+      nn.Dropout(0.5),
+      nn.MaxPool1d(2),
+      # nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
       # nn.BatchNorm1d(128),
       # nn.ReLU(),
       # nn.Dropout(0.5),
       # nn.MaxPool1d(2),
-      nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1),
-      nn.BatchNorm1d(128),
+      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
+      nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
       nn.AdaptiveMaxPool1d(1),
     )
     self.linear_layer = nn.Sequential(
-      nn.Linear(128, emb_size)
+      nn.Linear(self.hidden_size, emb_size)
       # nn.Linear(256, 512),
       # nn.ReLU(),
       # nn.Linear(512, emb_size),

@@ -12,35 +12,26 @@ import time
 from sklearn.metrics.pairwise import cosine_similarity
 
 from data_utils import decode_melody
+from emb_loss import get_batch_contrastive_loss, get_batch_euclidean_loss, clip_crossentropy_loss
 
 def cos_sim(A, B):
   return dot(A, B)/(norm(A)*norm(B))
 
-def get_batch_contrastive_loss(emb1, emb2, margin=0.30):
-  # batch가 1일 경우 계산이 되질 않는다.
-  num_batch = len(emb1)
-  if num_batch == 1:
-    return torch.tensor(0)
-  dot_product_value = torch.matmul(emb1, emb2.T)
-  emb1_norm = norm(emb1, dim=-1) + 1e-6
-  emb2_norm = norm(emb2, dim=-1) + 1e-6
-
-  cos_sim_value = dot_product_value / emb1_norm.unsqueeze(1) / emb2_norm.unsqueeze(0)
-  positive_sim = cos_sim_value.diag().unsqueeze(1) # N x 1 
-  non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
-  negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
-
-  loss  = torch.clamp(margin - (positive_sim - negative_sim), min=0)
-  return loss.mean()
-
-
 class EmbTrainer:
-  def __init__(self, abc_model, ttl_model, abc_optimizer, ttl_optimizer, loss_fn, train_loader, valid_loader, args):
+  def __init__(self, abc_model, ttl_model, loss_fn, train_loader, valid_loader, args):
     
     self.abc_model = abc_model
     self.ttl_model = ttl_model
-    self.abc_optimizer = abc_optimizer
-    self.ttl_optimizer = ttl_optimizer
+    # self.abc_optimizer = abc_optimizer
+    # self.ttl_optimizer = ttl_optimizer
+    self.tau = torch.nn.Parameter(torch.tensor(1.0))
+    self.abc_optimizer = torch.optim.Adam(list(abc_model.parameters()) + [self.tau], lr=args.lr)
+    self.ttl_optimizer = torch.optim.Adam(list(ttl_model.parameters()) + [self.tau], lr=args.lr)
+    self.margin = args.margin
+    # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=args.scheduler_factor, patience=args.scheduler_patience, verbose=True)
+    self.scheduler_abc = torch.optim.lr_scheduler.StepLR(self.abc_optimizer, step_size=1000, gamma=0.5)
+    self.scheduler_ttl = torch.optim.lr_scheduler.StepLR(self.ttl_optimizer, step_size=1000, gamma=0.5)
+    
     self.loss_fn = loss_fn
     self.train_loader = train_loader
     self.valid_loader = valid_loader
@@ -48,6 +39,7 @@ class EmbTrainer:
     device = args.device
     self.abc_model.to(device)
     self.ttl_model.to(device)
+    self.tau.to(device)
     
     self.grad_clip = 1.0
     self.best_valid_loss = 100
@@ -78,6 +70,7 @@ class EmbTrainer:
     
   def train_by_num_epoch(self, num_epochs):
     for epoch in tqdm(range(num_epochs)):
+      print(self.abc_optimizer.param_groups[0]['lr'])
       self.abc_model.train()
       self.ttl_model.train()
       for batch in self.train_loader:
@@ -115,34 +108,24 @@ class EmbTrainer:
       self.best_valid_loss = min(validation_loss, self.best_valid_loss)
       
   def _train_by_single_batch(self, batch):
-    '''
-    This method updates self.model's parameter with a given batch
-    
-    batch (tuple): (batch_of_input_text, batch_of_label)
-    
-    You have to use variables below:
-    
-    self.model (Translator/torch.nn.Module): A neural network model
-    self.optimizer (torch.optim.adam.Adam): Adam optimizer that optimizes model's parameter
-    self.loss_fn_fn (function): function for calculating BCE loss for a given prediction and target
-    self.device (str): 'cuda' or 'cpu'
 
-    output: loss (float): Mean binary cross entropy value for every sample in the training batch
-    The model's parameters, optimizer's steps has to be updated inside this method
-    '''
     start_time = time.time()
     loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
                           
     if loss != 0:
-        loss.backward()
-        torch.nn.utils.clip_grad_norm_(self.abc_model.parameters(), self.grad_clip)
-        torch.nn.utils.clip_grad_norm_(self.ttl_model.parameters(), self.grad_clip)
-                          
-        self.abc_optimizer.step()
-        self.abc_optimizer.zero_grad()
+      loss.backward()
+      torch.nn.utils.clip_grad_norm_(list(self.abc_model.parameters()) + [self.tau], self.grad_clip)
+      torch.nn.utils.clip_grad_norm_(list(self.ttl_model.parameters()) + [self.tau], self.grad_clip)
+                        
+      self.abc_optimizer.step()
+      self.abc_optimizer.zero_grad()
 
-        self.ttl_optimizer.step()
-        self.ttl_optimizer.zero_grad()
+      self.ttl_optimizer.step()
+      self.ttl_optimizer.zero_grad()
+      
+      if not isinstance(self.scheduler_abc, torch.optim.lr_scheduler.ReduceLROnPlateau):
+        self.scheduler_abc.step()
+        self.scheduler_ttl.step()
 
         #loss_record.append(loss.item())
     loss_dict['time'] = time.time() - start_time
@@ -157,8 +140,13 @@ class EmbTrainer:
     
     if self.loss_fn == CosineEmbeddingLoss():
       loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-    else:
-      loss = get_batch_contrastive_loss(emb1, emb2)
+    elif self.loss_fn == get_batch_contrastive_loss:
+      loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+    elif self.loss_fn == get_batch_euclidean_loss:
+      loss = get_batch_euclidean_loss(emb1, emb2)
+    elif self.loss_fn == clip_crossentropy_loss:
+      loss = clip_crossentropy_loss(emb1, emb2, self.tau)
+      
     loss_dict = {'total': loss.item()}
     return loss, loss_dict
     
@@ -215,8 +203,12 @@ class EmbTrainer:
         
         if self.loss_fn == CosineEmbeddingLoss():
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-        else:
-          loss = get_batch_contrastive_loss(emb1, emb2)
+        elif self.loss_fn == get_batch_contrastive_loss:
+          loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+        elif self.loss_fn == get_batch_euclidean_loss:
+          loss = get_batch_euclidean_loss(emb1, emb2)
+        elif self.loss_fn == clip_crossentropy_loss:
+          loss = clip_crossentropy_loss(emb1, emb2, self.tau)
         
         num_tokens = melody.data.shape[0] # number of tokens ex) torch.Size([5374, 20])
         validation_loss += loss.item() * num_tokens
@@ -233,13 +225,19 @@ class EmbTrainer:
         validation_acc += acc.item()
         total_sentence += len(melody[3]) # packed sequence의 3번째 리스트는 배치된 문장의 순서이다.
         '''
-
-      cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy())
-      sorted_cos_idx = np.argsort(cos_sim, axis=-1)
-      for idx in range(len(loader.dataset)):
-          if idx in sorted_cos_idx[idx][-topk:]: # pick best 20 scores
-              correct_emb += 1
-
+      if self.loss_fn == get_batch_contrastive_loss or self.loss_fn == CosineEmbeddingLoss:
+        cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy())
+        sorted_cos_idx = np.argsort(cos_sim, axis=-1)
+        for idx in range(len(loader.dataset)):
+            if idx in sorted_cos_idx[idx][-topk:]: # pick best 20 scores
+                correct_emb += 1
+                
+      elif self.loss_fn == get_batch_euclidean_loss:
+        euc_sim = torch.norm(abc_emb_all[:, None] - emb2, p=2, dim=-1)
+        sorted_euc_idx = np.argsort(euc_sim, axis=-1)
+        for idx in range(len(loader.dataset)):
+            if idx in sorted_euc_idx[idx][-topk:]: # pick best 20 scores
+                correct_emb += 1
         
     return validation_loss / num_total_tokens, correct_emb / len(self.valid_loader.dataset)
   
@@ -276,14 +274,8 @@ class EmbTrainer:
     return dict(adict)
   
 class EmbTrainerMeasure(EmbTrainer):
-  def __init__(self, abc_model, ttl_model, 
-               abc_optimizer, ttl_optimizer, 
-               loss_fn, train_loader, valid_loader, 
-               args):
-    super().__init__(abc_model, ttl_model, 
-               abc_optimizer, ttl_optimizer, 
-               loss_fn, train_loader, valid_loader, 
-               args)
+  def __init__(self, abc_model, ttl_model, loss_fn, train_loader, valid_loader, args):
+    super().__init__(abc_model, ttl_model, loss_fn, train_loader, valid_loader, args)
     
   def get_loss_pred_from_single_batch(self, batch):
     melody, title, measure_numbers = batch
@@ -292,8 +284,13 @@ class EmbTrainerMeasure(EmbTrainer):
     
     if self.loss_fn == CosineEmbeddingLoss():
       loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-    else:
-      loss = get_batch_contrastive_loss(emb1, emb2)
+    elif self.loss_fn == get_batch_contrastive_loss:
+      loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+    elif self.loss_fn == get_batch_euclidean_loss:
+      loss = get_batch_euclidean_loss(emb1, emb2)
+    elif self.loss_fn == clip_crossentropy_loss:
+      loss = clip_crossentropy_loss(emb1, emb2, self.tau)
+      
     loss_dict = {'total': loss.item()}
     return loss, loss_dict
   
@@ -331,11 +328,14 @@ class EmbTrainerMeasure(EmbTrainer):
         
         if len(melody[3]) == 1: # got 1 batch
             continue
-        
         if self.loss_fn == CosineEmbeddingLoss():
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-        else:
-          loss = get_batch_contrastive_loss(emb1, emb2)
+        elif self.loss_fn == get_batch_contrastive_loss:
+          loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+        elif self.loss_fn == get_batch_euclidean_loss:
+          loss = get_batch_euclidean_loss(emb1, emb2)
+        elif self.loss_fn == clip_crossentropy_loss:
+          loss = clip_crossentropy_loss(emb1, emb2, self.tau)
         
         num_tokens = melody.data.shape[0] # number of tokens ex) torch.Size([5374, 20])
         validation_loss += loss.item() * num_tokens
@@ -356,14 +356,8 @@ class EmbTrainerMeasure(EmbTrainer):
     return validation_loss / num_total_tokens, correct_emb / len(self.valid_loader.dataset)
   
 class EmbTrainerMeasureMRR(EmbTrainerMeasure):
-  def __init__(self, abc_model, ttl_model, 
-               abc_optimizer, ttl_optimizer, 
-               loss_fn, train_loader, valid_loader, 
-               args):
-    super().__init__(abc_model, ttl_model, 
-               abc_optimizer, ttl_optimizer, 
-               loss_fn, train_loader, valid_loader, 
-               args)
+  def __init__(self, abc_model, ttl_model, loss_fn, train_loader, valid_loader, args):
+    super().__init__(abc_model, ttl_model, loss_fn, train_loader, valid_loader, args)
   
   def validate(self, external_loader=None, topk=20):
     if external_loader and isinstance(external_loader, DataLoader):
@@ -401,12 +395,14 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
         if len(melody[3]) == 1: # got 1 batch
             continue
         
-        
         if self.loss_fn == CosineEmbeddingLoss():
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-        else:
-          loss = get_batch_contrastive_loss(emb1, emb2)
-        #loss = get_batch_contrastive_loss(emb1, emb2)
+        elif self.loss_fn == get_batch_contrastive_loss:
+          loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+        elif self.loss_fn == get_batch_euclidean_loss:
+          loss = get_batch_euclidean_loss(emb1, emb2)
+        elif self.loss_fn == clip_crossentropy_loss:
+          loss = clip_crossentropy_loss(emb1, emb2, self.tau)
         
         num_tokens = melody.data.shape[0] # number of tokens ex) torch.Size([5374, 20])
         validation_loss += loss.item() * num_tokens
@@ -417,15 +413,27 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
       abc_emb_all = torch.rand(len(self.valid_loader.dataset), 128) # valid dataset size(10% of all) x embedding size 128
       ttl_emb_all = torch.rand(len(self.valid_loader.dataset), 128)
       '''
-      # calculate MRR
-      mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
-      cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy()) 
-      # tokens x emb(128) mat emb(128) x tokens = tokens x tokens of cosine similarity
-      sorted_cos_idx = np.argsort(cos_sim, axis=-1)
-      for idx in range(len(loader.dataset)):
-        if idx in sorted_cos_idx[idx][-topk:]: # pick best 20 scores
-          position = np.argwhere(sorted_cos_idx[idx][-topk:][::-1] == idx).item() # changing into ascending order
-          quality_score = mrrdict[position]
-          sum_mrr += quality_score
+      
+      if self.loss_fn == get_batch_contrastive_loss or self.loss_fn == CosineEmbeddingLoss or self.loss_fn == clip_crossentropy_loss:
+        # calculate MRR
+        mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
+        cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy()) 
+        # tokens x emb(128) mat emb(128) x tokens = tokens x tokens of cosine similarity
+        sorted_cos_idx = np.argsort(cos_sim, axis=-1) # the most similar one goes to the end
+        for idx in range(len(loader.dataset)):
+          if idx in sorted_cos_idx[idx][-topk:]: # pick best 20 scores
+            position = np.argwhere(sorted_cos_idx[idx][-topk:][::-1] == idx).item() # changing into ascending order
+            quality_score = mrrdict[position]
+            sum_mrr += quality_score
+                
+      elif self.loss_fn == get_batch_euclidean_loss:
+        mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
+        euc_sim = torch.norm(abc_emb_all[:, None] - ttl_emb_all, p=2, dim=-1)
+        sorted_euc_idx = torch.argsort(euc_sim, dim=-1)
+        for idx in range(len(loader.dataset)):
+          if idx in sorted_euc_idx[idx][-topk:]: # pick best 20 scores
+            position = torch.argwhere(sorted_euc_idx[idx][-topk:].flip(-1) == idx).item() # changing into ascending order
+            quality_score = mrrdict[position]
+            sum_mrr += quality_score
 
     return validation_loss / num_total_tokens, sum_mrr / len(loader.dataset)

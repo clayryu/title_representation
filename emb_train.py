@@ -5,7 +5,7 @@ from tqdm.auto import tqdm
 from torch.utils.data import DataLoader
 from data_utils import ABCset, MeasureNumberSet, pack_collate, PitchDurSplitSet, FolkRNNSet, MeasureOffsetSet, read_yaml, MeasureEndSet, get_emb_total_size
 from emb_trainer import EmbTrainer, EmbTrainerMeasure, EmbTrainerMeasureMRR
-from emb_loss import get_batch_contrastive_loss
+from emb_loss import get_batch_contrastive_loss, get_batch_euclidean_loss, clip_crossentropy_loss
 from emb_utils import pack_collate_title, pack_collate_title_sampling
 from torch.nn import CosineEmbeddingLoss
 
@@ -29,15 +29,16 @@ def get_argument_parser():
 
   parser.add_argument('--batch_size', type=int, default=4096)
   parser.add_argument('--num_iter', type=int, default=100000)
-  parser.add_argument('--lr', type=float, default=0.0005)
+  parser.add_argument('--lr', type=float, default=0.001)
   parser.add_argument('--scheduler_factor', type=float, default=0.3)
   parser.add_argument('--scheduler_patience', type=int, default=3)
   parser.add_argument('--grad_clip', type=float, default=1.0)
-  parser.add_argument('--num_epochs', type=float, default=1500)
+  parser.add_argument('--num_epochs', type=float, default=6000)
 
-  # parser.add_argument('--hidden_size', type=int, default=256)
-  # parser.add_argument('--num_layers', type=int, default=3)
-  # parser.add_argument('--dropout', type=float, default=0.1)
+  parser.add_argument('--hidden_size', type=int, default=96)
+  parser.add_argument('--output_emb_size', type=int, default=256)
+  parser.add_argument('--margin', type=float, default=0.4)
+  # you should check 
 
   parser.add_argument('--aug_type', type=str, default='stat')
 
@@ -62,7 +63,6 @@ def make_experiment_name_with_date(args):
   return f'{current_time_in_str}-{args.model_type}_{args.batch_size}_{args.num_epochs}_{args.lr}'
 
 if __name__ == '__main__':
-  torch.manual_seed(args.seed)
   torch.backends.cudnn.enabled = False # 
   
   args = get_argument_parser().parse_args()
@@ -108,10 +108,10 @@ if __name__ == '__main__':
   checkpoint = torch.load(checkpoint_path, map_location= 'cpu')
   model_abc.load_state_dict(checkpoint['model'])
 
-  model_abc_trans = getattr(emb_model, 'ABC_measnote_emb_Model')(model_abc.emb, model_abc.rnn, model_abc.measure_rnn, model_abc.final_rnn, emb_size=256)
-  model_cnn_trans = getattr(emb_model, 'ABC_cnn_emb_Model')(model_abc.emb, emb_size=256)
-  model_cnn_reducedemb = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=None, vocab_size=vocab.get_size(), net_param=net_param, emb_size=256, emb_ratio=1)
-  model_ttl = getattr(emb_model, 'TTLembModel')(emb_size=256)
+  model_abc_trans = getattr(emb_model, 'ABC_measnote_emb_Model')(model_abc.emb, model_abc.rnn, model_abc.measure_rnn, model_abc.final_rnn, emb_size=args.output_emb_size)
+  model_cnn_trans = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=model_abc.emb, emb_size=args.output_emb_size)
+  model_cnn_reducedemb = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=None, vocab_size=vocab.get_size(), net_param=net_param, emb_size=args.output_emb_size, hidden_size=args.hidden_size, emb_ratio=1/5)
+  model_ttl = getattr(emb_model, 'TTLembModel')(emb_size=args.output_emb_size)
   '''
   # load pretrained model
   model_cnn_reducedemb.load_state_dict(torch.load('measurenote_last.pt')['model'])
@@ -135,8 +135,10 @@ if __name__ == '__main__':
   optimizer1 = torch.optim.Adam(model.parameters(), lr=args.lr)
   optimizer2 = torch.optim.Adam(model_ttl.parameters(), lr=args.lr)
 
-  loss_fn = get_batch_contrastive_loss
-  loss_fn2 = CosineEmbeddingLoss(margin=0.4)
+  loss_fn1 = get_batch_contrastive_loss
+  loss_fn2 = CosineEmbeddingLoss
+  loss_fn3 = get_batch_euclidean_loss
+  loss_fn4 = clip_crossentropy_loss
 
   trainset, validset = torch.utils.data.random_split(dataset_abc, [int(len(dataset_abc)*0.9), len(dataset_abc) - int(len(dataset_abc)*0.9)], generator=torch.Generator().manual_seed(42))
 
@@ -147,7 +149,7 @@ if __name__ == '__main__':
   save_dir = args.save_dir / experiment_name
   save_dir.mkdir(parents=True, exist_ok=True)
 
-  trainer = EmbTrainerMeasureMRR(model, model_ttl, optimizer1, optimizer2, loss_fn, train_loader, valid_loader, args)
+  trainer = EmbTrainerMeasureMRR(model, model_ttl, loss_fn1, train_loader, valid_loader, args)
   
   
   if not args.no_log:
@@ -156,8 +158,7 @@ if __name__ == '__main__':
     wandb.watch(model)
     wandb.watch(model_ttl)
   
-  
-  trainer.train_by_num_epoch(args.num_epochs)
+    trainer.train_by_num_epoch(args.num_epochs)
   print(f'mean of val_acc : {sum(trainer.validation_acc) / len(trainer.validation_acc)}')
   
   

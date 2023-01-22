@@ -1,0 +1,55 @@
+
+  0%|                                                                                                                              | 0/1500 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                                    | 1/1500 [00:16<6:49:08, 16.38s/it]
+Saving the model with best validation loss: Epoch 1, Loss: 0.4000
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+
+  0%|▏                                                                                                                   | 2/1500 [00:31<6:35:16, 15.83s/it]
+Saving the model with best validation loss: Epoch 2, Loss: 0.4000
+An arbitrary loader is used instead of Validation loader
+
+
+
+  0%|▏                                                                                                                   | 3/1500 [00:47<6:33:22, 15.77s/it]
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+
+  0%|▎                                                                                                                   | 4/1500 [01:03<6:35:26, 15.86s/it]
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+
+  0%|▍                                                                                                                   | 5/1500 [01:19<6:37:25, 15.95s/it]
+Saving the model with best validation loss: Epoch 5, Loss: 0.4000
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+
+  0%|▍                                                                                                                   | 6/1500 [01:34<6:31:19, 15.72s/it]
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+
+  0%|▌                                                                                                                   | 7/1500 [01:50<6:29:39, 15.66s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+ 50%|████████████████████████████████████████████████████████████▌                                                            | 1/2 [00:03<00:03,  3.51s/it]
+
+  1%|▌                                                                                                                   | 8/1500 [02:06<6:30:29, 15.70s/it]
+An arbitrary loader is used instead of Validation loader
+
+
+  1%|▋                                                                                                                   | 9/1500 [02:22<6:37:09, 15.98s/it]
+  0%|                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+  1%|▋                                                                                                                   | 9/1500 [02:36<7:12:06, 17.39s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 160, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 93, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 453, in validate
+    euc_sim = torch.norm(abc_emb_all[:, None] - ttl_emb_all, p=2, dim=-1)
+KeyboardInterrupt

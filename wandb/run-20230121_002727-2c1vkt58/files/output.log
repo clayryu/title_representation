@@ -1,0 +1,11 @@
+
+  0%|                                                                                                             | 0/3000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+Traceback (most recent call last):
+  File "emb_train.py", line 160, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 93, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 417, in validate
+    elif self.loss_fn == get_batch_contrastive_loss():
+TypeError: get_batch_contrastive_loss() missing 2 required positional arguments: 'emb1' and 'emb2'

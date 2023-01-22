@@ -1,0 +1,11 @@
+
+  0%|                                                                                                                              | 0/3000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+Traceback (most recent call last):
+  File "emb_train.py", line 160, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 93, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 453, in validate
+    euc_sim = torch.norm(abc_emb_all[:, None] - emb2, p=2, dim=-1)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

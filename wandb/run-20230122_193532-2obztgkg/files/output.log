@@ -1,0 +1,7 @@
+  0%|                                                                                                                                          | 0/6000 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 161, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 73, in train_by_num_epoch
+    print(abc_optimizer.param_groups[0]['lr'])
+NameError: name 'abc_optimizer' is not defined

@@ -1,0 +1,13 @@
+
+  0%|                                                                                                                              | 0/3000 [00:00<?, ?it/s]
+ 25%|██████████████████████████████▎                                                                                          | 1/4 [00:00<00:02,  1.17it/s]
+
+  0%|                                                                                                                              | 0/3000 [00:13<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 160, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 93, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 457, in validate
+    position = torch.argwhere(sorted_euc_idx[idx][-topk:][::-1] == idx).item() # changing into ascending order
+ValueError: step must be greater than zero
