@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from data_utils import ABCset, MeasureNumberSet, pack_collate, PitchDurSplitSet, FolkRNNSet, MeasureOffsetSet, read_yaml, MeasureEndSet, get_emb_total_size
 from emb_trainer import EmbTrainer, EmbTrainerMeasure, EmbTrainerMeasureMRR
 from emb_loss import get_batch_contrastive_loss, get_batch_euclidean_loss, clip_crossentropy_loss
-from emb_utils import pack_collate_title, pack_collate_title_sampling
+from emb_utils import pack_collate_title_sampling_train, pack_collate_title_sampling_valid
 from torch.nn import CosineEmbeddingLoss
 
 import data_utils
@@ -27,18 +27,19 @@ def get_argument_parser():
   parser.add_argument('--yml_path', type=str, default='yamls/measure_note_xl.yaml',
                       help='yaml path to the config')
 
-  parser.add_argument('--batch_size', type=int, default=4096)
+  parser.add_argument('--batch_size', type=int, default=6500)
   parser.add_argument('--num_iter', type=int, default=100000)
   parser.add_argument('--lr', type=float, default=0.001)
-  parser.add_argument('--scheduler_factor', type=float, default=0.3)
-  parser.add_argument('--scheduler_patience', type=int, default=3)
+  parser.add_argument('--lr_scheduler_type', type=str, default='Plateau')
+  parser.add_argument('--scheduler_factor', type=float, default=0.7)
+  parser.add_argument('--scheduler_patience', type=int, default=700)
   parser.add_argument('--grad_clip', type=float, default=1.0)
   parser.add_argument('--num_epochs', type=float, default=6000)
 
-  parser.add_argument('--hidden_size', type=int, default=96)
+  parser.add_argument('--hidden_size', type=int, default=128)
   parser.add_argument('--output_emb_size', type=int, default=256)
-  parser.add_argument('--margin', type=float, default=0.4)
-  # you should check 
+  parser.add_argument('--margin', type=float, default=0.3)
+  # you should check emb_utils.py to configure the sampling size of the token manually
 
   parser.add_argument('--aug_type', type=str, default='stat')
 
@@ -97,7 +98,7 @@ if __name__ == '__main__':
     #checkpoint = torch.load(checkpoint_path, map_location= 'cpu')
     #model.load_state_dict(checkpoint['model'])
   
-  dataset_name_ttl = "ABCsetTitle"
+  dataset_name_ttl = "ABCsetTitle_22K"
   dataset_abc = getattr(emb_data_utils, dataset_name_ttl)(score_dir, vocab_path, make_vocab=False, key_aug=data_param.key_aug, vocab_name=net_param.vocab_name, tune_length=100)
   dataset_abc.vocab = vocab
   
@@ -110,13 +111,13 @@ if __name__ == '__main__':
 
   model_abc_trans = getattr(emb_model, 'ABC_measnote_emb_Model')(model_abc.emb, model_abc.rnn, model_abc.measure_rnn, model_abc.final_rnn, emb_size=args.output_emb_size)
   model_cnn_trans = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=model_abc.emb, emb_size=args.output_emb_size)
-  model_cnn_reducedemb = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=None, vocab_size=vocab.get_size(), net_param=net_param, emb_size=args.output_emb_size, hidden_size=args.hidden_size, emb_ratio=1/5)
+  model_cnn_reducedemb = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=None, vocab_size=vocab.get_size(), net_param=net_param, emb_size=args.output_emb_size, hidden_size=args.hidden_size, emb_ratio=1)
   model_ttl = getattr(emb_model, 'TTLembModel')(emb_size=args.output_emb_size)
-  '''
+  
   # load pretrained model
-  model_cnn_reducedemb.load_state_dict(torch.load('measurenote_last.pt')['model'])
-  model_ttl.load_state_dict(torch.load('ttlemb_last.pt')['model'])
-  '''
+  model_cnn_reducedemb.load_state_dict(torch.load('measurenote_last copy.pt')['model'])
+  model_ttl.load_state_dict(torch.load('ttlemb_last copy.pt')['model'])
+  
   '''
   # freeze all parameters except proj
   for para in model_abc_trans.parameters():
@@ -142,8 +143,8 @@ if __name__ == '__main__':
 
   trainset, validset = torch.utils.data.random_split(dataset_abc, [int(len(dataset_abc)*0.9), len(dataset_abc) - int(len(dataset_abc)*0.9)], generator=torch.Generator().manual_seed(42))
 
-  train_loader = DataLoader(trainset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling, shuffle=True) #collate_fn=pack_collate)
-  valid_loader = DataLoader(validset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling, shuffle=False) #collate_fn=pack_collate)
+  train_loader = DataLoader(trainset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling_train, shuffle=True) #collate_fn=pack_collate)
+  valid_loader = DataLoader(validset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling_valid, shuffle=False) #collate_fn=pack_collate)
 
   experiment_name = make_experiment_name_with_date(args)
   save_dir = args.save_dir / experiment_name
