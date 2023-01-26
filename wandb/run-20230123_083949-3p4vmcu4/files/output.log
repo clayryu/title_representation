@@ -1,0 +1,12 @@
+
+  0%|                                                                                                                 | 0/6000 [00:00<?, ?it/s]
+0.002
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 161, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 84, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 392, in validate
+    abc_emb_all[start_idx:end_idx] = emb1
+RuntimeError: The expanded size of the tensor (3812) must match the existing size (3811) at non-singleton dimension 0.  Target sizes: [3812, 256].  Tensor sizes: [3811, 256]

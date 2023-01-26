@@ -1,0 +1,1922 @@
+
+  0%|                                                                                                                                                                                                                                                                    | 0/6000 [00:00<?, ?it/s]
+0.001
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 1, Loss: 0.4000
+0.001
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                                                                                                                                                                         | 2/6000 [00:22<18:53:08, 11.34s/it]
+0.001
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 3, Loss: 0.4000
+0.001
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+0.001
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Epoch 00005: reducing learning rate of group 0 to 3.0000e-04.
+Epoch 00005: reducing learning rate of group 0 to 3.0000e-04.
+
+0.0003
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▏                                                                                                                                                                                                                                                        | 6/6000 [01:07<18:41:30, 11.23s/it]
+0.0003
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+0.0003
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 8, Loss: 0.4000
+0.0003
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Epoch 00009: reducing learning rate of group 0 to 9.0000e-05.
+Epoch 00009: reducing learning rate of group 0 to 9.0000e-05.
+
+  0%|▎                                                                                                                                                                                                                                                        | 9/6000 [01:42<19:01:21, 11.43s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+8.999999999999999e-05
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+8.999999999999999e-05
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+8.999999999999999e-05
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Epoch 00013: reducing learning rate of group 0 to 2.7000e-05.
+Epoch 00013: reducing learning rate of group 0 to 2.7000e-05.
+2.6999999999999996e-05
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Saving the model with best validation loss: Epoch 14, Loss: 0.3999
+
+  0%|▌                                                                                                                                                                                                                                                       | 14/6000 [02:38<18:52:54, 11.36s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+2.6999999999999996e-05
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+2.6999999999999996e-05
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 17, Loss: 0.3999
+2.6999999999999996e-05
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Epoch 00018: reducing learning rate of group 0 to 8.1000e-06.
+Epoch 00018: reducing learning rate of group 0 to 8.1000e-06.
+8.099999999999999e-06
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|▊                                                                                                                                                                                                                                                       | 19/6000 [03:35<18:42:10, 11.26s/it]
+8.099999999999999e-06
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 20, Loss: 0.3998
+8.099999999999999e-06
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▊                                                                                                                                                                                                                                                       | 21/6000 [03:57<18:53:35, 11.38s/it]
+8.099999999999999e-06
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|▉                                                                                                                                                                                                                                                       | 22/6000 [04:09<18:44:28, 11.29s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▉                                                                                                                                                                                                                                                       | 23/6000 [04:20<18:41:59, 11.26s/it]
+Saving the model with best validation loss: Epoch 23, Loss: 0.3998
+8.099999999999999e-06
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Epoch 00024: reducing learning rate of group 0 to 2.4300e-06.
+Epoch 00024: reducing learning rate of group 0 to 2.4300e-06.
+2.4299999999999996e-06
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  0%|█                                                                                                                                                                                                                                                       | 25/6000 [04:42<18:28:09, 11.13s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+2.4299999999999996e-06
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  0%|█                                                                                                                                                                                                                                                       | 27/6000 [05:04<18:39:47, 11.25s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Epoch 00028: reducing learning rate of group 0 to 7.2900e-07.
+Epoch 00028: reducing learning rate of group 0 to 7.2900e-07.
+
+7.289999999999998e-07
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+7.289999999999998e-07
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+7.289999999999998e-07
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+7.289999999999998e-07
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Epoch 00032: reducing learning rate of group 0 to 2.1870e-07.
+Epoch 00032: reducing learning rate of group 0 to 2.1870e-07.
+2.1869999999999994e-07
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|█▎                                                                                                                                                                                                                                                      | 33/6000 [06:12<18:41:51, 11.28s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+2.1869999999999994e-07
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|█▍                                                                                                                                                                                                                                                      | 35/6000 [06:34<18:31:03, 11.18s/it]
+2.1869999999999994e-07
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+Epoch 00036: reducing learning rate of group 0 to 6.5610e-08.
+Epoch 00036: reducing learning rate of group 0 to 6.5610e-08.
+
+6.560999999999998e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|█▌                                                                                                                                                                                                                                                      | 37/6000 [06:57<18:34:38, 11.22s/it]
+6.560999999999998e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+6.560999999999998e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 39, Loss: 0.3998
+6.560999999999998e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+Epoch 00040: reducing learning rate of group 0 to 1.9683e-08.
+Epoch 00040: reducing learning rate of group 0 to 1.9683e-08.
+Saving the model with best validation loss: Epoch 40, Loss: 0.3998
+
+1.9682999999999992e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+1.9682999999999992e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+1.9682999999999992e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 43, Loss: 0.3997
+1.9682999999999992e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  1%|█▊                                                                                                                                                                                                                                                      | 44/6000 [08:15<18:32:42, 11.21s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+1.9682999999999992e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|█▉                                                                                                                                                                                                                                                      | 46/6000 [08:38<18:47:18, 11.36s/it]
+1.9682999999999992e-08
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Epoch 00047: reducing learning rate of group 0 to 5.9049e-09.
+Epoch 00047: reducing learning rate of group 0 to 5.9049e-09.
+Saving the model with best validation loss: Epoch 47, Loss: 0.3997
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|██                                                                                                                                                                                                                                                      | 51/6000 [09:35<18:41:18, 11.31s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|██▍                                                                                                                                                                                                                                                     | 59/6000 [11:05<18:47:12, 11.38s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  1%|██▌                                                                                                                                                                                                                                                     | 61/6000 [11:28<18:43:25, 11.35s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|██▌                                                                                                                                                                                                                                                     | 63/6000 [11:50<18:35:57, 11.28s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+Saving the model with best validation loss: Epoch 64, Loss: 0.3996
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|██▋                                                                                                                                                                                                                                                     | 66/6000 [12:24<18:38:54, 11.31s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|██▊                                                                                                                                                                                                                                                     | 68/6000 [12:47<18:42:46, 11.36s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|██▉                                                                                                                                                                                                                                                     | 71/6000 [13:21<18:45:25, 11.39s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|███                                                                                                                                                                                                                                                     | 73/6000 [13:44<18:35:29, 11.29s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|███                                                                                                                                                                                                                                                     | 75/6000 [14:06<18:40:51, 11.35s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|███▏                                                                                                                                                                                                                                                    | 78/6000 [14:41<18:43:15, 11.38s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  1%|███▎                                                                                                                                                                                                                                                    | 81/6000 [15:15<18:50:37, 11.46s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  1%|███▍                                                                                                                                                                                                                                                    | 84/6000 [15:50<18:53:26, 11.50s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|███▌                                                                                                                                                                                                                                                    | 87/6000 [16:24<18:48:24, 11.45s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  1%|███▋                                                                                                                                                                                                                                                    | 89/6000 [16:47<18:40:30, 11.37s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|███▊                                                                                                                                                                                                                                                    | 92/6000 [17:21<18:37:39, 11.35s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|███▉                                                                                                                                                                                                                                                    | 94/6000 [17:43<18:39:46, 11.38s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|████                                                                                                                                                                                                                                                    | 97/6000 [18:18<18:42:47, 11.41s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|████                                                                                                                                                                                                                                                   | 100/6000 [18:52<18:39:08, 11.38s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|████▏                                                                                                                                                                                                                                                  | 102/6000 [19:15<18:35:56, 11.35s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|████▎                                                                                                                                                                                                                                                  | 105/6000 [19:49<18:37:55, 11.38s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|████▍                                                                                                                                                                                                                                                  | 108/6000 [20:23<18:50:08, 11.51s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|████▌                                                                                                                                                                                                                                                  | 110/6000 [20:46<18:34:58, 11.36s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|████▋                                                                                                                                                                                                                                                  | 113/6000 [21:20<18:38:32, 11.40s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|████▊                                                                                                                                                                                                                                                  | 118/6000 [22:16<18:33:10, 11.35s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|████▉                                                                                                                                                                                                                                                  | 121/6000 [22:51<18:36:34, 11.40s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|█████                                                                                                                                                                                                                                                  | 123/6000 [23:13<18:29:51, 11.33s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|█████▏                                                                                                                                                                                                                                                 | 126/6000 [23:47<18:29:06, 11.33s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|█████▎                                                                                                                                                                                                                                                 | 128/6000 [24:10<18:32:49, 11.37s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  2%|█████▋                                                                                                                                                                                                                                                 | 137/6000 [25:51<18:14:14, 11.20s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  2%|█████▋                                                                                                                                                                                                                                                 | 139/6000 [26:14<18:19:17, 11.25s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  2%|██████                                                                                                                                                                                                                                                 | 146/6000 [27:33<18:29:58, 11.38s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  2%|██████▏                                                                                                                                                                                                                                                | 149/6000 [28:07<18:27:37, 11.36s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|██████▏                                                                                                                                                                                                                                                | 151/6000 [28:30<18:28:28, 11.37s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|██████▎                                                                                                                                                                                                                                                | 152/6000 [28:41<18:23:28, 11.32s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  3%|██████▎                                                                                                                                                                                                                                                | 154/6000 [29:03<18:19:18, 11.28s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  3%|██████▍                                                                                                                                                                                                                                                | 156/6000 [29:26<18:19:49, 11.29s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  3%|██████▌                                                                                                                                                                                                                                                | 160/6000 [30:12<18:43:21, 11.54s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|██████▋                                                                                                                                                                                                                                                | 163/6000 [30:46<18:31:49, 11.43s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  3%|██████▊                                                                                                                                                                                                                                                | 165/6000 [31:09<18:25:59, 11.37s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|██████▊                                                                                                                                                                                                                                                | 167/6000 [31:31<18:15:48, 11.27s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|██████▉                                                                                                                                                                                                                                                | 169/6000 [31:54<18:10:47, 11.22s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  3%|███████                                                                                                                                                                                                                                                | 171/6000 [32:16<18:15:44, 11.28s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|███████                                                                                                                                                                                                                                                | 172/6000 [32:28<18:27:28, 11.40s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  3%|███████▏                                                                                                                                                                                                                                               | 174/6000 [32:51<18:21:31, 11.34s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  3%|███████▎                                                                                                                                                                                                                                               | 177/6000 [33:25<18:25:49, 11.39s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  3%|███████▍                                                                                                                                                                                                                                               | 180/6000 [33:59<18:25:54, 11.40s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  3%|███████▍                                                                                                                                                                                                                                               | 182/6000 [34:22<18:29:58, 11.45s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  3%|███████▌                                                                                                                                                                                                                                               | 185/6000 [34:57<18:40:13, 11.56s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|███████▋                                                                                                                                                                                                                                               | 188/6000 [35:31<18:28:24, 11.44s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|███████▊                                                                                                                                                                                                                                               | 190/6000 [35:54<18:22:05, 11.38s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|███████▉                                                                                                                                                                                                                                               | 192/6000 [36:16<18:20:11, 11.37s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|████████                                                                                                                                                                                                                                               | 195/6000 [36:50<18:12:34, 11.29s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|████████▏                                                                                                                                                                                                                                              | 198/6000 [37:25<18:22:37, 11.40s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|████████▏                                                                                                                                                                                                                                              | 200/6000 [37:47<18:18:25, 11.36s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  3%|████████▎                                                                                                                                                                                                                                              | 203/6000 [38:21<18:14:20, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  3%|████████▍                                                                                                                                                                                                                                              | 205/6000 [38:44<18:16:03, 11.35s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  3%|████████▌                                                                                                                                                                                                                                              | 208/6000 [39:18<18:18:37, 11.38s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  4%|████████▋                                                                                                                                                                                                                                              | 210/6000 [39:41<18:27:28, 11.48s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|████████▊                                                                                                                                                                                                                                              | 215/6000 [40:38<18:16:22, 11.37s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  4%|████████▉                                                                                                                                                                                                                                              | 218/6000 [41:12<18:18:12, 11.40s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|█████████                                                                                                                                                                                                                                              | 220/6000 [41:35<18:17:50, 11.40s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|█████████▏                                                                                                                                                                                                                                             | 223/6000 [42:09<18:19:40, 11.42s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  4%|█████████▎                                                                                                                                                                                                                                             | 226/6000 [42:43<18:15:42, 11.39s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|█████████▍                                                                                                                                                                                                                                             | 228/6000 [43:06<18:10:45, 11.34s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|█████████▍                                                                                                                                                                                                                                             | 230/6000 [43:29<18:13:11, 11.37s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|█████████▌                                                                                                                                                                                                                                             | 233/6000 [44:03<18:09:54, 11.34s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|█████████▋                                                                                                                                                                                                                                             | 236/6000 [44:37<18:18:01, 11.43s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|█████████▊                                                                                                                                                                                                                                             | 238/6000 [45:00<18:10:51, 11.36s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|█████████▉                                                                                                                                                                                                                                             | 240/6000 [45:22<18:07:42, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|██████████                                                                                                                                                                                                                                             | 244/6000 [46:07<17:57:57, 11.24s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|██████████▏                                                                                                                                                                                                                                            | 246/6000 [46:29<17:55:12, 11.21s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|██████████▎                                                                                                                                                                                                                                            | 249/6000 [47:04<18:07:50, 11.35s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|██████████▎                                                                                                                                                                                                                                            | 252/6000 [47:38<18:08:16, 11.36s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|██████████▍                                                                                                                                                                                                                                            | 254/6000 [48:00<18:01:41, 11.30s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  4%|██████████▌                                                                                                                                                                                                                                            | 256/6000 [48:23<18:02:38, 11.31s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|██████████▋                                                                                                                                                                                                                                            | 259/6000 [48:57<18:01:18, 11.30s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|██████████▊                                                                                                                                                                                                                                            | 262/6000 [49:31<18:08:03, 11.38s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  4%|██████████▊                                                                                                                                                                                                                                            | 264/6000 [49:54<18:03:59, 11.34s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  4%|██████████▉                                                                                                                                                                                                                                            | 267/6000 [50:28<18:08:26, 11.39s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|███████████▏                                                                                                                                                                                                                                           | 272/6000 [51:25<18:12:56, 11.45s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|███████████▍                                                                                                                                                                                                                                           | 279/6000 [52:44<17:54:08, 11.27s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|███████████▌                                                                                                                                                                                                                                           | 281/6000 [53:06<17:59:48, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|███████████▋                                                                                                                                                                                                                                           | 284/6000 [53:40<17:57:20, 11.31s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  5%|███████████▊                                                                                                                                                                                                                                           | 286/6000 [54:03<18:05:26, 11.40s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|███████████▉                                                                                                                                                                                                                                           | 289/6000 [54:37<17:58:21, 11.33s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|███████████▉                                                                                                                                                                                                                                           | 291/6000 [55:00<17:51:15, 11.26s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|████████████                                                                                                                                                                                                                                           | 293/6000 [55:22<17:56:47, 11.32s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|████████████▎                                                                                                                                                                                                                                          | 298/6000 [56:19<18:09:26, 11.46s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|████████████▍                                                                                                                                                                                                                                          | 301/6000 [56:53<17:59:51, 11.37s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|████████████▍                                                                                                                                                                                                                                          | 303/6000 [57:16<17:59:52, 11.37s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  5%|████████████▌                                                                                                                                                                                                                                          | 306/6000 [57:50<17:55:07, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|████████████▋                                                                                                                                                                                                                                          | 308/6000 [58:13<17:53:18, 11.31s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|████████████▊                                                                                                                                                                                                                                          | 311/6000 [58:47<17:59:41, 11.39s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|█████████████                                                                                                                                                                                                                                          | 316/6000 [59:44<17:59:41, 11.40s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|█████████████                                                                                                                                                                                                                                        | 319/6000 [1:00:18<17:54:30, 11.35s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  5%|█████████████                                                                                                                                                                                                                                        | 321/6000 [1:00:40<17:48:50, 11.29s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|█████████████▏                                                                                                                                                                                                                                       | 324/6000 [1:01:15<17:56:25, 11.38s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  5%|█████████████▎                                                                                                                                                                                                                                       | 326/6000 [1:01:37<17:54:53, 11.37s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  5%|█████████████▍                                                                                                                                                                                                                                       | 329/6000 [1:02:12<17:52:31, 11.35s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  6%|█████████████▌                                                                                                                                                                                                                                       | 331/6000 [1:02:34<17:54:33, 11.37s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|█████████████▋                                                                                                                                                                                                                                       | 334/6000 [1:03:08<17:50:13, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|█████████████▊                                                                                                                                                                                                                                       | 337/6000 [1:03:43<18:00:51, 11.45s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  6%|█████████████▊                                                                                                                                                                                                                                       | 339/6000 [1:04:06<17:57:29, 11.42s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|█████████████▉                                                                                                                                                                                                                                       | 342/6000 [1:04:40<18:00:19, 11.46s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  6%|██████████████                                                                                                                                                                                                                                       | 345/6000 [1:05:15<18:00:35, 11.47s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|██████████████▏                                                                                                                                                                                                                                      | 347/6000 [1:05:37<17:56:44, 11.43s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|██████████████▎                                                                                                                                                                                                                                      | 350/6000 [1:06:12<17:54:16, 11.41s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|██████████████▍                                                                                                                                                                                                                                      | 355/6000 [1:07:08<17:42:57, 11.30s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  6%|██████████████▌                                                                                                                                                                                                                                      | 357/6000 [1:07:31<17:42:33, 11.30s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  6%|██████████████▋                                                                                                                                                                                                                                      | 360/6000 [1:08:05<17:44:10, 11.32s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  6%|██████████████▊                                                                                                                                                                                                                                      | 362/6000 [1:08:28<17:58:24, 11.48s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|██████████████▊                                                                                                                                                                                                                                      | 364/6000 [1:08:50<17:43:54, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|██████████████▉                                                                                                                                                                                                                                      | 366/6000 [1:09:13<17:44:11, 11.33s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+
+  6%|███████████████                                                                                                                                                                                                                                      | 369/6000 [1:09:47<17:52:57, 11.43s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  6%|███████████████▎                                                                                                                                                                                                                                     | 374/6000 [1:10:45<18:00:00, 11.52s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|███████████████▍                                                                                                                                                                                                                                     | 377/6000 [1:11:19<17:50:19, 11.42s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|███████████████▍                                                                                                                                                                                                                                     | 379/6000 [1:11:41<17:42:02, 11.34s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  6%|███████████████▌                                                                                                                                                                                                                                     | 381/6000 [1:12:04<17:38:40, 11.30s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  6%|███████████████▊                                                                                                                                                                                                                                     | 388/6000 [1:13:23<17:34:59, 11.28s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  7%|███████████████▉                                                                                                                                                                                                                                     | 391/6000 [1:13:57<17:40:42, 11.35s/it]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+
+  7%|████████████████                                                                                                                                                                                                                                     | 393/6000 [1:14:20<17:44:17, 11.39s/it]
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  7%|████████████████▏                                                                                                                                                                                                                                    | 396/6000 [1:14:54<17:43:30, 11.39s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|████████████████▎                                                                                                                                                                                                                                    | 399/6000 [1:15:29<17:57:14, 11.54s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|████████████████▍                                                                                                                                                                                                                                    | 402/6000 [1:16:03<17:43:29, 11.40s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|████████████████▍                                                                                                                                                                                                                                    | 404/6000 [1:16:26<17:45:32, 11.42s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|████████████████▌                                                                                                                                                                                                                                    | 407/6000 [1:17:00<17:39:53, 11.37s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|████████████████▋                                                                                                                                                                                                                                    | 409/6000 [1:17:23<17:39:02, 11.37s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|████████████████▊                                                                                                                                                                                                                                    | 412/6000 [1:17:57<17:46:06, 11.45s/it]
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.07it/s]
+
+5.904899999999998e-09
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+
+  7%|█████████████████▏                                                                                                                                                                                                                                   | 421/6000 [1:19:39<17:34:30, 11.34s/it]
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+  7%|█████████████████▎                                                                                                                                                                                                                                   | 424/6000 [1:20:14<17:55:57, 11.58s/it]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+5.904899999999998e-09
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+5.904899999999998e-09
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+  7%|█████████████████▍                                                                                                                                                                                                                                   | 427/6000 [1:20:48<17:43:28, 11.45s/it]
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 87, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 388, in validate
+    for idx, batch in enumerate(tqdm(loader, leave=False)):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 515, in __getitem__
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 515, in <listcomp>
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 356, in __call__
+    return self(wrd) + self.encode_m_idx(m_idx) + self.encode_m_offset(m_offset, header)
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 280, in encode_m_offset
+    numer, denom, is_compound, is_triple = self.parse_meter(meter)
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 200, in parse_meter
+    is_compound = int(numer) in [6, 9, 12]
+KeyboardInterrupt

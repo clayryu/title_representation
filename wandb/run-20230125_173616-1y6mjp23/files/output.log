@@ -1,0 +1,15 @@
+
+0.001
+  0%|                                                                                                                                                                                                                                                                           | 0/6000 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 121, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 296, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 12, in get_batch_contrastive_loss
+    cos_sim_value = dot_product_value / emb1_norm.unsqueeze(1) / emb2_norm.unsqueeze(0) * torch.exp(tau)
+TypeError: exp(): argument 'input' (position 1) must be Tensor, not float

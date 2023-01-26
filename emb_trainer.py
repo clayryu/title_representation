@@ -28,9 +28,12 @@ class EmbTrainer:
     self.abc_optimizer = torch.optim.Adam(list(abc_model.parameters()) + [self.tau], lr=args.lr)
     self.ttl_optimizer = torch.optim.Adam(list(ttl_model.parameters()) + [self.tau], lr=args.lr)
     self.margin = args.margin
-    # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=args.scheduler_factor, patience=args.scheduler_patience, verbose=True)
-    self.scheduler_abc = torch.optim.lr_scheduler.StepLR(self.abc_optimizer, step_size=1000, gamma=0.5)
-    self.scheduler_ttl = torch.optim.lr_scheduler.StepLR(self.ttl_optimizer, step_size=1000, gamma=0.5)
+    if args.lr_scheduler_type == 'Plateau':
+      self.scheduler_abc = torch.optim.lr_scheduler.ReduceLROnPlateau(self.abc_optimizer, 'min', factor=args.scheduler_factor, patience=args.scheduler_patience, verbose=True)
+      self.scheduler_ttl = torch.optim.lr_scheduler.ReduceLROnPlateau(self.ttl_optimizer, 'min', factor=args.scheduler_factor, patience=args.scheduler_patience, verbose=True)
+    elif args.lr_scheduler_type == 'Step':
+      self.scheduler_abc = torch.optim.lr_scheduler.StepLR(self.abc_optimizer, step_size=args.scheduler_patience, gamma=0.5)
+      self.scheduler_ttl = torch.optim.lr_scheduler.StepLR(self.ttl_optimizer, step_size=args.scheduler_patience, gamma=0.5)
     
     self.loss_fn = loss_fn
     self.train_loader = train_loader
@@ -76,13 +79,15 @@ class EmbTrainer:
       for batch in self.train_loader:
         loss_value, loss_dict = self._train_by_single_batch(batch)
         loss_dict = self._rename_dict(loss_dict, 'train')
-        if self.make_log:
-          wandb.log(loss_dict)
+        # if self.make_log:
+        #   wandb.log(loss_dict)
         self.training_loss.append(loss_value)
       self.abc_model.eval()
       self.ttl_model.eval()
       train_loss, train_acc = self.validate(external_loader=self.train_loader)
       validation_loss, validation_acc = self.validate()
+      self.scheduler_abc.step(validation_loss)
+      self.scheduler_ttl.step(validation_loss)
       if self.make_log:
         wandb.log({
                   "validation_loss": validation_loss,
@@ -94,17 +99,20 @@ class EmbTrainer:
       self.validation_acc.append(validation_acc)
       
       # if validation_acc > self.best_valid_accuracy:
-      if validation_loss < self.best_valid_loss:
-        print(f"Saving the model with best validation loss: Epoch {epoch+1}, Loss: {validation_loss:.4f} ")
-        self.save_abc_model(f'{self.abc_model_name}_best.pt')
-        self.save_ttl_model(f'{self.ttl_model_name}_best.pt')
-      elif num_epochs - epoch < 2:
-        print(f"Saving the model with last epoch: Epoch {epoch+1}, Loss: {validation_loss:.4f} ")
-        self.save_abc_model(f'{self.abc_model_name}_last.pt')
-        self.save_ttl_model(f'{self.ttl_model_name}_last.pt')
+      # if validation_loss < self.best_valid_loss:
+      #   print(f"Saving the model with best validation loss: Epoch {epoch+1}, Loss: {validation_loss:.4f} ")
+      #   self.save_abc_model(f'{self.abc_model_name}_best.pt')
+      #   self.save_ttl_model(f'{self.ttl_model_name}_best.pt')
+      # elif num_epochs - epoch < 2:
+      #   print(f"Saving the model with last epoch: Epoch {epoch+1}, Loss: {validation_loss:.4f} ")
+      #   self.save_abc_model(f'{self.abc_model_name}_last.pt')
+      #   self.save_ttl_model(f'{self.ttl_model_name}_last.pt')
       #else:
       #  self.save_abc_model(f'{self.abc_model_name}_last.pt')
-      #  self.save_ttl_model(f'{self.ttl_model_name}_last.pt')                   
+      #  self.save_ttl_model(f'{self.ttl_model_name}_last.pt') 
+      if epoch % 100 == 0:
+        self.save_abc_model(f'{self.abc_model_name}_{epoch}.pt')
+        self.save_ttl_model(f'{self.ttl_model_name}_{epoch}.pt')                
       self.best_valid_loss = min(validation_loss, self.best_valid_loss)
       
   def _train_by_single_batch(self, batch):
@@ -387,7 +395,7 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
         emb2 = self.ttl_model(title.to(self.device))
 
         start_idx = idx * loader.batch_size
-        end_idx = start_idx + len(title)
+        end_idx = start_idx + len(emb1)
 
         abc_emb_all[start_idx:end_idx] = emb1
         ttl_emb_all[start_idx:end_idx] = emb2

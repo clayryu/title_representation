@@ -1,20 +1,18 @@
 from collections import defaultdict
 from pathlib import Path
 import random
+import yaml
+from omegaconf import OmegaConf
+from pyabc import pyabc
+from str_utils import split_note
 
 import torch
 from torch.nn.utils.rnn import pack_sequence
-import yaml
-from omegaconf import OmegaConf
+from sentence_transformers import SentenceTransformer
 
-from pyabc import pyabc
-from str_utils import split_note
 from vocab_utils import TokenVocab, MusicTokenVocab
 import vocab_utils
 
-from pyabc import pyabc
-from sentence_transformers import SentenceTransformer
-from emb_utils import prepare_abc_title
 
 def convert_token(token):
   if isinstance(token, pyabc.Note):
@@ -488,11 +486,6 @@ class ABCsetTitle(MeasureNumberSet):
     #def _get_title_emb(self):
     model = SentenceTransformer('all-MiniLM-L6-v2')
     self.ttl2emb = model.encode(self.title_in_text_avail, device='cuda')
-    
-  def prepare_tune(self, tune): 
-    tune_data = self._tune_to_list_of_str(tune)
-    tune_header = tune.header
-    return tune_data, tune_header
   
   def __len__(self):
     return len(self.data)
@@ -508,6 +501,55 @@ class ABCsetTitle(MeasureNumberSet):
     '''
     measure_numbers = [x[-1] for x in self.data[idx]]
     header = self.header[idx]
+    tune, new_key = self.augmentor(tune, header)
+    new_header = header.copy()
+    new_header['key'] = new_key
+
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+
+    tune_tensor = torch.LongTensor(tune_in_idx)
+    header_tensor = torch.LongTensor(self.vocab.encode_header(new_header))
+    tune_tensor = torch.cat([tune_tensor, header_tensor.repeat(len(tune_tensor), 1)], dim=-1)
+    # if sum([a>=b for a, b in zip(torch.max(tune_tensor, dim=0).values.tolist(), [x for x in self.vocab.get_size().values()])]) != 0:
+    #   print (tune_tensor)
+    
+    title = self.ttl2emb[idx]
+    title_tensor = torch.FloatTensor(title)
+
+    return tune_tensor[:-1], title_tensor, torch.tensor(measure_numbers, dtype=torch.long)
+  
+class ABCsetTitle_22K(MeasureNumberSet):
+  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', tune_length=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
+    #self._get_title_emb()
+  
+  def _prepare_data(self):
+    self.data = defaultdict(list)
+    self.header = defaultdict(list)
+    for tune in self.tune_list:
+      self.data[tune.header["tune title"]].append(self._tune_to_list_of_str(tune))
+      self.header[tune.header["tune title"]].append(tune.header)
+    self.idx2ttl = list(self.data.keys())
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    self.ttl2emb = model.encode(self.idx2ttl, device='cuda')
+  
+  def __len__(self):
+    return len(self.data)
+      
+  def __getitem__(self, idx):
+    picked_ttl = self.idx2ttl[idx]
+    sampled_idx = random.randint(0, len(self.data[picked_ttl])-1)
+
+    tune = [x[:-1] for x in self.data[picked_ttl][sampled_idx]]  + [['<end>', '<end>', '<end>']] # ['<start>', 'm_idx:0', 'm_offset:0.0', 8]
+    header = self.header[picked_ttl][sampled_idx]
+
+    '''
+    <start> A A B B | C
+            0 1 2 3 4 0 
+            0 0 0 0 0 1
+    '''
+    measure_numbers = [x[-1] for x in self.data[picked_ttl][sampled_idx]]
+
     tune, new_key = self.augmentor(tune, header)
     new_header = header.copy()
     new_header['key'] = new_key

@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.15.0-53-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2023-01-22T23:50:36.974428",
+    "startedAt": "2023-01-22T23:50:34.045588",
+    "docker": null,
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/clay/userdata/title_generation/emb_train.py",
+    "codePath": "emb_train.py",
+    "git": {
+        "remote": "https://github.com/clayryu/title_generation.git",
+        "commit": "bed67ad38c20d5a12e6b92e94bbd9a342c866260"
+    },
+    "email": "clayryu328@gmail.com",
+    "root": "/home/clay/userdata/title_generation",
+    "host": "4763e88da2a1",
+    "username": "clay",
+    "executable": "/usr/bin/python3"
+}

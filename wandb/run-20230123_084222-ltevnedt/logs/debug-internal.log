@@ -1,0 +1,97 @@
+2023-01-23 08:42:24,685 INFO    MainThread:1114431 [internal.py:wandb_internal():90] W&B internal server running at pid: 1114431, started at: 2023-01-23 08:42:24.685360
+2023-01-23 08:42:24,691 INFO    WriterThread:1114431 [datastore.py:open_for_write():75] open: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/run-ltevnedt.wandb
+2023-01-23 08:42:24,691 DEBUG   SenderThread:1114431 [sender.py:send():236] send: header
+2023-01-23 08:42:24,691 DEBUG   SenderThread:1114431 [sender.py:send():236] send: run
+2023-01-23 08:42:24,988 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: check_version
+2023-01-23 08:42:24,991 INFO    SenderThread:1114431 [dir_watcher.py:__init__():216] watching files in: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files
+2023-01-23 08:42:24,991 INFO    SenderThread:1114431 [sender.py:_start_run_threads():815] run started: ltevnedt with start time 1674430942
+2023-01-23 08:42:24,991 DEBUG   SenderThread:1114431 [sender.py:send():236] send: summary
+2023-01-23 08:42:24,991 INFO    SenderThread:1114431 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-23 08:42:24,992 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: check_version
+2023-01-23 08:42:25,064 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: run_start
+2023-01-23 08:42:25,074 DEBUG   HandlerThread:1114431 [meta.py:__init__():35] meta init
+2023-01-23 08:42:25,074 DEBUG   HandlerThread:1114431 [meta.py:__init__():49] meta init done
+2023-01-23 08:42:25,074 DEBUG   HandlerThread:1114431 [meta.py:probe():209] probe
+2023-01-23 08:42:25,083 DEBUG   HandlerThread:1114431 [meta.py:_setup_git():199] setup git
+2023-01-23 08:42:25,102 DEBUG   HandlerThread:1114431 [meta.py:_setup_git():206] setup git done
+2023-01-23 08:42:25,102 DEBUG   HandlerThread:1114431 [meta.py:_save_pip():53] save pip
+2023-01-23 08:42:25,103 DEBUG   HandlerThread:1114431 [meta.py:_save_pip():67] save pip done
+2023-01-23 08:42:25,103 DEBUG   HandlerThread:1114431 [meta.py:probe():247] probe done
+2023-01-23 08:42:25,199 DEBUG   SenderThread:1114431 [sender.py:send():236] send: files
+2023-01-23 08:42:25,199 INFO    SenderThread:1114431 [sender.py:_save_file():952] saving file wandb-metadata.json with policy now
+2023-01-23 08:42:25,206 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:42:25,206 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:42:25,439 DEBUG   SenderThread:1114431 [sender.py:send():236] send: telemetry
+2023-01-23 08:42:25,439 DEBUG   SenderThread:1114431 [sender.py:send():236] send: telemetry
+2023-01-23 08:42:25,986 INFO    Thread-17 :1114431 [upload_job.py:push():138] Uploaded file /tmp/tmpqvah4m5xwandb/2lmlxajo-wandb-metadata.json
+2023-01-23 08:42:25,994 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/output.log
+2023-01-23 08:42:25,994 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/wandb-metadata.json
+2023-01-23 08:42:25,994 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/wandb-summary.json
+2023-01-23 08:42:25,995 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/requirements.txt
+2023-01-23 08:42:40,443 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:42:40,444 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:42:53,642 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:42:55,697 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:42:55,957 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:42:56,024 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/config.yaml
+2023-01-23 08:43:02,031 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/output.log
+2023-01-23 08:43:04,032 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/output.log
+2023-01-23 08:43:11,196 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:43:11,197 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:43:24,034 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:43:26,434 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:43:26,435 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:43:41,678 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:43:41,679 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:43:54,519 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:43:56,931 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:43:56,932 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:44:12,182 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:44:12,183 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:44:13,265 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: partial_history
+2023-01-23 08:44:13,270 DEBUG   SenderThread:1114431 [sender.py:send():236] send: history
+2023-01-23 08:44:13,271 DEBUG   SenderThread:1114431 [sender.py:send():236] send: summary
+2023-01-23 08:44:13,278 INFO    SenderThread:1114431 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-23 08:44:14,087 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/wandb-summary.json
+2023-01-23 08:44:20,092 INFO    Thread-13 :1114431 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230123_084222-ltevnedt/files/output.log
+2023-01-23 08:44:24,954 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:44:27,442 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:44:27,442 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:44:42,673 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:44:42,674 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:44:55,324 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:44:59,244 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:44:59,245 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:45:14,487 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:45:14,488 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:45:25,737 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:45:29,727 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:45:29,728 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:45:45,108 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:45:45,109 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:45:56,135 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:46:00,349 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:46:00,350 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:46:15,601 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:46:15,602 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:46:26,564 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:46:30,829 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:46:30,830 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:46:46,352 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:46:46,353 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:46:56,979 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:47:01,597 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:47:01,598 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:47:16,848 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:47:16,849 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:47:27,394 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:47:32,102 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:47:32,102 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:47:47,351 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:47:47,352 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:47:57,830 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats
+2023-01-23 08:48:02,606 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:48:02,607 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:48:17,859 DEBUG   HandlerThread:1114431 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-23 08:48:17,860 DEBUG   SenderThread:1114431 [sender.py:send_request():250] send_request: stop_status
+2023-01-23 08:48:28,244 DEBUG   SenderThread:1114431 [sender.py:send():236] send: stats

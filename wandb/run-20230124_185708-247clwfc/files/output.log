@@ -1,0 +1,27 @@
+
+  0%|                                                                                                                                                                                                                                                                    | 0/6000 [00:00<?, ?it/s]
+  0%|                                                                                                                                                                                                                                                                    | 0/6000 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 118, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 287, in get_loss_pred_from_single_batch
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 182, in forward
+    after_conv = self.conv_layer(unpacked_emb)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 307, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 303, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+RuntimeError: Calculated padded input size per channel: (2). Kernel size: (3). Kernel size can't be greater than actual input size
