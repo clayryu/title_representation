@@ -22,17 +22,17 @@ import datetime
 
 def get_argument_parser():
   parser = argparse.ArgumentParser()
-  parser.add_argument('--path', type=str, default='abc_dataset/folk_rnn_abc_key_cleaned_title/',
+  parser.add_argument('--path', type=str, default='abc_dataset/folk_rnn_abc_key_cleaned/',
                       help='directory path to the dataset')
   parser.add_argument('--yml_path', type=str, default='yamls/measure_note_xl.yaml',
                       help='yaml path to the config')
 
-  parser.add_argument('--batch_size', type=int, default=6500)
+  parser.add_argument('--batch_size', type=int, default=7000)
   parser.add_argument('--num_iter', type=int, default=100000)
-  parser.add_argument('--lr', type=float, default=0.001)
+  parser.add_argument('--lr', type=float, default=0.0003)
   parser.add_argument('--lr_scheduler_type', type=str, default='Plateau')
   parser.add_argument('--scheduler_factor', type=float, default=0.7)
-  parser.add_argument('--scheduler_patience', type=int, default=700)
+  parser.add_argument('--scheduler_patience', type=int, default=7000)
   parser.add_argument('--grad_clip', type=float, default=1.0)
   parser.add_argument('--num_epochs', type=float, default=6000)
 
@@ -115,8 +115,8 @@ if __name__ == '__main__':
   model_ttl = getattr(emb_model, 'TTLembModel')(emb_size=args.output_emb_size)
   
   # load pretrained model
-  model_cnn_reducedemb.load_state_dict(torch.load('measurenote_last copy.pt')['model'])
-  model_ttl.load_state_dict(torch.load('ttlemb_last copy.pt')['model'])
+  model_cnn_reducedemb.load_state_dict(torch.load('/home/clay/userdata/title_generation/saved_models/0128_05_10tk/measurenote_4000.pt')['model'])
+  model_ttl.load_state_dict(torch.load('/home/clay/userdata/title_generation/saved_models/0128_05_10tk/ttlemb_4000.pt')['model'])
   
   '''
   # freeze all parameters except proj

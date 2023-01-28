@@ -1,0 +1,178 @@
+2023-01-28 21:54:02,725 INFO    MainThread:1251229 [internal.py:wandb_internal():90] W&B internal server running at pid: 1251229, started at: 2023-01-28 21:54:02.725571
+2023-01-28 21:54:02,726 INFO    WriterThread:1251229 [datastore.py:open_for_write():75] open: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/run-iji9more.wandb
+2023-01-28 21:54:02,727 DEBUG   SenderThread:1251229 [sender.py:send():236] send: header
+2023-01-28 21:54:02,727 DEBUG   SenderThread:1251229 [sender.py:send():236] send: run
+2023-01-28 21:54:03,019 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: check_version
+2023-01-28 21:54:03,021 INFO    SenderThread:1251229 [dir_watcher.py:__init__():216] watching files in: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files
+2023-01-28 21:54:03,021 INFO    SenderThread:1251229 [sender.py:_start_run_threads():815] run started: iji9more with start time 1674910442
+2023-01-28 21:54:03,021 DEBUG   SenderThread:1251229 [sender.py:send():236] send: summary
+2023-01-28 21:54:03,021 INFO    SenderThread:1251229 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-28 21:54:03,021 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: check_version
+2023-01-28 21:54:03,097 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: run_start
+2023-01-28 21:54:03,105 DEBUG   HandlerThread:1251229 [meta.py:__init__():35] meta init
+2023-01-28 21:54:03,106 DEBUG   HandlerThread:1251229 [meta.py:__init__():49] meta init done
+2023-01-28 21:54:03,106 DEBUG   HandlerThread:1251229 [meta.py:probe():209] probe
+2023-01-28 21:54:03,113 DEBUG   HandlerThread:1251229 [meta.py:_setup_git():199] setup git
+2023-01-28 21:54:03,133 DEBUG   HandlerThread:1251229 [meta.py:_setup_git():206] setup git done
+2023-01-28 21:54:03,134 DEBUG   HandlerThread:1251229 [meta.py:_save_pip():53] save pip
+2023-01-28 21:54:03,134 DEBUG   HandlerThread:1251229 [meta.py:_save_pip():67] save pip done
+2023-01-28 21:54:03,135 DEBUG   HandlerThread:1251229 [meta.py:probe():247] probe done
+2023-01-28 21:54:03,184 DEBUG   SenderThread:1251229 [sender.py:send():236] send: files
+2023-01-28 21:54:03,184 INFO    SenderThread:1251229 [sender.py:_save_file():952] saving file wandb-metadata.json with policy now
+2023-01-28 21:54:03,187 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-28 21:54:03,187 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: stop_status
+2023-01-28 21:54:03,411 DEBUG   SenderThread:1251229 [sender.py:send():236] send: telemetry
+2023-01-28 21:54:03,411 DEBUG   SenderThread:1251229 [sender.py:send():236] send: telemetry
+2023-01-28 21:54:03,948 INFO    Thread-11 :1251229 [upload_job.py:push():138] Uploaded file /tmp/tmp1oss2lezwandb/2i0va4he-wandb-metadata.json
+2023-01-28 21:54:04,021 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:04,022 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json
+2023-01-28 21:54:04,022 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/requirements.txt
+2023-01-28 21:54:04,022 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_created():269] file/dir created: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-metadata.json
+2023-01-28 21:54:06,021 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:14,023 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:18,430 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-28 21:54:18,431 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: stop_status
+2023-01-28 21:54:22,025 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:23,034 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: partial_history
+2023-01-28 21:54:23,035 DEBUG   SenderThread:1251229 [sender.py:send():236] send: history
+2023-01-28 21:54:23,035 DEBUG   SenderThread:1251229 [sender.py:send():236] send: summary
+2023-01-28 21:54:23,036 INFO    SenderThread:1251229 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-28 21:54:24,026 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:24,026 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json
+2023-01-28 21:54:31,545 DEBUG   SenderThread:1251229 [sender.py:send():236] send: stats
+2023-01-28 21:54:33,028 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:33,664 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-28 21:54:33,948 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: stop_status
+2023-01-28 21:54:34,028 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:34,028 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/config.yaml
+2023-01-28 21:54:43,104 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: partial_history
+2023-01-28 21:54:43,105 DEBUG   SenderThread:1251229 [sender.py:send():236] send: history
+2023-01-28 21:54:43,105 DEBUG   SenderThread:1251229 [sender.py:send():236] send: summary
+2023-01-28 21:54:43,105 INFO    SenderThread:1251229 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-28 21:54:43,106 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:43,106 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json
+2023-01-28 21:54:45,106 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:49,191 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: stop_status
+2023-01-28 21:54:49,191 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: stop_status
+2023-01-28 21:54:53,108 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:54,108 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:57,022 WARNING MainThread:1251229 [internal.py:wandb_internal():153] Internal process interrupt: 1
+2023-01-28 21:54:57,061 DEBUG   SenderThread:1251229 [sender.py:send():236] send: telemetry
+2023-01-28 21:54:59,085 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:54:59,085 DEBUG   SenderThread:1251229 [sender.py:send():236] send: exit
+2023-01-28 21:54:59,086 INFO    SenderThread:1251229 [sender.py:send_exit():372] handling exit code: 255
+2023-01-28 21:54:59,086 INFO    SenderThread:1251229 [sender.py:send_exit():374] handling runtime: 55
+2023-01-28 21:54:59,087 INFO    SenderThread:1251229 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-28 21:54:59,087 INFO    SenderThread:1251229 [sender.py:send_exit():380] send defer
+2023-01-28 21:54:59,088 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:54:59,089 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,089 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 0
+2023-01-28 21:54:59,090 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,090 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 0
+2023-01-28 21:54:59,090 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 1
+2023-01-28 21:54:59,091 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,091 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 1
+2023-01-28 21:54:59,111 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:54:59,111 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json
+2023-01-28 21:54:59,134 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,134 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 1
+2023-01-28 21:54:59,134 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 2
+2023-01-28 21:54:59,134 DEBUG   SenderThread:1251229 [sender.py:send():236] send: stats
+2023-01-28 21:54:59,134 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,134 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 2
+2023-01-28 21:54:59,135 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,135 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 2
+2023-01-28 21:54:59,135 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 3
+2023-01-28 21:54:59,135 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,135 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 3
+2023-01-28 21:54:59,135 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,135 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 3
+2023-01-28 21:54:59,135 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 4
+2023-01-28 21:54:59,135 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,135 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 4
+2023-01-28 21:54:59,135 DEBUG   SenderThread:1251229 [sender.py:send():236] send: summary
+2023-01-28 21:54:59,136 INFO    SenderThread:1251229 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2023-01-28 21:54:59,136 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,136 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 4
+2023-01-28 21:54:59,136 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 5
+2023-01-28 21:54:59,136 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,136 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 5
+2023-01-28 21:54:59,136 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,136 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 5
+2023-01-28 21:54:59,190 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:54:59,405 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 6
+2023-01-28 21:54:59,405 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:54:59,406 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:54:59,406 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 6
+2023-01-28 21:54:59,406 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:54:59,406 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 6
+2023-01-28 21:54:59,406 INFO    SenderThread:1251229 [dir_watcher.py:finish():353] shutting down directory watcher
+2023-01-28 21:54:59,507 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,111 INFO    Thread-7  :1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/config.yaml
+2023-01-28 21:55:00,112 INFO    SenderThread:1251229 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json
+2023-01-28 21:55:00,113 INFO    SenderThread:1251229 [dir_watcher.py:finish():383] scan: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files
+2023-01-28 21:55:00,114 INFO    SenderThread:1251229 [dir_watcher.py:finish():397] scan save: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/requirements.txt requirements.txt
+2023-01-28 21:55:00,114 INFO    SenderThread:1251229 [dir_watcher.py:finish():397] scan save: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log output.log
+2023-01-28 21:55:00,115 INFO    SenderThread:1251229 [dir_watcher.py:finish():397] scan save: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json wandb-summary.json
+2023-01-28 21:55:00,115 INFO    SenderThread:1251229 [dir_watcher.py:finish():397] scan save: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/config.yaml config.yaml
+2023-01-28 21:55:00,121 INFO    SenderThread:1251229 [dir_watcher.py:finish():397] scan save: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-metadata.json wandb-metadata.json
+2023-01-28 21:55:00,121 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 7
+2023-01-28 21:55:00,121 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,134 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:55:00,134 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 7
+2023-01-28 21:55:00,135 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:55:00,136 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 7
+2023-01-28 21:55:00,136 INFO    SenderThread:1251229 [file_pusher.py:finish():171] shutting down file pusher
+2023-01-28 21:55:00,223 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,223 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,326 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,327 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,429 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,430 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,532 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,532 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,634 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,635 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,737 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,738 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,840 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,841 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:00,898 INFO    Thread-14 :1251229 [upload_job.py:push():138] Uploaded file /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/wandb-summary.json
+2023-01-28 21:55:00,901 INFO    Thread-15 :1251229 [upload_job.py:push():138] Uploaded file /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/config.yaml
+2023-01-28 21:55:00,921 INFO    Thread-12 :1251229 [upload_job.py:push():138] Uploaded file /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/requirements.txt
+2023-01-28 21:55:00,944 INFO    Thread-13 :1251229 [upload_job.py:push():138] Uploaded file /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/files/output.log
+2023-01-28 21:55:00,945 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:00,946 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:01,049 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:01,049 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:01,145 INFO    Thread-6  :1251229 [sender.py:transition_state():393] send defer: 8
+2023-01-28 21:55:01,146 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:55:01,146 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 8
+2023-01-28 21:55:01,147 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:55:01,147 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 8
+2023-01-28 21:55:01,152 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:01,516 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 9
+2023-01-28 21:55:01,517 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:01,518 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:55:01,518 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 9
+2023-01-28 21:55:01,519 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:55:01,519 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 9
+2023-01-28 21:55:01,520 INFO    SenderThread:1251229 [sender.py:transition_state():393] send defer: 10
+2023-01-28 21:55:01,521 DEBUG   SenderThread:1251229 [sender.py:send():236] send: final
+2023-01-28 21:55:01,522 DEBUG   SenderThread:1251229 [sender.py:send():236] send: footer
+2023-01-28 21:55:01,522 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: defer
+2023-01-28 21:55:01,523 INFO    HandlerThread:1251229 [handler.py:handle_request_defer():163] handle defer: 10
+2023-01-28 21:55:01,523 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: defer
+2023-01-28 21:55:01,523 INFO    SenderThread:1251229 [sender.py:send_request_defer():389] handle sender defer: 10
+2023-01-28 21:55:01,620 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: poll_exit
+2023-01-28 21:55:01,621 DEBUG   SenderThread:1251229 [sender.py:send_request():250] send_request: poll_exit
+2023-01-28 21:55:01,621 INFO    SenderThread:1251229 [file_pusher.py:join():176] waiting for file pusher
+2023-01-28 21:55:02,201 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: sampled_history
+2023-01-28 21:55:02,204 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: get_summary
+2023-01-28 21:55:02,206 DEBUG   HandlerThread:1251229 [handler.py:handle_request():140] handle_request: shutdown
+2023-01-28 21:55:02,206 INFO    HandlerThread:1251229 [handler.py:finish():806] shutting down handler
+2023-01-28 21:55:02,522 INFO    WriterThread:1251229 [datastore.py:close():279] close: /home/clay/userdata/title_generation/wandb/run-20230128_215401-iji9more/run-iji9more.wandb
+2023-01-28 21:55:03,099 INFO    SenderThread:1251229 [sender.py:finish():1114] shutting down sender
+2023-01-28 21:55:03,100 INFO    SenderThread:1251229 [file_pusher.py:finish():171] shutting down file pusher
+2023-01-28 21:55:03,100 INFO    SenderThread:1251229 [file_pusher.py:join():176] waiting for file pusher
+2023-01-28 21:55:03,103 INFO    MainThread:1251229 [internal.py:handle_exit():80] Internal process exited

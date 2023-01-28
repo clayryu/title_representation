@@ -1,0 +1,19 @@
+
+0.0005
+  0%|                                                                                                                                                                                                                                                                    | 0/6000 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 81, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 124, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 293, in get_loss_pred_from_single_batch
+    emb1 = self.abc_model(melody.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 180, in forward
+    unpacked_emb, _ = pad_packed_sequence(emb, batch_first=True)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/utils/rnn.py", line 334, in pad_packed_sequence
+    return padded_output.index_select(batch_dim, unsorted_indices), lengths[unsorted_indices]
+RuntimeError: CUDA out of memory. Tried to allocate 5.53 GiB (GPU 0; 23.69 GiB total capacity; 11.15 GiB already allocated; 5.04 GiB free; 11.17 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

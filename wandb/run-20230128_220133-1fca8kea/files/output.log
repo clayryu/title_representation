@@ -1,0 +1,69 @@
+
+0.0005
+  0%|                                                                                                                 | 0/6000 [00:00<?, ?it/s]
+Elapsed time for processing batch: 3.8042140007019043 seconds
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                      | 1/6000 [00:20<33:35:15, 20.16s/it]
+0.0005
+Elapsed time for processing batch: 3.78259539604187 seconds
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                      | 2/6000 [00:40<33:32:01, 20.13s/it]
+Elapsed time for processing batch: 3.8342409133911133 seconds
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                      | 3/6000 [01:00<33:33:36, 20.15s/it]
+0.0005
+Elapsed time for processing batch: 3.8581185340881348 seconds
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+
+  0%|                                                                                                      | 4/6000 [01:20<33:35:08, 20.16s/it]
+0.0005
+Elapsed time for processing batch: 3.833477258682251 seconds
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                      | 5/6000 [01:40<33:32:28, 20.14s/it]
+0.0005
+Elapsed time for processing batch: 3.8217453956604004 seconds
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                                                      | 6/6000 [02:00<33:28:08, 20.10s/it]
+Elapsed time for processing batch: 3.8363687992095947 seconds
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 94, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 400, in validate
+    for idx, batch in enumerate(tqdm(loader, leave=False)):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 557, in __getitem__
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 557, in <listcomp>
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 356, in __call__
+    return self(wrd) + self.encode_m_idx(m_idx) + self.encode_m_offset(m_offset, header)
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 279, in encode_m_offset
+    unit = int(unit.split('/')[1].strip())
+KeyboardInterrupt

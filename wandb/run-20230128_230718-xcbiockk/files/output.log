@@ -1,0 +1,9 @@
+
+0.0003
+  0%|                                                                                                                 | 0/6000 [00:09<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 102, in train_by_num_epoch
+    self.validation_loss.append(validation_loss)
+UnboundLocalError: local variable 'validation_loss' referenced before assignment

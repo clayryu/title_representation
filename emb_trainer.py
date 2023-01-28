@@ -73,6 +73,7 @@ class EmbTrainer:
     
   def train_by_num_epoch(self, num_epochs):
     for epoch in tqdm(range(num_epochs)):
+      start_time = time.time()
       print(self.abc_optimizer.param_groups[0]['lr'])
       self.abc_model.train()
       self.ttl_model.train()
@@ -82,21 +83,24 @@ class EmbTrainer:
         # if self.make_log:
         #   wandb.log(loss_dict)
         self.training_loss.append(loss_value)
-      self.abc_model.eval()
-      self.ttl_model.eval()
-      train_loss, train_acc = self.validate(external_loader=self.train_loader)
-      validation_loss, validation_acc = self.validate()
-      self.scheduler_abc.step(validation_loss)
-      self.scheduler_ttl.step(validation_loss)
+      
+      # self.abc_model.eval()
+      # self.ttl_model.eval()
+      # train_loss, train_acc = self.validate(external_loader=self.train_loader)
+      # validation_loss, validation_acc = self.validate()
+      # self.scheduler_abc.step(validation_loss)
+      # self.scheduler_ttl.step(validation_loss)
+      epoch_time = time.time() - start_time
       if self.make_log:
         wandb.log({
-                  "validation_loss": validation_loss,
-                  "validation_acc": validation_acc,
-                  "train_loss": train_loss,
-                  "train_acc": train_acc
+                  # "validation_loss": validation_loss,
+                  # "validation_acc": validation_acc,
+                  "train_loss": loss_value,
+                  # "train_acc": train_acc,
+                  "train.time": epoch_time
                   })
-      self.validation_loss.append(validation_loss)
-      self.validation_acc.append(validation_acc)
+      # self.validation_loss.append(validation_loss)
+      # self.validation_acc.append(validation_acc)
       
       # if validation_acc > self.best_valid_accuracy:
       # if validation_loss < self.best_valid_loss:
@@ -112,8 +116,25 @@ class EmbTrainer:
       #  self.save_ttl_model(f'{self.ttl_model_name}_last.pt') 
       if epoch % 100 == 0:
         self.save_abc_model(f'{self.abc_model_name}_{epoch}.pt')
-        self.save_ttl_model(f'{self.ttl_model_name}_{epoch}.pt')                
-      self.best_valid_loss = min(validation_loss, self.best_valid_loss)
+        self.save_ttl_model(f'{self.ttl_model_name}_{epoch}.pt')
+        self.abc_model.eval()
+        self.ttl_model.eval()
+        train_loss, train_acc = self.validate(external_loader=self.train_loader)
+        validation_loss, validation_acc = self.validate()
+        self.scheduler_abc.step(validation_loss)
+        self.scheduler_ttl.step(validation_loss)
+        self.validation_loss.append(validation_loss)
+        self.validation_acc.append(validation_acc)
+        
+        if self.make_log:
+          wandb.log({
+                    "validation_loss": validation_loss,
+                    "validation_acc": validation_acc,
+                    # "train_loss": loss_value,
+                    "train_acc": train_acc,
+                    # "train.time": epoch_time
+                    })             
+        self.best_valid_loss = min(validation_loss, self.best_valid_loss)
       
   def _train_by_single_batch(self, batch):
 
@@ -136,8 +157,8 @@ class EmbTrainer:
         self.scheduler_ttl.step()
 
         #loss_record.append(loss.item())
-    loss_dict['time'] = time.time() - start_time
-    #loss_dict['lr'] = self.optimizer.param_groups[0]['lr']
+    # loss_dict['train_time'] = time.time() - start_time
+    # loss_dict['lr'] = self.optimizer.param_groups[0]['lr']
     
     return loss.item(), loss_dict
   
@@ -287,7 +308,7 @@ class EmbTrainerMeasure(EmbTrainer):
     
   def get_loss_pred_from_single_batch(self, batch):
     melody, title, measure_numbers = batch
-    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+    emb1 = self.abc_model(melody.to(self.device))
     emb2 = self.ttl_model(title.to(self.device))
     
     if self.loss_fn == CosineEmbeddingLoss():
@@ -325,7 +346,7 @@ class EmbTrainerMeasure(EmbTrainer):
       for idx, batch in enumerate(tqdm(loader, leave=False)):
         melody, title, measure_numbers = batch
         
-        emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+        emb1 = self.abc_model(melody.to(self.device))
         emb2 = self.ttl_model(title.to(self.device))
 
         start_idx = idx * loader.batch_size
@@ -391,7 +412,7 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
       for idx, batch in enumerate(tqdm(loader, leave=False)):
         melody, title, measure_numbers = batch
         
-        emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+        emb1 = self.abc_model(melody.to(self.device))
         emb2 = self.ttl_model(title.to(self.device))
 
         start_idx = idx * loader.batch_size

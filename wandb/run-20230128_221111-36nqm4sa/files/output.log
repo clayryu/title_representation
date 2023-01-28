@@ -1,0 +1,85 @@
+
+0.0005
+  0%|                                                                                                                                                                   | 0/6000 [00:00<?, ?it/s]
+Elapsed time for processing batch: 3.8945882320404053 seconds
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                                                                                                        | 1/6000 [00:20<33:35:17, 20.16s/it]
+Elapsed time for processing batch: 3.777198076248169 seconds
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                                                                                                        | 2/6000 [00:40<33:28:14, 20.09s/it]
+Elapsed time for processing batch: 3.8792176246643066 seconds
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+0.0005
+Elapsed time for processing batch: 3.8627662658691406 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                        | 4/6000 [01:20<33:33:20, 20.15s/it]
+Elapsed time for processing batch: 3.841669797897339 seconds
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+  0%|▏                                                                                                                                                       | 5/6000 [01:40<33:34:44, 20.16s/it]
+Elapsed time for processing batch: 3.844761848449707 seconds
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+0.0005
+Elapsed time for processing batch: 3.8697726726531982 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|▏                                                                                                                                                       | 7/6000 [02:20<33:28:23, 20.11s/it]
+Elapsed time for processing batch: 3.8478972911834717 seconds
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|▏                                                                                                                                                       | 8/6000 [02:40<33:20:44, 20.03s/it]
+0.0005
+Elapsed time for processing batch: 3.803945779800415 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▏                                                                                                                                                       | 9/6000 [03:00<33:13:11, 19.96s/it]
+0.0005
+Elapsed time for processing batch: 3.834507703781128 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|▎                                                                                                                                                      | 10/6000 [03:20<33:16:55, 20.00s/it]
+Elapsed time for processing batch: 3.8586208820343018 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▎                                                                                                                                                      | 11/6000 [03:40<33:23:50, 20.08s/it]
+0.0005
+Elapsed time for processing batch: 3.8309667110443115 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|▎                                                                                                                                                      | 12/6000 [04:00<33:23:35, 20.08s/it]
+Elapsed time for processing batch: 3.8719327449798584 seconds
+  0%|                                                                                                                                                                      | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 94, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 418, in validate
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 17, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

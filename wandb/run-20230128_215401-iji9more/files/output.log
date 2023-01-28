@@ -1,0 +1,29 @@
+
+  0%|                                                                                                                 | 0/6000 [00:00<?, ?it/s]
+0.0005
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+Elapsed time for processing batch: 9.19093132019043 seconds
+
+
+  0%|                                                                                                      | 1/6000 [00:19<33:12:49, 19.93s/it]
+0.0005
+Elapsed time for processing batch: 9.09856390953064 seconds
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                      | 2/6000 [00:39<33:15:31, 19.96s/it]
+0.0005
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+Elapsed time for processing batch: 9.188305377960205 seconds
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 93, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 417, in validate
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in get_batch_contrastive_loss
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in <listcomp>
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+KeyboardInterrupt

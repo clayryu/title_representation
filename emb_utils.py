@@ -94,18 +94,6 @@ def prepare_abc_title(paths: list):
     return tune_list, error_list, filtered_tunes_list, title_in_text
 
 def pack_collate_title(raw_batch:list):
-    '''
-  This function takes a list of data, and returns two PackedSequences
-  
-  Argument
-    raw_batch: A list of MelodyDataset[idx]. Each item in the list is a tuple of (melody, shifted_melody)
-               melody and shifted_melody has a shape of [num_notes (+1 if you don't consider "start" and "end" token as note), 2]
-  Returns
-    packed_melody (torch.nn.utils.rnn.PackedSequence)
-    packed_shifted_melody (torch.nn.utils.rnn.PackedSequence)
-
-  TODO: Complete this function
-    '''  
     
     melody = [mel_pair[0] for mel_pair in raw_batch]
     title = [pair[1] for pair in raw_batch] #pair[1] 
@@ -122,7 +110,7 @@ def pack_collate_title(raw_batch:list):
     else:
       raise ValueError("Unknown raw_batch format")
     
-def pack_collate_title_sampling_train(raw_batch:list, sample_num=40):
+def pack_collate_title_sampling_train(raw_batch:list, sample_num=10):
     
   melody = []
   title = []
@@ -141,6 +129,7 @@ def pack_collate_title_sampling_train(raw_batch:list, sample_num=40):
         measure_numbers.append(raw_batch[idx][2])
       else: # longer than sample_num then sample
         sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+        #sampled_num = 0
         melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
         title.append(raw_batch[idx][1])
         measure_numbers.append(raw_batch[idx][2])
@@ -161,7 +150,7 @@ def pack_collate_title_sampling_train(raw_batch:list, sample_num=40):
   else:
     raise ValueError("Unknown raw_batch format")
   
-def pack_collate_title_sampling_valid(raw_batch:list, sample_num=40):
+def pack_collate_title_sampling_valid(raw_batch:list, sample_num=10):
     
   melody = []
   title = []
@@ -179,6 +168,7 @@ def pack_collate_title_sampling_valid(raw_batch:list, sample_num=40):
         title.append(raw_batch[idx][1])
         measure_numbers.append(raw_batch[idx][2])
       else:
+        #sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
         sampled_num = 0
         melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
         title.append(raw_batch[idx][1])

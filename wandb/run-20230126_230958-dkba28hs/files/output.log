@@ -1,0 +1,43 @@
+
+  0%|                                                                                                                                                                                                                                                                           | 0/3000 [00:00<?, ?it/s]
+0.0005
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+0.0005
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▏                                                                                                                                                                                                                                                                | 2/3000 [00:23<9:37:02, 11.55s/it]
+0.0005
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+0.0005
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+0.0005
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+0.0005
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+
+
+  0%|▌                                                                                                                                                                                                                                                                | 6/3000 [01:09<9:36:49, 11.56s/it]
+0.0005
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 87, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 430, in validate
+    sorted_cos_idx = np.argsort(cos_sim, axis=-1) # the most similar one goes to the end
+  File "<__array_function__ internals>", line 180, in argsort
+  File "/home/clay/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 1120, in argsort
+    return _wrapfunc(a, 'argsort', axis=axis, kind=kind, order=order)
+  File "/home/clay/.local/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 57, in _wrapfunc
+    return bound(*args, **kwds)
+KeyboardInterrupt
