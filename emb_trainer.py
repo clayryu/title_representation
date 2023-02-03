@@ -78,7 +78,14 @@ class EmbTrainer:
       self.abc_model.train()
       self.ttl_model.train()
       for batch in self.train_loader:
-        loss_value, loss_dict = self._train_by_single_batch(batch)
+        # L2 regularization
+        # reg_abc_loss = 0
+        # reg_ttl_loss = 0
+        # for param in self.abc_model.parameters():
+        #   reg_abc_loss += 0.0002 * torch.norm(param)**2
+        # for param in self.ttl_model.parameters():
+        #   reg_ttl_loss += 0.0002 * torch.norm(param)**2
+        loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
         loss_dict = self._rename_dict(loss_dict, 'train')
         # if self.make_log:
         #   wandb.log(loss_dict)
@@ -114,15 +121,14 @@ class EmbTrainer:
       #else:
       #  self.save_abc_model(f'{self.abc_model_name}_last.pt')
       #  self.save_ttl_model(f'{self.ttl_model_name}_last.pt') 
-      if epoch % 100 == 0:
-        self.save_abc_model(f'{self.abc_model_name}_{epoch}.pt')
-        self.save_ttl_model(f'{self.ttl_model_name}_{epoch}.pt')
+      if epoch % 40 == 0:
         self.abc_model.eval()
         self.ttl_model.eval()
         train_loss, train_acc = self.validate(external_loader=self.train_loader)
         validation_loss, validation_acc = self.validate()
-        self.scheduler_abc.step(validation_loss)
-        self.scheduler_ttl.step(validation_loss)
+        if isinstance(self.scheduler_abc, torch.optim.lr_scheduler.ReduceLROnPlateau):
+          self.scheduler_abc.step(validation_loss)
+          self.scheduler_ttl.step(validation_loss)
         self.validation_loss.append(validation_loss)
         self.validation_acc.append(validation_acc)
         
@@ -135,11 +141,16 @@ class EmbTrainer:
                     # "train.time": epoch_time
                     })             
         self.best_valid_loss = min(validation_loss, self.best_valid_loss)
+        if epoch % 250 == 0:
+          self.save_abc_model(f'{self.abc_model_name}_{epoch}.pt')
+          self.save_ttl_model(f'{self.ttl_model_name}_{epoch}.pt')
       
-  def _train_by_single_batch(self, batch):
+  def _train_by_single_batch(self, batch, reg_abc_loss=None, reg_ttl_loss=None):
 
-    start_time = time.time()
+    # start_time = time.time()
     loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+    if reg_abc_loss is not None:
+      loss = loss + reg_abc_loss + reg_ttl_loss
                           
     if loss != 0:
       loss.backward()
@@ -308,7 +319,7 @@ class EmbTrainerMeasure(EmbTrainer):
     
   def get_loss_pred_from_single_batch(self, batch):
     melody, title, measure_numbers = batch
-    emb1 = self.abc_model(melody.to(self.device))
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
     emb2 = self.ttl_model(title.to(self.device))
     
     if self.loss_fn == CosineEmbeddingLoss():
@@ -412,7 +423,7 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
       for idx, batch in enumerate(tqdm(loader, leave=False)):
         melody, title, measure_numbers = batch
         
-        emb1 = self.abc_model(melody.to(self.device))
+        emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
         emb2 = self.ttl_model(title.to(self.device))
 
         start_idx = idx * loader.batch_size

@@ -110,29 +110,29 @@ def pack_collate_title(raw_batch:list):
     else:
       raise ValueError("Unknown raw_batch format")
     
-def pack_collate_title_sampling_train(raw_batch:list, sample_num=10):
+def pack_collate_title_sampling_train(raw_batch:list, sample_num=30):
     
   melody = []
   title = []
   measure_numbers = []
   
   if sample_num is not None:
-    for idx, mel_pair in enumerate(raw_batch):
-      if len(mel_pair[0]) < sample_num: # shorter than sample_num then pad
+    for mel_pair in raw_batch:
+      if len(mel_pair[0]) < sample_num: # shorter than the sample_num then pad
         pad_size = sample_num - mel_pair[0].size()[0]
         RU_num = math.ceil(pad_size/2)
         RD_num = math.floor(pad_size/2)
 
         padded_mel = ConstantPad1d((RD_num, RU_num), 0)(mel_pair[0].T)
         melody.append(padded_mel.T)
-        title.append(raw_batch[idx][1])
-        measure_numbers.append(raw_batch[idx][2])
-      else: # longer than sample_num then sample
-        sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
-        #sampled_num = 0
+        title.append(mel_pair[1])
+        measure_numbers.append(mel_pair[2])
+      else: # longer than the sample_num then sample
+        #sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+        sampled_num = 0
         melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
-        title.append(raw_batch[idx][1])
-        measure_numbers.append(raw_batch[idx][2])
+        title.append(mel_pair[1])
+        measure_numbers.append(mel_pair[2])
   else:
     melody = [mel_pair[0] for mel_pair in raw_batch]
     title = [pair[1] for pair in raw_batch] #pair[1] 
@@ -150,14 +150,15 @@ def pack_collate_title_sampling_train(raw_batch:list, sample_num=10):
   else:
     raise ValueError("Unknown raw_batch format")
   
-def pack_collate_title_sampling_valid(raw_batch:list, sample_num=10):
-    
+def pack_collate_title_sampling_valid(raw_batch:list, sample_num=30):
+  #random.seed(42)
+  torch.manual_seed(42)
   melody = []
   title = []
   measure_numbers = []
   
   if sample_num is not None:
-    for idx, mel_pair in enumerate(raw_batch):
+    for mel_pair in raw_batch:
       if len(mel_pair[0]) < sample_num:
         pad_size = sample_num - mel_pair[0].size()[0]
         RU_num = math.ceil(pad_size/2)
@@ -165,14 +166,15 @@ def pack_collate_title_sampling_valid(raw_batch:list, sample_num=10):
 
         padded_mel = ConstantPad1d((RD_num, RU_num), 0)(mel_pair[0].T)
         melody.append(padded_mel.T)
-        title.append(raw_batch[idx][1])
-        measure_numbers.append(raw_batch[idx][2])
+        title.append(mel_pair[1])
+        measure_numbers.append(mel_pair[2])
       else:
-        #sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+        # sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+        # sampled_num = torch.randint(0,len(mel_pair[0])-sample_num, (1,)).item()
         sampled_num = 0
         melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
-        title.append(raw_batch[idx][1])
-        measure_numbers.append(raw_batch[idx][2])
+        title.append(mel_pair[1])
+        measure_numbers.append(mel_pair[2])
   else:
     melody = [mel_pair[0] for mel_pair in raw_batch]
     title = [pair[1] for pair in raw_batch] #pair[1] 

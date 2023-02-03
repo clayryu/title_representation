@@ -1,0 +1,68 @@
+
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+0.0004
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+
+
+  0%|                                                                                                                                                                                                                                                                | 1/9000 [00:20<52:22:43, 20.95s/it]
+
+  0%|                                                                                                                                                                                                                                                                | 2/9000 [00:30<35:42:48, 14.29s/it]
+
+  0%|                                                                                                                                                                                                                                                                | 3/9000 [00:40<30:09:38, 12.07s/it]
+0.0004
+
+
+  0%|▏                                                                                                                                                                                                                                                               | 5/9000 [00:58<26:11:42, 10.48s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 6/9000 [01:08<25:17:34, 10.12s/it]
+0.0004
+
+
+  0%|▏                                                                                                                                                                                                                                                               | 8/9000 [01:27<24:23:33,  9.77s/it]
+0.0004
+
+
+  0%|▎                                                                                                                                                                                                                                                              | 10/9000 [01:46<23:53:02,  9.56s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 11/9000 [01:55<23:52:10,  9.56s/it]
+0.0004
+
+
+  0%|▎                                                                                                                                                                                                                                                              | 13/9000 [02:14<23:49:46,  9.55s/it]
+
+  0%|▍                                                                                                                                                                                                                                                              | 14/9000 [02:24<23:50:38,  9.55s/it]
+
+  0%|▍                                                                                                                                                                                                                                                              | 15/9000 [02:33<23:44:24,  9.51s/it]
+
+  0%|▍                                                                                                                                                                                                                                                              | 16/9000 [02:43<23:41:01,  9.49s/it]
+
+  0%|▍                                                                                                                                                                                                                                                              | 17/9000 [02:52<23:37:45,  9.47s/it]
+
+  0%|▌                                                                                                                                                                                                                                                              | 18/9000 [03:01<23:35:56,  9.46s/it]
+0.0004
+
+
+  0%|▌                                                                                                                                                                                                                                                              | 20/9000 [03:20<23:31:55,  9.43s/it]
+
+  0%|▌                                                                                                                                                                                                                                                              | 21/9000 [03:30<23:32:17,  9.44s/it]
+0.0004
+
+  0%|▌                                                                                                                                                                                                                                                              | 22/9000 [03:39<23:32:24,  9.44s/it]
+
+
+  0%|▋                                                                                                                                                                                                                                                              | 24/9000 [03:58<23:30:21,  9.43s/it]
+
+  0%|▋                                                                                                                                                                                                                                                              | 25/9000 [04:07<23:29:32,  9.42s/it]
+  0%|▋                                                                                                                                                                                                                                                              | 25/9000 [04:16<25:34:14, 10.26s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 88, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss, reg_ttl_loss)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 151, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 328, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 17, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

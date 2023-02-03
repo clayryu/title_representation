@@ -1,0 +1,87 @@
+
+0.0005
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+
+
+
+
+ 75%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                 | 9/12 [00:06<00:02,  1.40it/s]
+
+  0%|                                                                                                                                                                                                                                                                | 1/9000 [00:19<48:43:39, 19.49s/it]
+
+  0%|                                                                                                                                                                                                                                                                | 2/9000 [00:28<33:12:26, 13.29s/it]
+
+  0%|                                                                                                                                                                                                                                                                | 3/9000 [00:37<28:11:41, 11.28s/it]
+
+  0%|                                                                                                                                                                                                                                                                | 4/9000 [00:46<25:40:09, 10.27s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 5/9000 [00:54<24:17:25,  9.72s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 6/9000 [01:03<23:29:40,  9.40s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 7/9000 [01:12<23:06:38,  9.25s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 8/9000 [01:21<22:58:03,  9.20s/it]
+
+  0%|▎                                                                                                                                                                                                                                                               | 9/9000 [01:30<22:35:29,  9.05s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 10/9000 [01:39<22:20:29,  8.95s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 11/9000 [01:47<22:12:24,  8.89s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 12/9000 [01:56<22:05:21,  8.85s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 13/9000 [02:05<22:02:04,  8.83s/it]
+
+
+  0%|▍                                                                                                                                                                                                                                                              | 15/9000 [02:22<21:55:19,  8.78s/it]
+
+  0%|▍                                                                                                                                                                                                                                                              | 16/9000 [02:31<21:55:04,  8.78s/it]
+
+  0%|▍                                                                                                                                                                                                                                                              | 17/9000 [02:40<22:06:18,  8.86s/it]
+
+  0%|▌                                                                                                                                                                                                                                                              | 18/9000 [02:49<22:03:38,  8.84s/it]
+
+  0%|▌                                                                                                                                                                                                                                                              | 19/9000 [02:58<22:04:33,  8.85s/it]
+0.0005
+
+
+  0%|▌                                                                                                                                                                                                                                                              | 21/9000 [03:15<21:54:04,  8.78s/it]
+0.0005
+
+  0%|▌                                                                                                                                                                                                                                                              | 22/9000 [03:24<21:50:57,  8.76s/it]
+
+  0%|▋                                                                                                                                                                                                                                                              | 23/9000 [03:33<22:02:52,  8.84s/it]
+
+  0%|▋                                                                                                                                                                                                                                                              | 24/9000 [03:42<22:00:59,  8.83s/it]
+
+
+  0%|▋                                                                                                                                                                                                                                                              | 26/9000 [04:00<22:04:43,  8.86s/it]
+0.0005
+
+  0%|▊                                                                                                                                                                                                                                                              | 27/9000 [04:08<21:58:11,  8.81s/it]
+
+  0%|▊                                                                                                                                                                                                                                                              | 28/9000 [04:21<23:16:36,  9.34s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 81, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 143, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 312, in get_loss_pred_from_single_batch
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 67, in forward
+    measure_hidden = self.measure_rnn(hidden, measure_numbers)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/module.py", line 21, in forward
+    span_out = span_beat_to_note_num(out, measure_numbers)
+  File "/home/clay/userdata/title_generation/model_utils.py", line 95, in span_beat_to_note_num
+    batch_indices = torch.cat([torch.ones(length)*i for i, length in enumerate(len_note)]).long()
+  File "/home/clay/userdata/title_generation/model_utils.py", line 95, in <listcomp>
+    batch_indices = torch.cat([torch.ones(length)*i for i, length in enumerate(len_note)]).long()
+KeyboardInterrupt

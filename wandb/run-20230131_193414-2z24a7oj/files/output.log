@@ -1,0 +1,44 @@
+
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+0.0004
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                                                                                                                                                                                | 1/9000 [00:20<52:04:18, 20.83s/it]
+0.0004
+
+  0%|                                                                                                                                                                                                                                                                | 2/9000 [00:30<35:27:14, 14.18s/it]
+
+
+  0%|                                                                                                                                                                                                                                                                | 4/9000 [00:49<27:30:31, 11.01s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 5/9000 [00:58<26:07:19, 10.45s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 6/9000 [01:08<25:16:16, 10.12s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 7/9000 [01:17<24:43:16,  9.90s/it]
+
+  0%|▏                                                                                                                                                                                                                                                               | 8/9000 [01:27<24:23:00,  9.76s/it]
+
+  0%|▎                                                                                                                                                                                                                                                               | 9/9000 [01:36<24:08:33,  9.67s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 10/9000 [01:46<23:58:28,  9.60s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 11/9000 [01:55<23:52:04,  9.56s/it]
+
+  0%|▎                                                                                                                                                                                                                                                              | 12/9000 [02:05<23:49:46,  9.54s/it]
+  0%|▎                                                                                                                                                                                                                                                              | 12/9000 [02:10<27:13:04, 10.90s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 88, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss, reg_ttl_loss)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 151, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 328, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in get_batch_contrastive_loss
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in <listcomp>
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+KeyboardInterrupt

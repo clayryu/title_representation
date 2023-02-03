@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from data_utils import ABCset, MeasureNumberSet, pack_collate, PitchDurSplitSet, FolkRNNSet, MeasureOffsetSet, read_yaml, MeasureEndSet, get_emb_total_size
 from emb_trainer import EmbTrainer, EmbTrainerMeasure, EmbTrainerMeasureMRR
 from emb_loss import get_batch_contrastive_loss, get_batch_euclidean_loss, clip_crossentropy_loss
-from emb_utils import pack_collate_title_sampling_train, pack_collate_title_sampling_valid
+from emb_utils import pack_collate_title, pack_collate_title_sampling_train, pack_collate_title_sampling_valid
 from torch.nn import CosineEmbeddingLoss
 
 import data_utils
@@ -22,24 +22,25 @@ import datetime
 
 def get_argument_parser():
   parser = argparse.ArgumentParser()
-  parser.add_argument('--path', type=str, default='abc_dataset/folk_rnn_abc_key_cleaned/',
+  parser.add_argument('--path', type=str, default='abc_dataset/folk_rnn_abc_key_cleaned_for_title/',
                       help='directory path to the dataset')
   parser.add_argument('--yml_path', type=str, default='yamls/measure_note_xl.yaml',
                       help='yaml path to the config')
 
   parser.add_argument('--batch_size', type=int, default=7000)
   parser.add_argument('--num_iter', type=int, default=100000)
-  parser.add_argument('--lr', type=float, default=0.0003)
+  parser.add_argument('--lr', type=float, default=0.0004)
   parser.add_argument('--lr_scheduler_type', type=str, default='Plateau')
   parser.add_argument('--scheduler_factor', type=float, default=0.7)
   parser.add_argument('--scheduler_patience', type=int, default=7000)
   parser.add_argument('--grad_clip', type=float, default=1.0)
-  parser.add_argument('--num_epochs', type=float, default=6000)
+  parser.add_argument('--num_epochs', type=float, default=9000)
 
   parser.add_argument('--hidden_size', type=int, default=128)
   parser.add_argument('--output_emb_size', type=int, default=256)
   parser.add_argument('--margin', type=float, default=0.3)
   # you should check emb_utils.py to configure the sampling size of the token manually
+  # parser.add_argument('--L2_regularization, ')
 
   parser.add_argument('--aug_type', type=str, default='stat')
 
@@ -115,8 +116,8 @@ if __name__ == '__main__':
   model_ttl = getattr(emb_model, 'TTLembModel')(emb_size=args.output_emb_size)
   
   # load pretrained model
-  model_cnn_reducedemb.load_state_dict(torch.load('/home/clay/userdata/title_generation/saved_models/0128_05_10tk/measurenote_4000.pt')['model'])
-  model_ttl.load_state_dict(torch.load('/home/clay/userdata/title_generation/saved_models/0128_05_10tk/ttlemb_4000.pt')['model'])
+  # model_cnn_reducedemb.load_state_dict(torch.load('/home/clay/userdata/title_generation/measurenote_last copy.pt')['model'])
+  # model_ttl.load_state_dict(torch.load('/home/clay/userdata/title_generation/ttlemb_last copy.pt')['model'])
   
   '''
   # freeze all parameters except proj

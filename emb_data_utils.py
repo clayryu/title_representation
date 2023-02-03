@@ -469,20 +469,24 @@ class ABCsetTitle(MeasureNumberSet):
   
   def _prepare_data(self):
     data = [ [self._tune_to_list_of_str(tune), tune.header, tune.header["tune title"]] for tune in self.tune_list]
-    '''
+    
     # sampling sequence in dataset
     self.data=[]
+    self.header = []
+    self.title_in_text_avail = []
     if self.tune_length is not None:
       for x in data:
         if len(x[0]) < self.tune_length:
           continue
         sampled_num = random.randint(0,len(x[0])-self.tune_length)
-        self.data.append(x[0][sampled_num:sampled_num+self.tune_length])
+        # self.data.append(x[0][sampled_num:sampled_num+self.tune_length])
+        self.data.append(x[0][0:self.tune_length])
+        self.header.append(x[1])
+        self.title_in_text_avail.append(x[2])
     else:
-    '''
-    self.data = [x[0] for x in data]
-    self.header = [x[1] for x in data]
-    self.title_in_text_avail = [x[2] for x in data]
+      self.data = [x[0] for x in data]
+      self.header = [x[1] for x in data]
+      self.title_in_text_avail = [x[2] for x in data]
     #def _get_title_emb(self):
     model = SentenceTransformer('all-MiniLM-L6-v2')
     self.ttl2emb = model.encode(self.title_in_text_avail, device='cuda')
@@ -529,6 +533,8 @@ class ABCsetTitle_22K(MeasureNumberSet):
     for tune in self.tune_list:
       self.data[tune.header["tune title"]].append(self._tune_to_list_of_str(tune))
       self.header[tune.header["tune title"]].append(tune.header)
+    #del self.data['x']
+    #del self.header['x']
     self.idx2ttl = list(self.data.keys())
     model = SentenceTransformer('all-MiniLM-L6-v2')
     self.ttl2emb = model.encode(self.idx2ttl, device='cuda')

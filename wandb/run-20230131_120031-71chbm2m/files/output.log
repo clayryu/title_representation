@@ -1,0 +1,23 @@
+
+0.0002
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 81, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 143, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 312, in get_loss_pred_from_single_batch
+    emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/emb_model.py", line 67, in forward
+    measure_hidden = self.measure_rnn(hidden, measure_numbers)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/clay/userdata/title_generation/module.py", line 21, in forward
+    span_out = span_beat_to_note_num(out, measure_numbers)
+  File "/home/clay/userdata/title_generation/model_utils.py", line 104, in span_beat_to_note_num
+    spanned_beat = torch.bmm(span_mat, beat_out)
+RuntimeError: CUDA out of memory. Tried to allocate 1.99 GiB (GPU 0; 23.69 GiB total capacity; 21.63 GiB already allocated; 166.06 MiB free; 22.47 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

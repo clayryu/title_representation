@@ -1,0 +1,36 @@
+
+0.0002
+  0%|                                                                                                                 | 0/6000 [00:00<?, ?it/s]
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+
+  0%|                                                                                                       | 2/6000 [00:11<8:38:10,  5.18s/it]
+
+  0%|                                                                                                       | 3/6000 [00:14<7:18:58,  4.39s/it]
+
+  0%|                                                                                                       | 4/6000 [00:17<6:41:02,  4.01s/it]
+
+  0%|                                                                                                       | 5/6000 [00:21<6:19:40,  3.80s/it]
+
+  0%|                                                                                                       | 6/6000 [00:24<6:07:36,  3.68s/it]
+
+  0%|                                                                                                       | 7/6000 [00:28<5:59:54,  3.60s/it]
+
+  0%|▏                                                                                                      | 8/6000 [00:31<5:54:30,  3.55s/it]
+  0%|▏                                                                                                      | 9/6000 [00:36<6:43:29,  4.04s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 162, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 81, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 143, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 318, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in get_batch_contrastive_loss
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in <listcomp>
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+KeyboardInterrupt
+0.0002

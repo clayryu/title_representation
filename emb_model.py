@@ -95,10 +95,10 @@ class TTLembModel(nn.Module):
         super().__init__()
         self.layer = nn.Sequential(nn.Linear(in_embedding_size, hidden_size),
                                    nn.ReLU(),
-                                   nn.Dropout(0.5),
+                                   #nn.Dropout(0.5),
                                    nn.Linear(hidden_size, hidden_size//2),
                                    nn.ReLU(),
-                                   nn.Dropout(0.5),
+                                   #nn.Dropout(0.5),
                                    nn.Linear(hidden_size//2, emb_size)
                                     )
         
@@ -135,24 +135,24 @@ class ABC_cnn_emb_Model(nn.Module):
       nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
-      nn.Dropout(0.5),
+      #nn.Dropout(0.5),
       nn.MaxPool1d(2),
       nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
-      nn.Dropout(0.5),
+      #nn.Dropout(0.5),
+      nn.MaxPool1d(2),
+      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
+      nn.BatchNorm1d(self.hidden_size),
+      nn.ReLU(),
+      #nn.Dropout(0.5),
       nn.MaxPool1d(2),
       # nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       # nn.BatchNorm1d(self.hidden_size),
       # nn.ReLU(),
-      # nn.Dropout(0.5),
+      # nn.Dropout(0.6),
       # nn.MaxPool1d(2),
-      # nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
-      # nn.BatchNorm1d(self.hidden_size),
-      # nn.ReLU(),
-      # nn.Dropout(0.5),
-      # nn.MaxPool1d(2),
-      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
+      nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=0),
       nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
       nn.AdaptiveMaxPool1d(1),
@@ -174,7 +174,7 @@ class ABC_cnn_emb_Model(nn.Module):
     else:
       pass
     
-  def forward(self, input_seq):
+  def forward(self, input_seq, measure_numbers):
     if isinstance(input_seq, PackedSequence):
       emb = self._get_embedding(input_seq)
       unpacked_emb, _ = pad_packed_sequence(emb, batch_first=True)
@@ -186,3 +186,35 @@ class ABC_cnn_emb_Model(nn.Module):
       return batch_emb
     else:
       raise NotImplementedError
+    
+class PromptEncoder(torch.nn.Module):
+  def __init__(self, template, hidden_size, tokenizer, device, args):
+    super().__init__()
+    self.device = device
+    self.spell_length = sum(template)
+    self.hidden_size = hidden_size
+    self.tokenizer = tokenizer
+    self.args = args
+    # ent embedding
+    self.cloze_length = template
+    self.cloze_mask = [
+      [1] * self.cloze_length[0] # first cloze
+      + [1] * self.cloze_length[1] # second cloze
+      + [1] * self.cloze_length[2] # third cloze
+    ]
+    self.cloze_mask = torch.LongTensor(self.cloze_mask).bool().to(self.device)
+  
+    self.seq_indices = torch.LongTensor(list(range(len(self.cloze_mask[0])))).to(self.device)
+    # embeding
+    self.embedding = torch.nn.Embedding(len(self.cloze_mask[0]), self.hidden_size).to(self.device)
+    # LSTM
+    self.lstm_head = torch.nn.LSTM(input_size=self.hidden_size,
+                                   hidden_size=self.hidden_size//2,
+                                   num_layers=2,
+                                   dropout=0.5,
+                                   bidirectional=True,
+                                   batch_first=True)
+    self.mlp_head = torch.nn.Sequential(nn.Linear(self.hidden_size, self.hidden_size),
+                                        self.ReLU(),
+                                        nn.Linear(self.hidden_size, self.hidden_size))
+    
