@@ -4,4 +4,8 @@
 
 *.pkl
 
+*.ipynb
+
 /saved_models
+
+/notebooks
