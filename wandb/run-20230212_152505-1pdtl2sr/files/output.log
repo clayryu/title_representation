@@ -1,0 +1,93 @@
+
+0.0004
+  0%|                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+batch_time: 2.8253273963928223
+get_batch_contrastive_loss time: 2.417616367340088
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+0.0004
+
+  0%|                                                                                                                                                                                                                                                | 2/9000 [00:16<18:25:24,  7.37s/it]
+get_batch_contrastive_loss time: 0.9851999282836914
+passed train_by_single_batch
+0.0004
+batch_time: 2.7456588745117188
+
+  0%|                                                                                                                                                                                                                                                | 3/9000 [00:20<14:23:46,  5.76s/it]
+passed train_by_single_batch
+0.0004
+batch_time: 2.7403082847595215
+get_batch_contrastive_loss time: 0.9583449363708496
+passed train_by_single_batch
+
+  0%|                                                                                                                                                                                                                                                | 4/9000 [00:23<12:30:53,  5.01s/it]
+batch_time: 2.7460014820098877
+get_batch_contrastive_loss time: 0.920396089553833
+passed train_by_single_batch
+
+  0%|▏                                                                                                                                                                                                                                               | 5/9000 [00:27<11:26:48,  4.58s/it]
+batch_time: 2.751253843307495
+get_batch_contrastive_loss time: 0.938469409942627
+passed train_by_single_batch
+
+  0%|▏                                                                                                                                                                                                                                               | 6/9000 [00:31<10:50:18,  4.34s/it]
+batch_time: 2.6553330421447754
+get_batch_contrastive_loss time: 0.9388725757598877
+passed train_by_single_batch
+
+  0%|▏                                                                                                                                                                                                                                               | 7/9000 [00:35<10:21:20,  4.15s/it]
+
+  0%|▏                                                                                                                                                                                                                                               | 8/9000 [00:39<10:09:32,  4.07s/it]
+get_batch_contrastive_loss time: 0.9438109397888184
+passed train_by_single_batch
+0.0004
+batch_time: 2.7526252269744873
+
+  0%|▏                                                                                                                                                                                                                                                | 9/9000 [00:43<9:59:56,  4.00s/it]
+passed train_by_single_batch
+0.0004
+batch_time: 2.7429563999176025
+
+  0%|▎                                                                                                                                                                                                                                               | 10/9000 [00:46<9:52:30,  3.95s/it]
+passed train_by_single_batch
+0.0004
+batch_time: 2.708388566970825
+
+  0%|▎                                                                                                                                                                                                                                               | 11/9000 [00:50<9:46:01,  3.91s/it]
+passed train_by_single_batch
+0.0004
+batch_time: 2.7221763134002686
+get_batch_contrastive_loss time: 0.936553955078125
+passed train_by_single_batch
+
+  0%|▎                                                                                                                                                                                                                                               | 12/9000 [00:54<9:42:01,  3.89s/it]
+batch_time: 2.7632713317871094
+get_batch_contrastive_loss time: 0.9587113857269287
+passed train_by_single_batch
+
+  0%|▎                                                                                                                                                                                                                                               | 13/9000 [00:58<9:41:32,  3.88s/it]
+batch_time: 2.7432498931884766
+get_batch_contrastive_loss time: 0.9383842945098877
+passed train_by_single_batch
+
+  0%|▎                                                                                                                                                                                                                                              | 14/9000 [01:03<11:15:12,  4.51s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 169, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 593, in __getitem__
+    main, pitch_class, octave = self.encode_pitch(pitch)
+KeyboardInterrupt

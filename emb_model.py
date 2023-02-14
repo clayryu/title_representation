@@ -91,15 +91,15 @@ class ABC_measnote_emb_Model(nn.Module):
   '''
   
 class TTLembModel(nn.Module): 
-    def __init__(self, in_embedding_size=384, hidden_size=256, emb_size=256):
+    def __init__(self, in_embedding_size=1536, hidden_size=256, emb_size=256): # 384
         super().__init__()
-        self.layer = nn.Sequential(nn.Linear(in_embedding_size, hidden_size),
+        self.layer = nn.Sequential(nn.Linear(in_embedding_size, hidden_size*2),
                                    nn.ReLU(),
-                                   #nn.Dropout(0.5),
-                                   nn.Linear(hidden_size, hidden_size//2),
+                                   nn.Dropout(0.4),
+                                   nn.Linear(hidden_size*2, hidden_size),
                                    nn.ReLU(),
-                                   #nn.Dropout(0.5),
-                                   nn.Linear(hidden_size//2, emb_size)
+                                   nn.Dropout(0.4),
+                                   nn.Linear(hidden_size, emb_size)
                                     )
         
     def forward(self, x):
@@ -135,17 +135,17 @@ class ABC_cnn_emb_Model(nn.Module):
       nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
-      #nn.Dropout(0.5),
+      nn.Dropout(0.4),
       nn.MaxPool1d(2),
       nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
-      #nn.Dropout(0.5),
+      nn.Dropout(0.4),
       nn.MaxPool1d(2),
       nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       nn.BatchNorm1d(self.hidden_size),
       nn.ReLU(),
-      #nn.Dropout(0.5),
+      nn.Dropout(0.4),
       nn.MaxPool1d(2),
       # nn.Conv1d(in_channels=self.hidden_size, out_channels=self.hidden_size, kernel_size=3, stride=1, padding=1),
       # nn.BatchNorm1d(self.hidden_size),

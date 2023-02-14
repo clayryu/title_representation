@@ -1,0 +1,167 @@
+
+  0%|                                                                                                                                                                                                                                                          | 0/9000 [00:00<?, ?it/s]
+0.0004
+batch_time: 2.98055100440979
+abc_model time: 0.731328010559082
+ttl_model time: 0.005460977554321289
+  0%|                                                                                                                                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 2.5476572513580322
+
+
+  0%|                                                                                                                                                                                                                                               | 1/9000 [00:12<32:00:39, 12.81s/it]
+0.0004
+batch_time: 2.8469114303588867
+abc_model time: 0.28872203826904297
+
+  0%|                                                                                                                                                                                                                                               | 2/9000 [00:17<19:56:24,  7.98s/it]
+get_batch_contrastive_loss time: 0.9758884906768799
+0.0004
+batch_time: 2.8499703407287598
+abc_model time: 0.29299020767211914
+
+  0%|                                                                                                                                                                                                                                               | 3/9000 [00:22<16:05:04,  6.44s/it]
+get_batch_contrastive_loss time: 0.9715564250946045
+
+  0%|                                                                                                                                                                                                                                               | 4/9000 [00:26<14:19:23,  5.73s/it]
+batch_time: 2.842273473739624
+abc_model time: 0.34705543518066406
+ttl_model time: 0.005517244338989258
+get_batch_contrastive_loss time: 0.976574182510376
+0.0004
+batch_time: 2.797264814376831
+abc_model time: 0.28800272941589355
+ttl_model time: 0.005524873733520508
+get_batch_contrastive_loss time: 0.9979357719421387
+
+  0%|▏                                                                                                                                                                                                                                              | 5/9000 [00:31<13:31:03,  5.41s/it]
+batch_time: 2.8121771812438965
+abc_model time: 0.4580953121185303
+ttl_model time: 0.005463361740112305
+get_batch_contrastive_loss time: 0.977672815322876
+
+  0%|▏                                                                                                                                                                                                                                              | 6/9000 [00:36<12:56:35,  5.18s/it]
+batch_time: 2.843343734741211
+abc_model time: 0.310513973236084
+ttl_model time: 0.0055081844329833984
+
+  0%|▏                                                                                                                                                                                                                                              | 7/9000 [00:41<12:41:44,  5.08s/it]
+0.0004
+batch_time: 2.9598581790924072
+abc_model time: 0.4065995216369629
+
+  0%|▏                                                                                                                                                                                                                                              | 8/9000 [00:45<12:30:41,  5.01s/it]
+get_batch_contrastive_loss time: 0.9941954612731934
+0.0004
+batch_time: 2.8779971599578857
+abc_model time: 0.28897762298583984
+ttl_model time: 0.005486011505126953
+get_batch_contrastive_loss time: 0.9796431064605713
+
+
+  0%|▎                                                                                                                                                                                                                                             | 10/9000 [00:55<12:04:26,  4.83s/it]
+batch_time: 2.913435220718384
+abc_model time: 0.32996034622192383
+ttl_model time: 0.005655765533447266
+get_batch_contrastive_loss time: 0.9795682430267334
+0.0004
+batch_time: 2.9369704723358154
+abc_model time: 0.28867530822753906
+
+  0%|▎                                                                                                                                                                                                                                             | 11/9000 [00:59<11:57:29,  4.79s/it]
+get_batch_contrastive_loss time: 0.9731466770172119
+0.0004
+batch_time: 2.852010488510132
+abc_model time: 0.3035926818847656
+
+  0%|▎                                                                                                                                                                                                                                             | 12/9000 [01:04<11:49:44,  4.74s/it]
+get_batch_contrastive_loss time: 0.9798192977905273
+0.0004
+
+  0%|▎                                                                                                                                                                                                                                             | 13/9000 [01:09<11:41:00,  4.68s/it]
+abc_model time: 0.29105663299560547
+ttl_model time: 0.0054929256439208984
+get_batch_contrastive_loss time: 0.9704902172088623
+0.0004
+batch_time: 2.8844363689422607
+abc_model time: 0.28818511962890625
+ttl_model time: 0.005558967590332031
+get_batch_contrastive_loss time: 1.2719645500183105
+
+  0%|▎                                                                                                                                                                                                                                             | 14/9000 [01:14<11:52:15,  4.76s/it]
+batch_time: 2.9935853481292725
+abc_model time: 0.32695865631103516
+
+  0%|▍                                                                                                                                                                                                                                             | 15/9000 [01:18<11:53:01,  4.76s/it]
+get_batch_contrastive_loss time: 0.9672133922576904
+
+  0%|▍                                                                                                                                                                                                                                             | 16/9000 [01:23<11:43:30,  4.70s/it]
+batch_time: 2.8076412677764893
+abc_model time: 0.2891080379486084
+ttl_model time: 0.005605220794677734
+get_batch_contrastive_loss time: 0.96895432472229
+0.0004
+batch_time: 2.8281893730163574
+abc_model time: 0.28817272186279297
+
+  0%|▍                                                                                                                                                                                                                                             | 17/9000 [01:28<11:41:20,  4.68s/it]
+get_batch_contrastive_loss time: 0.9680001735687256
+0.0004
+batch_time: 2.7861053943634033
+abc_model time: 0.3090956211090088
+
+  0%|▍                                                                                                                                                                                                                                             | 18/9000 [01:32<11:36:08,  4.65s/it]
+get_batch_contrastive_loss time: 0.9888646602630615
+0.0004
+batch_time: 2.8064334392547607
+abc_model time: 0.28907227516174316
+
+  0%|▌                                                                                                                                                                                                                                             | 19/9000 [01:37<11:31:41,  4.62s/it]
+get_batch_contrastive_loss time: 0.9703986644744873
+0.0004
+batch_time: 2.7803266048431396
+abc_model time: 0.31847238540649414
+ttl_model time: 0.005600452423095703
+get_batch_contrastive_loss time: 0.9718503952026367
+
+  0%|▌                                                                                                                                                                                                                                             | 20/9000 [01:41<11:29:51,  4.61s/it]
+batch_time: 2.829103469848633
+abc_model time: 0.29747605323791504
+ttl_model time: 0.00545954704284668
+get_batch_contrastive_loss time: 0.9808487892150879
+
+  0%|▌                                                                                                                                                                                                                                             | 21/9000 [01:46<11:29:07,  4.60s/it]
+batch_time: 2.8151493072509766
+abc_model time: 0.3023841381072998
+
+  0%|▌                                                                                                                                                                                                                                             | 22/9000 [01:51<11:41:02,  4.69s/it]
+get_batch_contrastive_loss time: 0.9761199951171875
+
+  0%|▌                                                                                                                                                                                                                                             | 23/9000 [01:56<11:50:35,  4.75s/it]
+batch_time: 2.8275089263916016
+abc_model time: 0.6057133674621582
+ttl_model time: 0.010060787200927734
+get_batch_contrastive_loss time: 0.9746251106262207
+0.0004
+batch_time: 2.8162522315979004
+abc_model time: 0.28813648223876953
+ttl_model time: 0.005539655685424805
+get_batch_contrastive_loss time: 1.0021471977233887
+
+  0%|▋                                                                                                                                                                                                                                             | 24/9000 [02:00<11:43:44,  4.70s/it]
+batch_time: 2.8064727783203125
+abc_model time: 0.29942846298217773
+  0%|▋                                                                                                                                                                                                                                             | 24/9000 [02:04<12:58:07,  5.20s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 90, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 153, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 338, in get_loss_pred_from_single_batch
+    loss = self.loss_fn(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 13, in __call__
+    return self.get_batch_contrastive_loss(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 31, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

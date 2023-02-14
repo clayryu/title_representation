@@ -1,0 +1,14 @@
+
+0.0004
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+abc_model time: 0.9550495147705078
+  0%|                                                                                                                 | 0/9000 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 89, in train_by_num_epoch
+    #   reg_ttl_loss += 0.0002 * torch.norm(param)**2
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 152, in _train_by_single_batch
+    # start_time = time.time()
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 340, in get_loss_pred_from_single_batch
+NameError: name 'ContrastiveLoss' is not defined

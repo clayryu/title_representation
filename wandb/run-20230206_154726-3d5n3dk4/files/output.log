@@ -1,0 +1,18 @@
+
+0.0004
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+batch_time: 3.084510564804077
+abc_model time: 1.0501909255981445
+ttl_model time: 0.005421161651611328
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+time for non_diag_index 1.4861347675323486
+get_batch_contrastive_loss time: 2.46966290473938
+An arbitrary loader is used instead of Validation loader
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 129, in train_by_num_epoch
+    train_loss, train_acc = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 473, in validate
+    if self.loss_fn == get_batch_contrastive_loss or self.loss_fn == CosineEmbeddingLoss or self.loss_fn == clip_crossentropy_loss:
+NameError: name 'get_batch_contrastive_loss' is not defined

@@ -115,10 +115,9 @@ def pack_collate_title_sampling_train(raw_batch:list, sample_num=30):
   melody = []
   title = []
   measure_numbers = []
-  
   if sample_num is not None:
     for mel_pair in raw_batch:
-      if len(mel_pair[0]) < sample_num: # shorter than the sample_num then pad
+      if len(mel_pair[0]) <= sample_num: # shorter than the sample_num then pad
         pad_size = sample_num - mel_pair[0].size()[0]
         RU_num = math.ceil(pad_size/2)
         RD_num = math.floor(pad_size/2)
@@ -128,8 +127,8 @@ def pack_collate_title_sampling_train(raw_batch:list, sample_num=30):
         title.append(mel_pair[1])
         measure_numbers.append(mel_pair[2])
       else: # longer than the sample_num then sample
-        #sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
-        sampled_num = 0
+        sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+        #sampled_num = 0
         melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
         title.append(mel_pair[1])
         measure_numbers.append(mel_pair[2])
@@ -141,10 +140,9 @@ def pack_collate_title_sampling_train(raw_batch:list, sample_num=30):
   
   packed_melody = pack_sequence(melody, enforce_sorted=False)
   #packed_shifted_melody = pack_sequence(shifted_melody, enforce_sorted=False)
-  
   if len(raw_batch[0]) == 2:
     return packed_melody, torch.stack(title, dim=0)
-  elif len(raw_batch[0]) == 3:
+  elif len(raw_batch[0]) == 4: # melody, ttlemb, measure_numbers, textttl
     packed_measure_numbers = pack_sequence(measure_numbers, enforce_sorted=False)
     return packed_melody, torch.stack(title, dim=0), packed_measure_numbers
   else:
@@ -159,7 +157,7 @@ def pack_collate_title_sampling_valid(raw_batch:list, sample_num=30):
   
   if sample_num is not None:
     for mel_pair in raw_batch:
-      if len(mel_pair[0]) < sample_num:
+      if len(mel_pair[0]) <= sample_num:
         pad_size = sample_num - mel_pair[0].size()[0]
         RU_num = math.ceil(pad_size/2)
         RD_num = math.floor(pad_size/2)
@@ -170,8 +168,8 @@ def pack_collate_title_sampling_valid(raw_batch:list, sample_num=30):
         measure_numbers.append(mel_pair[2])
       else:
         # sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
-        # sampled_num = torch.randint(0,len(mel_pair[0])-sample_num, (1,)).item()
-        sampled_num = 0
+        sampled_num = torch.randint(0,len(mel_pair[0])-sample_num, (1,)).item()
+        #sampled_num = 0
         melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
         title.append(mel_pair[1])
         measure_numbers.append(mel_pair[2])
@@ -186,9 +184,53 @@ def pack_collate_title_sampling_valid(raw_batch:list, sample_num=30):
   
   if len(raw_batch[0]) == 2:
     return packed_melody, torch.stack(title, dim=0)
-  elif len(raw_batch[0]) == 3:
+  elif len(raw_batch[0]) == 4: # melody, ttlemb, measure_numbers, textttl
     packed_measure_numbers = pack_sequence(measure_numbers, enforce_sorted=False)
     return packed_melody, torch.stack(title, dim=0), packed_measure_numbers
   else:
     raise ValueError("Unknown raw_batch format")
+
+def pack_collate_title_sampling_textttl(raw_batch:list, sample_num=30):
+  #random.seed(42)
+  torch.manual_seed(42)
+  melody = []
+  title = []
+  measure_numbers = []
+  textttl = []
   
+  if sample_num is not None:
+    for mel_pair in raw_batch:
+      if len(mel_pair[0]) <= sample_num:
+        pad_size = sample_num - mel_pair[0].size()[0]
+        RU_num = math.ceil(pad_size/2)
+        RD_num = math.floor(pad_size/2)
+
+        padded_mel = ConstantPad1d((RD_num, RU_num), 0)(mel_pair[0].T)
+        melody.append(padded_mel.T)
+        title.append(mel_pair[1])
+        measure_numbers.append(mel_pair[2])
+        textttl.append(mel_pair[3])
+      else:
+        # sampled_num = random.randint(0,len(mel_pair[0])-sample_num)
+        sampled_num = torch.randint(0,len(mel_pair[0])-sample_num, (1,)).item()
+        #sampled_num = 0
+        melody.append(mel_pair[0][sampled_num:sampled_num+sample_num])
+        title.append(mel_pair[1])
+        measure_numbers.append(mel_pair[2])
+        textttl.append(mel_pair[3])
+  else:
+    melody = [mel_pair[0] for mel_pair in raw_batch]
+    title = [pair[1] for pair in raw_batch] #pair[1] 
+    if len(raw_batch[0]) == 3:
+      measure_numbers = [mel_pair[2] for mel_pair in raw_batch]
+  
+  packed_melody = pack_sequence(melody, enforce_sorted=False)
+  #packed_shifted_melody = pack_sequence(shifted_melody, enforce_sorted=False)
+  
+  if len(raw_batch[0]) == 2:
+    return packed_melody, torch.stack(title, dim=0)
+  elif len(raw_batch[0]) == 4:
+    packed_measure_numbers = pack_sequence(measure_numbers, enforce_sorted=False)
+    return packed_melody, torch.stack(title, dim=0), packed_measure_numbers, textttl
+  else:
+    raise ValueError("Unknown raw_batch format")

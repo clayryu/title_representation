@@ -1,0 +1,64 @@
+
+0.0004
+  0%|                                                                                                                                                                                                                                                          | 0/9000 [00:00<?, ?it/s]
+batch_time: 3.3951361179351807
+  0%|                                                                                                                                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 2.479145050048828
+passed train_by_single_batch
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                               | 1/9000 [00:15<39:18:17, 15.72s/it]
+
+  0%|                                                                                                                                                                                                                                               | 2/9000 [00:20<23:34:49,  9.43s/it]
+get_batch_contrastive_loss time: 1.1338002681732178
+passed train_by_single_batch
+0.0004
+batch_time: 3.396099328994751
+get_batch_contrastive_loss time: 1.1434569358825684
+passed train_by_single_batch
+
+  0%|                                                                                                                                                                                                                                               | 3/9000 [00:25<18:23:06,  7.36s/it]
+
+  0%|                                                                                                                                                                                                                                               | 4/9000 [00:30<15:57:52,  6.39s/it]
+get_batch_contrastive_loss time: 1.1370248794555664
+passed train_by_single_batch
+0.0004
+
+  0%|▏                                                                                                                                                                                                                                              | 5/9000 [00:35<14:39:41,  5.87s/it]
+get_batch_contrastive_loss time: 1.135995864868164
+passed train_by_single_batch
+0.0004
+batch_time: 3.5650124549865723
+get_batch_contrastive_loss time: 1.1390509605407715
+passed train_by_single_batch
+
+  0%|▏                                                                                                                                                                                                                                              | 6/9000 [00:40<13:57:28,  5.59s/it]
+batch_time: 3.5135812759399414
+get_batch_contrastive_loss time: 1.1287658214569092
+passed train_by_single_batch
+
+  0%|▏                                                                                                                                                                                                                                              | 7/9000 [00:45<13:28:01,  5.39s/it]
+batch_time: 3.526965379714966
+get_batch_contrastive_loss time: 1.144592523574829
+  0%|▏                                                                                                                                                                                                                                              | 7/9000 [00:50<18:00:55,  7.21s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1348, in _next_data
+    self._shutdown_workers()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1474, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/usr/lib/python3.8/multiprocessing/popen_fork.py", line 44, in wait
+    if not wait([self.sentinel], timeout):
+  File "/usr/lib/python3.8/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/usr/lib/python3.8/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt

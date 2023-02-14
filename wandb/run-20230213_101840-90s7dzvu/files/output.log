@@ -1,0 +1,50 @@
+
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+0.0004
+pack_collate_title_sampling_train time:  0.036032915115356445
+batch_time: 2.873995304107666
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 2.3644537925720215
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                      | 1/9000 [00:12<31:14:08, 12.50s/it]
+0.0004
+pack_collate_title_sampling_train time:  0.028898239135742188
+batch_time: 2.7875404357910156
+
+  0%|                                                                                                      | 2/9000 [00:16<18:39:02,  7.46s/it]
+passed train_by_single_batch
+0.0004
+pack_collate_title_sampling_train time:  0.030078411102294922
+batch_time: 2.7512781620025635
+get_batch_contrastive_loss time: 0.9831488132476807
+passed train_by_single_batch
+
+  0%|                                                                                                      | 3/9000 [00:20<14:36:11,  5.84s/it]
+pack_collate_title_sampling_train time:  0.02877211570739746
+batch_time: 3.083359718322754
+get_batch_contrastive_loss time: 0.9216690063476562
+passed train_by_single_batch
+  0%|                                                                                                      | 4/9000 [00:26<16:15:21,  6.51s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 175, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 597, in __getitem__
+    token_2 = self.encode_m_offset(token[2], new_header)
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 635, in encode_m_offset
+    unit = header['unit note length']
+KeyboardInterrupt

@@ -1,0 +1,91 @@
+
+  0%|                                                                                                                                                                                                                                                          | 0/9000 [00:00<?, ?it/s]
+0.0004
+batch_time: 7.802514553070068
+abc_model time: 0.7147305011749268
+ttl_model time: 0.005364656448364258
+time for non_diag_index 2.2862308025360107
+get_batch_contrastive_loss time: 3.26469349861145
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+time for non_diag_index 4.76837158203125e-06
+
+time for non_diag_index 0.040834903717041016
+
+  0%|                                                                                                                                                                                                                                               | 1/9000 [00:23<59:24:46, 23.77s/it]
+batch_time: 7.7581400871276855
+abc_model time: 0.3014395236968994
+ttl_model time: 0.005501747131347656
+time for non_diag_index 6.198883056640625e-06
+get_batch_contrastive_loss time: 0.9795622825622559
+
+  0%|                                                                                                                                                                                                                                               | 2/9000 [00:33<38:29:03, 15.40s/it]
+batch_time: 7.660387992858887
+abc_model time: 0.29356980323791504
+ttl_model time: 0.005528688430786133
+time for non_diag_index 6.198883056640625e-06
+get_batch_contrastive_loss time: 0.9785983562469482
+
+  0%|                                                                                                                                                                                                                                               | 3/9000 [00:42<31:39:37, 12.67s/it]
+batch_time: 7.6870574951171875
+abc_model time: 0.28937244415283203
+ttl_model time: 0.0053822994232177734
+time for non_diag_index 6.198883056640625e-06
+get_batch_contrastive_loss time: 0.9792478084564209
+
+  0%|                                                                                                                                                                                                                                               | 4/9000 [00:52<28:28:33, 11.40s/it]
+batch_time: 7.66544246673584
+
+  0%|▏                                                                                                                                                                                                                                              | 5/9000 [01:01<26:45:25, 10.71s/it]
+ttl_model time: 0.005549907684326172
+time for non_diag_index 7.152557373046875e-06
+get_batch_contrastive_loss time: 0.9755525588989258
+0.0004
+batch_time: 7.7822651863098145
+abc_model time: 0.5580289363861084
+ttl_model time: 0.0055501461029052734
+time for non_diag_index 6.198883056640625e-06
+get_batch_contrastive_loss time: 0.9800074100494385
+
+  0%|▏                                                                                                                                                                                                                                              | 6/9000 [01:11<25:59:21, 10.40s/it]
+batch_time: 7.846735954284668
+abc_model time: 0.6418085098266602
+ttl_model time: 0.010048627853393555
+time for non_diag_index 5.4836273193359375e-06
+get_batch_contrastive_loss time: 0.9782254695892334
+
+  0%|▏                                                                                                                                                                                                                                              | 7/9000 [01:21<25:37:30, 10.26s/it]
+batch_time: 7.608694791793823
+abc_model time: 0.3134732246398926
+ttl_model time: 0.005506992340087891
+  0%|▏                                                                                                                                                                                                                                              | 7/9000 [01:30<32:15:22, 12.91s/it]
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+  File "/home/clay/userdata/title_generation/emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 90, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 153, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 343, in get_loss_pred_from_single_batch
+    loss = self.loss_fn(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 13, in __call__
+    return self.get_batch_contrastive_loss(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 34, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

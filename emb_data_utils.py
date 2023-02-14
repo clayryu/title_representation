@@ -5,12 +5,19 @@ import yaml
 from omegaconf import OmegaConf
 from pyabc import pyabc
 from str_utils import split_note
+import pandas as pd
+import numpy as np
+import json
+import time
+import pickle
+import copy
 
 import torch
 from torch.nn.utils.rnn import pack_sequence
 from sentence_transformers import SentenceTransformer
 
 from vocab_utils import TokenVocab, MusicTokenVocab
+from str_utils import split_note
 import vocab_utils
 
 
@@ -167,9 +174,11 @@ def update_config(config, args):
   return config
 
 class ABCset:
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='dict', tune_length=None):
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='dict', args=None):
+    self.args = args
     if isinstance(dir_path, str) or isinstance(dir_path, Path):
-      self.tune_length = tune_length
+      self.tune_length = args.dataset_tune_length
+      self.pretrnd_ttl_emb_type = args.pretrnd_ttl_emb_type
       self.dir = Path(dir_path)
       self.abc_list = list(self.dir.rglob('*.abc')) + list(self.dir.rglob('*.ABC'))
       self.abc_list.sort()
@@ -266,8 +275,8 @@ def pack_collate(raw_batch:list):
 
 
 class PitchDurSplitSet(ABCset):
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab', tune_length=None):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab', args=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, args)
 
   def _get_vocab(self, vocab_path, vocab_name):
     entire_char_list = [splitted for tune in self.data for token in tune for splitted in split_note(token)]
@@ -289,8 +298,8 @@ class PitchDurSplitSet(ABCset):
 
 
 class MeasureOffsetSet(PitchDurSplitSet):
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab', tune_length=None):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='TokenVocab', args=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, args)
 
   def _check_tune_validity(self, tune):
     if len(tune.measures) == 0 or tune.measures[-1].number == 0:
@@ -358,8 +367,8 @@ class MeasureOffsetSet(PitchDurSplitSet):
     return tune_tensor[:-1], tune_tensor[1:]
 
 class MeasureNumberSet(MeasureOffsetSet):
-  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', tune_length=None):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
+  def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', args=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, args)
     # self.vocab = getattr(vocab_utils, vocab_name)('cleaned_vocab_1005.json')
     # self.filter_tune_by_vocab_exists()
 
@@ -462,9 +471,11 @@ class MeasureNumberSet(MeasureOffsetSet):
     testset.vocab = self.vocab
     return testset
 
-class ABCsetTitle(MeasureNumberSet):
-  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', tune_length=None):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
+# using tune length to filter tune length inside the dataset not in pack collate
+# only work with dataset which have one tune in each title
+class ABCsetTitle_tunelength(MeasureNumberSet):
+  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', args=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, args)
     #self._get_title_emb()
   
   def _prepare_data(self):
@@ -521,23 +532,37 @@ class ABCsetTitle(MeasureNumberSet):
     title_tensor = torch.FloatTensor(title)
 
     return tune_tensor[:-1], title_tensor, torch.tensor(measure_numbers, dtype=torch.long)
-  
-class ABCsetTitle_22K(MeasureNumberSet):
-  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', tune_length=None):
-    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, tune_length)
+
+# using variation abc of tune. not constrain the length of tune, let it processed in pack collate
+# work with every dataset
+class ABCsetTitle_vartune(MeasureNumberSet):
+  def _init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab', args=None):
+    super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name, args)
     #self._get_title_emb()
   
   def _prepare_data(self):
     self.data = defaultdict(list)
     self.header = defaultdict(list)
+    title_to_del = ['untitled']
+    if self.args.ambiguous_title is not None:
+      with open(self.args.ambiguous_title, "rb") as f:
+        title_to_del = pickle.load(f)
+        title_to_del = title_to_del[:self.args.ambiguous_title_delnum]
+    if self.args.language_detect is not None:
+      with open(self.args.language_detect, "rb") as f:
+        title_to_del += pickle.load(f)
+
     for tune in self.tune_list:
-      self.data[tune.header["tune title"]].append(self._tune_to_list_of_str(tune))
-      self.header[tune.header["tune title"]].append(tune.header)
-    #del self.data['x']
-    #del self.header['x']
+      if tune.header["tune title"] not in title_to_del:
+        self.data[tune.header["tune title"]].append(self._tune_to_list_of_str(tune))
+        self.header[tune.header["tune title"]].append(tune.header)
     self.idx2ttl = list(self.data.keys())
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    self.ttl2emb = model.encode(self.idx2ttl, device='cuda')
+    
+    df_embedding = pd.read_csv('unique_titles_with_embedding_langdetct.csv')
+    df_embedding[self.pretrnd_ttl_emb_type] = df_embedding[self.pretrnd_ttl_emb_type].apply(lambda x: np.array(eval(x)))
+    self.dict_embedding = df_embedding.set_index('Title')[self.pretrnd_ttl_emb_type].to_dict()
+    #model = SentenceTransformer('all-MiniLM-L6-v2')
+    #self.ttl2emb = model.encode(self.idx2ttl, device='cuda')
   
   def __len__(self):
     return len(self.data)
@@ -545,34 +570,120 @@ class ABCsetTitle_22K(MeasureNumberSet):
   def __getitem__(self, idx):
     picked_ttl = self.idx2ttl[idx]
     sampled_idx = random.randint(0, len(self.data[picked_ttl])-1)
-
+    # example of x : ['<start>', 'm_idx:0', 'm_offset:0.0', 0] so x[:-1] = ['<start>', 'm_idx:0', 'm_offset:0.0']
     tune = [x[:-1] for x in self.data[picked_ttl][sampled_idx]]  + [['<end>', '<end>', '<end>']] # ['<start>', 'm_idx:0', 'm_offset:0.0', 8]
     header = self.header[picked_ttl][sampled_idx]
 
-    '''
-    <start> A A B B | C
-            0 1 2 3 4 0 
-            0 0 0 0 0 1
-    '''
     measure_numbers = [x[-1] for x in self.data[picked_ttl][sampled_idx]]
 
-    tune, new_key = self.augmentor(tune, header)
-    new_header = header.copy()
-    new_header['key'] = new_key
+    # if not using augmentation code out for lower calculation cost
+    # tune, new_key = self.augmentor(tune, header)
+    # new_header = header.copy()
+    # new_header['key'] = new_key
+    new_header = header
 
-    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+    #tune_in_idx = [self.vocab(token, new_header) for token in tune]
+    tune_in_idx = [self.vocab(token[0]) + self.vocab.encode_m_idx(token[1]) + self.vocab.encode_m_offset(token[2], new_header) for token in tune]
+    # tune_in_idx = []
+    # for token in tune:
+    #   if token[0] in self.vocab_tok2idx['main']:
+    #     token_0 = [self.vocab_tok2idx['main'][token[0]], 0, 0, 0]
+    #   elif '//' in token[0]:
+    #     pitch, dur = split_note(token[0])
+    #     main, pitch_class, octave = self.encode_pitch(pitch)
+    #     dur = self.vocab_tok2idx['dur'][dur]
+    #     token_0 = [main, dur, pitch_class, octave]
+    #   token_1 = self.encode_m_idx(token[1])
+    #   token_2 = self.encode_m_offset(token[2], new_header)
+    #   tune_in_idx.append(token_0 + token_1 + token_2)
 
     tune_tensor = torch.LongTensor(tune_in_idx)
     header_tensor = torch.LongTensor(self.vocab.encode_header(new_header))
     tune_tensor = torch.cat([tune_tensor, header_tensor.repeat(len(tune_tensor), 1)], dim=-1)
-    # if sum([a>=b for a, b in zip(torch.max(tune_tensor, dim=0).values.tolist(), [x for x in self.vocab.get_size().values()])]) != 0:
-    #   print (tune_tensor)
-    
-    title = self.ttl2emb[idx]
-    title_tensor = torch.FloatTensor(title)
 
-    return tune_tensor[:-1], title_tensor, torch.tensor(measure_numbers, dtype=torch.long)
+    #title = self.ttl2emb[idx]
+    title = self.dict_embedding[picked_ttl]
+    title_tensor = torch.FloatTensor(title)
+    return tune_tensor[:-1], title_tensor, torch.tensor(measure_numbers, dtype=torch.long), picked_ttl
+
+  def encode_pitch(self, pitch:str):
+    assert 'pitch' in pitch
+    pitch_idx = self.vocab_tok2idx['main'][pitch]
+    value = int(pitch.replace('pitch',''))
+
+    if value == 0:
+      return [pitch_idx, 0, 0]
+    else:
+      pitch_class = value % 12
+      octave = value // 12
+      return [pitch_idx, self.vocab_tok2idx['pitch_class'][pitch_class], self.vocab_tok2idx['octave'][octave]]
   
+  def encode_m_idx(self, m_idx):
+    if 'm_idx:' in m_idx:
+      value = m_idx.split(':')[1]
+      if value == "None":
+        return [self.vocab_tok2idx['m_idx'][m_idx], 0]
+      value = int(m_idx.split(':')[1])   
+      mod_4 = value % 4
+      return [self.vocab_tok2idx['m_idx'][m_idx], self.vocab_tok2idx['m_idx_mod4'][mod_4]]
+    else: # <pad>, <start>, <end>
+      return [self.vocab_tok2idx['m_idx'][m_idx], self.vocab_tok2idx['m_idx_mod4'][m_idx]]
+  
+  def encode_m_offset(self, m_offset, header):
+    if 'm_offset:' in m_offset:
+      meter = header['meter']
+      unit = header['unit note length']
+      unit = int(unit.split('/')[1].strip())
+      numer, denom, is_compound, is_triple = self.parse_meter(meter)
+      numer = int(numer)
+      denom = int(denom)
+
+      unit_beat = unit / denom
+      
+      value = m_offset.split(':')[1]
+      if value == "None":
+        idx = self.vocab_tok2idx['m_offset'][m_offset]
+        return [idx, 0, 0]
+      value = float(value)
+      middle_beat = []
+      if numer == 4:
+        on_beat_offset = [0, 1, 2, 3]
+        middle_beat = [2]
+      elif numer == 2:
+        on_beat_offset = [0, 1]
+      elif numer == 3:
+        on_beat_offset = [0, 1, 2]
+      elif numer == 6:
+        on_beat_offset = [0, 3]
+      elif numer == 9:
+        on_beat_offset = [0, 3, 6]
+      elif numer == 12:
+        on_beat_offset = [0, 3, 6, 9]
+        middle_beat = [6]
+      else:
+        on_beat_offset = [0]
+
+      on_beat_offset = [x * unit_beat for x in on_beat_offset]
+      middle_beat = [x * unit_beat for x in middle_beat]
+
+      is_onbeat = value in on_beat_offset
+      is_middle_beat = value in middle_beat
+
+      return [self.vocab_tok2idx['m_offset'][m_offset], 
+              self.vocab_tok2idx['is_onbeat'][is_onbeat], 
+              self.vocab_tok2idx['is_middle_beat'][is_middle_beat]]
+
+    else:
+      value = self.vocab_tok2idx['m_offset'][m_offset]
+      return [value, 0, 0]
+
+  def parse_meter(self, meter):
+    # example: meter = 4/4
+    numer, denom = meter.split('/')
+    is_compound = int(numer) in [6, 9, 12]
+    is_triple = int(numer) in [3, 9]
+    return numer, denom, is_compound, is_triple
+
 class MeasureEndSet(MeasureNumberSet):
   def __init__(self, dir_path, vocab_path=None, num_limit=None, make_vocab=True, key_aug=None, vocab_name='MusicTokenVocab'):
     super().__init__(dir_path, vocab_path, num_limit, make_vocab, key_aug, vocab_name)

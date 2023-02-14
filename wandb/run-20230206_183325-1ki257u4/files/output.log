@@ -1,0 +1,66 @@
+
+0.0004
+  0%|                                                                                                                                                                                                                                                          | 0/9000 [00:00<?, ?it/s]
+batch_time: 7.545373916625977
+abc_model time: 0.7416689395904541
+ttl_model time: 0.005471229553222656
+get_batch_contrastive_loss time: 3.2673096656799316
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                             | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                                                                                                                                                                                               | 1/9000 [00:23<58:10:58, 23.28s/it]
+batch_time: 7.472074270248413
+abc_model time: 0.31932806968688965
+ttl_model time: 0.0055446624755859375
+get_batch_contrastive_loss time: 0.9862701892852783
+
+  0%|                                                                                                                                                                                                                                               | 2/9000 [00:32<37:35:30, 15.04s/it]
+batch_time: 7.502730131149292
+abc_model time: 0.2883188724517822
+ttl_model time: 0.00551295280456543
+get_batch_contrastive_loss time: 0.983386754989624
+
+  0%|                                                                                                                                                                                                                                               | 3/9000 [00:48<40:46:42, 16.32s/it]
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+  File "/home/clay/userdata/title_generation/emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 574, in __getitem__
+    tune_in_idx = [self.vocab(token[0]) + self.vocab.encode_m_idx(token[1]) + self.vocab.encode_m_offset(token[2], new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 574, in <listcomp>
+    tune_in_idx = [self.vocab(token[0]) + self.vocab.encode_m_idx(token[1]) + self.vocab.encode_m_offset(token[2], new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 362, in __call__
+    main, pitch_class, octave = self.encode_pitch(pitch)
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 323, in encode_pitch
+    def encode_pitch(self, pitch:str) -> List[int]:
+  File "/home/clay/.vscode-server/extensions/ms-python.python-2023.2.0/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_trace_dispatch_regular.py", line 356, in __call__
+    additional_info.is_tracing += 1
+KeyboardInterrupt

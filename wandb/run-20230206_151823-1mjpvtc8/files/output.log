@@ -1,0 +1,47 @@
+
+0.0004
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+abc_model time: 0.7267131805419922
+ttl_model time: 0.005421161651611328
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 2.6855742931365967
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                      | 1/9000 [00:15<37:43:05, 15.09s/it]
+abc_model time: 0.5905275344848633
+
+  0%|                                                                                                      | 2/9000 [00:22<25:50:08, 10.34s/it]
+get_batch_contrastive_loss time: 2.64044189453125
+0.0004
+abc_model time: 0.4570128917694092
+
+  0%|                                                                                                      | 3/9000 [00:28<21:44:15,  8.70s/it]
+get_batch_contrastive_loss time: 2.6399552822113037
+0.0004
+abc_model time: 0.3200826644897461
+ttl_model time: 0.012361764907836914
+
+  0%|                                                                                                      | 4/9000 [00:35<19:34:26,  7.83s/it]
+0.0004
+abc_model time: 0.3114607334136963
+ttl_model time: 0.005500078201293945
+
+  0%|                                                                                                      | 5/9000 [00:41<18:11:25,  7.28s/it]
+0.0004
+abc_model time: 0.3148825168609619
+  0%|                                                                                                      | 5/9000 [00:46<23:13:42,  9.30s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 88, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 151, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 340, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in get_batch_contrastive_loss
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in <listcomp>
+    non_diag_index = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(len(cos_sim_value)) for y in range(len(cos_sim_value)) if x!=y]
+KeyboardInterrupt

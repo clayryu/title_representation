@@ -1,0 +1,17 @@
+
+0.0004
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+abc_model time: 0.7383344173431396
+  0%|                                                                                                                 | 0/9000 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 88, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 151, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 340, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 14, in get_batch_contrastive_loss
+    cos_sim_value = dot_product_value / emb1_norm.unsqueeze(1) / emb2_norm.unsqueeze(0)
+NameError: name 'time' is not defined

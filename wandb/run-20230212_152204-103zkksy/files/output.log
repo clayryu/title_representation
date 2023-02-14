@@ -1,0 +1,15 @@
+
+0.0004
+  0%|                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+batch_time: 2.7748610973358154
+  0%|                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 2.413536548614502
+passed train_by_single_batch
+
+  0%|                                                                                                                                                                                                                                                           | 0/9000 [00:12<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 169, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 140, in train_by_num_epoch
+    self.best_valid_loss = min(validation_dict_valid['loss'].item(), self.best_valid_loss)
+AttributeError: 'float' object has no attribute 'item'

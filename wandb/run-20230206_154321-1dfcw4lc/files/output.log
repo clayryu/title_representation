@@ -1,0 +1,15 @@
+
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+0.0004
+abc_model time: 0.7269513607025146
+  0%|                                                                                                                 | 0/9000 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 88, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 151, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 338, in get_loss_pred_from_single_batch
+    elif self.loss_fn == get_batch_contrastive_loss:
+NameError: name 'get_batch_contrastive_loss' is not defined

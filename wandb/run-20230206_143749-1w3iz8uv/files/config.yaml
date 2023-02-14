@@ -1,0 +1,134 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.21
+    framework: huggingface
+    huggingface_version: 4.21.2
+    is_jupyter_run: false
+    is_kaggle_kernel: true
+    python_version: 3.8.10
+    start_time: 1675661869
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 53
+      - 55
+      - 75
+      2:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 53
+      - 55
+      - 75
+      3:
+      - 1
+      - 16
+      4: 3.8.10
+      5: 0.12.21
+      6: 4.21.2
+      8:
+      - 2
+      - 5
+abc_hidden_size:
+  desc: null
+  value: 144
+abc_model_name:
+  desc: null
+  value: measurenote
+aug_type:
+  desc: null
+  value: stat
+batch_size:
+  desc: null
+  value: 7000
+data_params:
+  desc: null
+  value: '{''key_aug'': None}'
+dataset_tune_length:
+  desc: null
+  value: 100
+device:
+  desc: null
+  value: cuda
+grad_clip:
+  desc: null
+  value: 1.0
+loss_margin:
+  desc: null
+  value: 0.3
+lr:
+  desc: null
+  value: 0.0004
+lr_scheduler_type:
+  desc: null
+  value: Plateau
+model_type:
+  desc: null
+  value: cnn_reducedemb
+nn_params:
+  desc: null
+  value: '{''vocab_name'': ''NoteMusicTokenVocab'', ''note_embedder_name'': ''MultiEmbedding'',
+    ''model_name'': ''MeasureNoteModel'', ''emb'': {''emb_size'': 512, ''main'': 384,
+    ''pitch_class'': 64, ''octave'': 64, ''dur'': 384, ''m_idx'': 256, ''m_idx_mod4'':
+    128, ''m_offset'': 256, ''is_onbeat'': 64, ''is_middle_beat'': 64, ''key'': 128,
+    ''meter'': 128, ''unit_length'': 128, ''rhythm'': 128, ''root'': 64, ''mode'':
+    64, ''key_sig'': 64, ''numer'': 64, ''denom'': 64, ''is_compound'': 64, ''is_triple'':
+    64, ''total_size'': 2624}, ''note'': {''hidden_size'': 512, ''num_layers'': 3,
+    ''dropout'': 0.2}, ''measure'': {''hidden_size'': 512, ''num_layers'': 3, ''dropout'':
+    0.2, ''num_attention_head'': 8}, ''final'': {''hidden_size'': 512, ''num_layers'':
+    3, ''dropout'': 0.2}}'
+no_log:
+  desc: null
+  value: false
+num_epoch_per_log:
+  desc: null
+  value: 2
+num_epochs:
+  desc: null
+  value: 9000
+num_iter:
+  desc: null
+  value: 100000
+num_iter_per_valid:
+  desc: null
+  value: 5000
+num_workers:
+  desc: null
+  value: 2
+output_emb_size:
+  desc: null
+  value: 256
+path:
+  desc: null
+  value: abc_dataset/folk_rnn_abc_key_cleaned_for_title/
+pretrnd_ttl_emb_type:
+  desc: null
+  value: ST_embedding_withsongtitle
+save_dir:
+  desc: null
+  value: experiments
+scheduler_factor:
+  desc: null
+  value: 0.7
+scheduler_patience:
+  desc: null
+  value: 9000
+seed:
+  desc: null
+  value: 42
+ttl_hidden_size:
+  desc: null
+  value: 256
+ttl_model_name:
+  desc: null
+  value: ttlemb
+yml_path:
+  desc: null
+  value: yamls/measure_note_xl.yaml

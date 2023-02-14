@@ -1,0 +1,23 @@
+
+0.0004
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                      | 2/9000 [00:20<24:00:02,  9.60s/it]
+
+  0%|                                                                                                      | 3/9000 [00:26<20:17:14,  8.12s/it]
+  0%|                                                                                                      | 3/9000 [00:32<27:11:35, 10.88s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 88, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 151, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 335, in get_loss_pred_from_single_batch
+    loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 17, in get_batch_contrastive_loss
+    negative_sim = cos_sim_value[non_diag_index].reshape(num_batch, num_batch-1)
+KeyboardInterrupt

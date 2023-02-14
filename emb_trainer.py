@@ -8,18 +8,20 @@ from torch import dot
 from torch.linalg import norm
 from torch.nn import CosineEmbeddingLoss
 import time
+import datetime
+import os
 
 from sklearn.metrics.pairwise import cosine_similarity
 
 from data_utils import decode_melody
-from emb_loss import get_batch_contrastive_loss, get_batch_euclidean_loss, clip_crossentropy_loss
+from emb_loss import ContrastiveLoss, get_batch_euclidean_loss, clip_crossentropy_loss
 
 def cos_sim(A, B):
   return dot(A, B)/(norm(A)*norm(B))
 
 class EmbTrainer:
   def __init__(self, abc_model, ttl_model, loss_fn, train_loader, valid_loader, args):
-    
+    self.args = args
     self.abc_model = abc_model
     self.ttl_model = ttl_model
     # self.abc_optimizer = abc_optimizer
@@ -27,7 +29,7 @@ class EmbTrainer:
     self.tau = torch.nn.Parameter(torch.tensor(1.0))
     self.abc_optimizer = torch.optim.Adam(list(abc_model.parameters()) + [self.tau], lr=args.lr)
     self.ttl_optimizer = torch.optim.Adam(list(ttl_model.parameters()) + [self.tau], lr=args.lr)
-    self.margin = args.margin
+    self.margin = args.loss_margin
     if args.lr_scheduler_type == 'Plateau':
       self.scheduler_abc = torch.optim.lr_scheduler.ReduceLROnPlateau(self.abc_optimizer, 'min', factor=args.scheduler_factor, patience=args.scheduler_patience, verbose=True)
       self.scheduler_ttl = torch.optim.lr_scheduler.ReduceLROnPlateau(self.ttl_optimizer, 'min', factor=args.scheduler_factor, patience=args.scheduler_patience, verbose=True)
@@ -52,8 +54,8 @@ class EmbTrainer:
     self.validation_loss = []
     self.validation_acc = []
     
-    self.abc_model_name = args.abc_model_name
-    self.ttl_model_name = args.ttl_model_name
+    self.abc_model_name = args.name_of_model_to_save + '_abc'
+    self.ttl_model_name = args.name_of_model_to_save + '_ttl'
     
     self.make_log = not args.no_log
     
@@ -72,12 +74,14 @@ class EmbTrainer:
     torch.save({'model':self.ttl_model.state_dict(), 'optim':self.ttl_optimizer.state_dict()}, path)
     
   def train_by_num_epoch(self, num_epochs):
+    date = datetime.datetime.now().strftime("%Y%m%d") # for saving model
     for epoch in tqdm(range(num_epochs)):
-      start_time = time.time()
       print(self.abc_optimizer.param_groups[0]['lr'])
       self.abc_model.train()
       self.ttl_model.train()
+      start_time = time.time()
       for batch in self.train_loader:
+        print(f"batch_time: {time.time() - start_time}")
         # L2 regularization
         # reg_abc_loss = 0
         # reg_ttl_loss = 0
@@ -86,6 +90,7 @@ class EmbTrainer:
         # for param in self.ttl_model.parameters():
         #   reg_ttl_loss += 0.0002 * torch.norm(param)**2
         loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+        print('passed train_by_single_batch')
         loss_dict = self._rename_dict(loss_dict, 'train')
         # if self.make_log:
         #   wandb.log(loss_dict)
@@ -124,26 +129,27 @@ class EmbTrainer:
       if epoch % 40 == 0:
         self.abc_model.eval()
         self.ttl_model.eval()
-        train_loss, train_acc = self.validate(external_loader=self.train_loader)
-        validation_loss, validation_acc = self.validate()
+        validation_dict_train = self.validate(external_loader=self.train_loader)
+        validation_dict_valid = self.validate()
         if isinstance(self.scheduler_abc, torch.optim.lr_scheduler.ReduceLROnPlateau):
-          self.scheduler_abc.step(validation_loss)
-          self.scheduler_ttl.step(validation_loss)
-        self.validation_loss.append(validation_loss)
-        self.validation_acc.append(validation_acc)
+          self.scheduler_abc.step(validation_dict_valid['validation_loss'])
+          self.scheduler_ttl.step(validation_dict_valid['validation_loss'])
+        #self.validation_loss.append(validation_loss)
+        #self.validation_acc.append(validation_acc)
         
         if self.make_log:
+          wandb.log(validation_dict_valid)
           wandb.log({
-                    "validation_loss": validation_loss,
-                    "validation_acc": validation_acc,
-                    # "train_loss": loss_value,
-                    "train_acc": train_acc,
-                    # "train.time": epoch_time
-                    })             
-        self.best_valid_loss = min(validation_loss, self.best_valid_loss)
+                    "train_acc": validation_dict_train['validation_acc'],
+          })
+
+        self.best_valid_loss = min(validation_dict_valid['validation_loss'], self.best_valid_loss)
         if epoch % 250 == 0:
-          self.save_abc_model(f'{self.abc_model_name}_{epoch}.pt')
-          self.save_ttl_model(f'{self.ttl_model_name}_{epoch}.pt')
+          # if directory does not exist, make directory
+          if not os.path.exists(f'saved_models/{date}/{self.args.name_of_model_to_save}'):
+            os.makedirs(f'saved_models/{date}/{self.args.name_of_model_to_save}')
+          self.save_abc_model(f'saved_models/{date}/{self.args.name_of_model_to_save}/{self.abc_model_name}_{epoch}.pt')
+          self.save_ttl_model(f'saved_models/{date}/{self.args.name_of_model_to_save}/{self.ttl_model_name}_{epoch}.pt')
       
   def _train_by_single_batch(self, batch, reg_abc_loss=None, reg_ttl_loss=None):
 
@@ -175,13 +181,16 @@ class EmbTrainer:
   
   def get_loss_pred_from_single_batch(self, batch):
     melody, title = batch
+    # check time
     emb1 = self.abc_model(melody.to(self.device))
     emb2 = self.ttl_model(title.to(self.device))
     
     if self.loss_fn == CosineEmbeddingLoss():
       loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
     elif self.loss_fn == get_batch_contrastive_loss:
+      start_time = time.time()
       loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+      print(f"get_batch_contrastive_loss time: {time.time() - start_time}")
     elif self.loss_fn == get_batch_euclidean_loss:
       loss = get_batch_euclidean_loss(emb1, emb2)
     elif self.loss_fn == clip_crossentropy_loss:
@@ -324,8 +333,10 @@ class EmbTrainerMeasure(EmbTrainer):
     
     if self.loss_fn == CosineEmbeddingLoss():
       loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-    elif self.loss_fn == get_batch_contrastive_loss:
-      loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+    elif isinstance(self.loss_fn, ContrastiveLoss):
+      start_time = time.time()
+      loss = self.loss_fn(emb1, emb2)
+      print(f"get_batch_contrastive_loss time: {time.time() - start_time}")
     elif self.loss_fn == get_batch_euclidean_loss:
       loss = get_batch_euclidean_loss(emb1, emb2)
     elif self.loss_fn == clip_crossentropy_loss:
@@ -370,8 +381,8 @@ class EmbTrainerMeasure(EmbTrainer):
             continue
         if self.loss_fn == CosineEmbeddingLoss():
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-        elif self.loss_fn == get_batch_contrastive_loss:
-          loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+        elif isinstance(self.loss_fn, ContrastiveLoss):
+          loss = self.loss_fn(emb1, emb2)
         elif self.loss_fn == get_batch_euclidean_loss:
           loss = get_batch_euclidean_loss(emb1, emb2)
         elif self.loss_fn == clip_crossentropy_loss:
@@ -437,8 +448,8 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
         
         if self.loss_fn == CosineEmbeddingLoss():
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
-        elif self.loss_fn == get_batch_contrastive_loss:
-          loss = get_batch_contrastive_loss(emb1, emb2, self.margin)
+        elif isinstance(self.loss_fn, ContrastiveLoss):
+          loss = self.loss_fn(emb1, emb2)
         elif self.loss_fn == get_batch_euclidean_loss:
           loss = get_batch_euclidean_loss(emb1, emb2)
         elif self.loss_fn == clip_crossentropy_loss:
@@ -454,7 +465,7 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
       ttl_emb_all = torch.rand(len(self.valid_loader.dataset), 128)
       '''
       
-      if self.loss_fn == get_batch_contrastive_loss or self.loss_fn == CosineEmbeddingLoss or self.loss_fn == clip_crossentropy_loss:
+      if isinstance(self.loss_fn, ContrastiveLoss) or self.loss_fn == CosineEmbeddingLoss or self.loss_fn == clip_crossentropy_loss:
         # calculate MRR
         mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
         cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy()) 
@@ -465,6 +476,23 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
             position = np.argwhere(sorted_cos_idx[idx][-topk:][::-1] == idx).item() # changing into ascending order
             quality_score = mrrdict[position]
             sum_mrr += quality_score
+        
+        # calculate DCG
+        dcg_dict = {i-1: (2**1 - 1) / np.log2(i + 1) for i in range(1, topk+1)} # {0:1.0, 1:0.6309297535714574, ...}
+        #cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy())
+        #sorted_cos_idx = np.argsort(cos_sim, axis=-1)
+        sum_dcg = 0
+        for idx in range(len(loader.dataset)):
+          if idx in sorted_cos_idx[idx][-topk:]:
+            position = np.argwhere(sorted_cos_idx[idx][-topk:][::-1] == idx).item()
+            relevance_score = 1 # you can replace 1 with your own relevance score
+            dcg = relevance_score * dcg_dict[position]
+            sum_dcg += dcg
+
+        # calculate nDCG
+        # ideal DCG must be 1.0 in the case of perfect ranking in the case when there only one correct answer
+        # when [correct, pred, pred, pred, ...]
+        # so sum_dcg can be considered as nDCG
                 
       elif self.loss_fn == get_batch_euclidean_loss:
         mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
@@ -476,4 +504,6 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
             quality_score = mrrdict[position]
             sum_mrr += quality_score
 
-    return validation_loss / num_total_tokens, sum_mrr / len(loader.dataset)
+      validation_dict = {'validation_loss': validation_loss / num_total_tokens, 'validation_acc': sum_mrr / len(loader.dataset), 'validation_nDCG': sum_dcg / len(loader.dataset)}
+
+    return validation_dict

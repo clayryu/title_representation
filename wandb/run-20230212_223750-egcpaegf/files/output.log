@@ -1,0 +1,25 @@
+
+  0%|                                                                                                | 0/9000 [00:00<?, ?it/s]
+0.0004
+batch_time: 2.8713600635528564
+get_batch_contrastive_loss time: 2.3879234790802
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+Traceback (most recent call last):
+  File "emb_train.py", line 169, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 130, in train_by_num_epoch
+    validation_dict_valid = self.validate()
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 428, in validate
+    for idx, batch in enumerate(tqdm(loader, leave=False)):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    return self.collate_fn(data)
+  File "/home/clay/userdata/title_generation/emb_utils.py", line 173, in pack_collate_title_sampling_valid
+    sampled_num = torch.randint(0,len(mel_pair[0])-sample_num, (1,)).item()
+RuntimeError: random_ expects 'from' to be less than 'to', but got from=0 >= to=0

@@ -1,1 +1,1 @@
-{"train_loss": 0.11709114164113998, "train.time": 6.212885141372681, "_timestamp": 1675403245, "_runtime": 189, "_step": 29, "validation_loss": 0.29998499155044556, "validation_acc": 0.007709808503233117, "train_acc": 0.0008363045818065637}
+{"train_loss": 0.002858102088794112, "train.time": 6.248407363891602, "_timestamp": 1675404426, "_runtime": 1370, "_step": 201, "validation_loss": 0.3339346647262573, "validation_acc": 0.008728941968170825, "train_acc": 0.8595146019905229, "_wandb": {"runtime": 1374}}

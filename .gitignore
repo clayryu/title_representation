@@ -1,3 +1,7 @@
 *.pt
 
+*.csv
+
+*.pkl
+
 /saved_models

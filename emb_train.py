@@ -1,11 +1,12 @@
 import torch
 import shutil
+import copy
 from pathlib import Path
 from tqdm.auto import tqdm
 from torch.utils.data import DataLoader
 from data_utils import ABCset, MeasureNumberSet, pack_collate, PitchDurSplitSet, FolkRNNSet, MeasureOffsetSet, read_yaml, MeasureEndSet, get_emb_total_size
 from emb_trainer import EmbTrainer, EmbTrainerMeasure, EmbTrainerMeasureMRR
-from emb_loss import get_batch_contrastive_loss, get_batch_euclidean_loss, clip_crossentropy_loss
+from emb_loss import ContrastiveLoss, get_batch_euclidean_loss, clip_crossentropy_loss
 from emb_utils import pack_collate_title, pack_collate_title_sampling_train, pack_collate_title_sampling_valid
 from torch.nn import CosineEmbeddingLoss
 
@@ -32,15 +33,17 @@ def get_argument_parser():
   parser.add_argument('--lr', type=float, default=0.0004)
   parser.add_argument('--lr_scheduler_type', type=str, default='Plateau')
   parser.add_argument('--scheduler_factor', type=float, default=0.7)
-  parser.add_argument('--scheduler_patience', type=int, default=7000)
+  parser.add_argument('--scheduler_patience', type=int, default=9000)
   parser.add_argument('--grad_clip', type=float, default=1.0)
   parser.add_argument('--num_epochs', type=float, default=9000)
 
-  parser.add_argument('--hidden_size', type=int, default=128)
+  parser.add_argument('--abc_hidden_size', type=int, default=144)
+  parser.add_argument('--ttl_hidden_size', type=int, default=256)
   parser.add_argument('--output_emb_size', type=int, default=256)
-  parser.add_argument('--margin', type=float, default=0.3)
+  parser.add_argument('--loss_margin', type=float, default=0.3)
+  parser.add_argument('--dataset_tune_length', type=int, default=100)
   # you should check emb_utils.py to configure the sampling size of the token manually
-  # parser.add_argument('--L2_regularization, ')
+  # parser.add_argument('--L2_regularization')
 
   parser.add_argument('--aug_type', type=str, default='stat')
 
@@ -52,10 +55,20 @@ def get_argument_parser():
   parser.add_argument('--num_iter_per_valid', type=int, default=5000)
 
   parser.add_argument('--model_type', type=str, default='cnn_reducedemb')
-  parser.add_argument('--abc_model_name', type=str, default='measurenote')
-  parser.add_argument('--ttl_model_name', type=str, default='ttlemb')
-  parser.add_argument('--save_dir', type=Path, default=Path('experiments/'))
+  parser.add_argument('--abc_model_name', type=str, default='ABC_cnn_emb_Model')
+  parser.add_argument('--ttl_model_name', type=str, default='TTLembModel')
+  parser.add_argument('--name_of_model_to_save', type=str, default='irish106_only')
 
+  # ST_embedding_withsongtitle, OA_embedding_withsongtitle, OA_embedding_withsongtitle_genre, OA_embedding_titleonly
+  parser.add_argument('--pretrnd_ttl_emb_type', type=str, default='OA_embedding_withsongtitle')
+  parser.add_argument('--dataset_name_ttl', type=str, default='ABCsetTitle_vartune')
+  # 'list300_ttl-ttlsong.pkl'
+  parser.add_argument('--ambiguous_title', type=str, default='list300_ttl-ttlsong.pkl')
+  parser.add_argument('--ambiguous_title_delnum', type=int, default=100)
+  # 'not_english_title_azure.pkl'
+  parser.add_argument('--language_detect', type=str, default='not_english_title_azure.pkl')
+
+  parser.add_argument('--save_dir', type=Path, default=Path('experiments/'))
   parser.add_argument('--no_log', action='store_true')
 
   return parser
@@ -65,7 +78,7 @@ def make_experiment_name_with_date(args):
   return f'{current_time_in_str}-{args.model_type}_{args.batch_size}_{args.num_epochs}_{args.lr}'
 
 if __name__ == '__main__':
-  torch.backends.cudnn.enabled = False # 
+  #torch.backends.cudnn.enabled = False # 
   
   args = get_argument_parser().parse_args()
   torch.manual_seed(args.seed)
@@ -99,21 +112,22 @@ if __name__ == '__main__':
     #checkpoint = torch.load(checkpoint_path, map_location= 'cpu')
     #model.load_state_dict(checkpoint['model'])
   
-  dataset_name_ttl = "ABCsetTitle_22K"
-  dataset_abc = getattr(emb_data_utils, dataset_name_ttl)(score_dir, vocab_path, make_vocab=False, key_aug=data_param.key_aug, vocab_name=net_param.vocab_name, tune_length=100)
+  dataset_abc = getattr(emb_data_utils, args.dataset_name_ttl)(score_dir, vocab_path, make_vocab=False, key_aug=data_param.key_aug, vocab_name=net_param.vocab_name, args=args)
   dataset_abc.vocab = vocab
+  dataset_abc.vocab_tok2idx = copy.deepcopy(vocab.tok2idx)
   
-  #model_abc = getattr(model_zoo, model_name)(vocab.get_size(), net_param)
-  #model_abc.load_state_dict(torch.load('pre_trained/measure_note_xl/pitch_dur_iter99999_loss0.9795.pt')['model'])
+  #rnn_gen_model = getattr(model_zoo, model_name)(vocab.get_size(), net_param)
+  #rnn_gen_model.load_state_dict(torch.load('pre_trained/measure_note_xl/pitch_dur_iter99999_loss0.9795.pt')['model'])
   
-  model_abc = getattr(model_zoo, model_name)(vocab.get_size(), net_param)
+  rnn_gen_model = getattr(model_zoo, model_name)(vocab.get_size(), net_param)
   checkpoint = torch.load(checkpoint_path, map_location= 'cpu')
-  model_abc.load_state_dict(checkpoint['model'])
+  rnn_gen_model.load_state_dict(checkpoint['model'])
 
-  model_abc_trans = getattr(emb_model, 'ABC_measnote_emb_Model')(model_abc.emb, model_abc.rnn, model_abc.measure_rnn, model_abc.final_rnn, emb_size=args.output_emb_size)
-  model_cnn_trans = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=model_abc.emb, emb_size=args.output_emb_size)
-  model_cnn_reducedemb = getattr(emb_model, 'ABC_cnn_emb_Model')(trans_emb=None, vocab_size=vocab.get_size(), net_param=net_param, emb_size=args.output_emb_size, hidden_size=args.hidden_size, emb_ratio=1)
-  model_ttl = getattr(emb_model, 'TTLembModel')(emb_size=args.output_emb_size)
+  model_rnn_trans = getattr(emb_model, 'ABC_measnote_emb_Model')(rnn_gen_model.emb, rnn_gen_model.rnn, rnn_gen_model.measure_rnn, rnn_gen_model.final_rnn, emb_size=args.output_emb_size)
+  model_cnn_trans = getattr(emb_model, args.abc_model_name)(trans_emb=rnn_gen_model.emb, emb_size=args.output_emb_size)
+  model_cnn_reducedemb = getattr(emb_model, args.abc_model_name)(trans_emb=None, vocab_size=vocab.get_size(), net_param=net_param, emb_size=args.output_emb_size, hidden_size=args.abc_hidden_size, emb_ratio=1)
+  ttl_in_embedding_size = 768 if args.pretrnd_ttl_emb_type == 'ST_embedding_withsongtitle' else 1536
+  model_ttl = getattr(emb_model, args.ttl_model_name)(in_embedding_size=ttl_in_embedding_size, hidden_size=args.ttl_hidden_size ,emb_size=args.output_emb_size)
   
   # load pretrained model
   # model_cnn_reducedemb.load_state_dict(torch.load('/home/clay/userdata/title_generation/measurenote_last copy.pt')['model'])
@@ -121,14 +135,14 @@ if __name__ == '__main__':
   
   '''
   # freeze all parameters except proj
-  for para in model_abc_trans.parameters():
+  for para in rnn_gen_model_trans.parameters():
     para.requires_grad = False
-  for name, param in model_abc_trans.named_parameters():
+  for name, param in rnn_gen_model_trans.named_parameters():
     if name in ['proj.weight', 'proj.bias']:
       param.requires_grad = True
   '''
-  if args.model_type == 'rnn': 
-    model = model_abc_trans
+  if args.model_type == 'rnn_trans': 
+    model = model_rnn_trans
   elif args.model_type == 'cnn_trans':
     model = model_cnn_trans
   elif args.model_type == 'cnn_reducedemb':
@@ -137,15 +151,15 @@ if __name__ == '__main__':
   optimizer1 = torch.optim.Adam(model.parameters(), lr=args.lr)
   optimizer2 = torch.optim.Adam(model_ttl.parameters(), lr=args.lr)
 
-  loss_fn1 = get_batch_contrastive_loss
+  loss_fn1 = ContrastiveLoss(margin=args.loss_margin)
   loss_fn2 = CosineEmbeddingLoss
   loss_fn3 = get_batch_euclidean_loss
   loss_fn4 = clip_crossentropy_loss
 
   trainset, validset = torch.utils.data.random_split(dataset_abc, [int(len(dataset_abc)*0.9), len(dataset_abc) - int(len(dataset_abc)*0.9)], generator=torch.Generator().manual_seed(42))
 
-  train_loader = DataLoader(trainset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling_train, shuffle=True) #collate_fn=pack_collate)
-  valid_loader = DataLoader(validset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling_valid, shuffle=False) #collate_fn=pack_collate)
+  train_loader = DataLoader(trainset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling_train, shuffle=True, num_workers=0) #collate_fn=pack_collate)
+  valid_loader = DataLoader(validset, batch_size=args.batch_size, collate_fn=pack_collate_title_sampling_valid, shuffle=False, num_workers=0) #collate_fn=pack_collate)
 
   experiment_name = make_experiment_name_with_date(args)
   save_dir = args.save_dir / experiment_name

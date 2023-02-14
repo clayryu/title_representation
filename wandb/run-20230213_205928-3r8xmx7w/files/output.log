@@ -1,0 +1,20 @@
+0.0004
+batch_time: 0.052123069763183594
+get_batch_contrastive_loss time: 0.001149892807006836
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 177, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 147, in train_by_num_epoch
+    self.save_abc_model(f'saved_models/{date}/{self.args.name_of_model_to_save}/{self.abc_model_name}_{epoch}.pt')
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 70, in save_abc_model
+    torch.save({'model':self.abc_model.state_dict(), 'optim':self.abc_optimizer.state_dict()}, path)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/serialization.py", line 376, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'saved_models/20230213/irish106_only/irish106_only_abc_0.pt'

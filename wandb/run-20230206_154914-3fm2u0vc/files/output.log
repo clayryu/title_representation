@@ -1,0 +1,127 @@
+
+  0%|                                                                                                                 | 0/9000 [00:00<?, ?it/s]
+0.0004
+batch_time: 3.0236682891845703
+abc_model time: 0.9108824729919434
+ttl_model time: 0.00547337532043457
+time for non_diag_index 1.4898624420166016
+  0%|                                                                                                                    | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 2.85080885887146
+
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                      | 1/9000 [00:13<33:10:01, 13.27s/it]
+time for non_diag_index 0.017522811889648438
+0.0004
+
+  0%|                                                                                                      | 2/9000 [00:18<21:04:26,  8.43s/it]
+abc_model time: 0.29524660110473633
+ttl_model time: 0.00551152229309082
+time for non_diag_index 2.86102294921875e-06
+get_batch_contrastive_loss time: 0.9982571601867676
+0.0004
+batch_time: 2.8646130561828613
+abc_model time: 0.4362006187438965
+ttl_model time: 0.005523681640625
+time for non_diag_index 3.337860107421875e-06
+get_batch_contrastive_loss time: 0.9663841724395752
+
+  0%|                                                                                                      | 3/9000 [00:23<16:52:16,  6.75s/it]
+batch_time: 2.9085934162139893
+abc_model time: 0.3020131587982178
+ttl_model time: 0.005445718765258789
+
+  0%|                                                                                                      | 4/9000 [00:28<15:11:19,  6.08s/it]
+get_batch_contrastive_loss time: 0.977550745010376
+
+  0%|                                                                                                      | 5/9000 [00:32<14:03:26,  5.63s/it]
+batch_time: 2.9015700817108154
+abc_model time: 0.45780134201049805
+ttl_model time: 0.010123252868652344
+time for non_diag_index 3.337860107421875e-06
+get_batch_contrastive_loss time: 0.9768071174621582
+0.0004
+batch_time: 2.937494993209839
+abc_model time: 0.3001708984375
+ttl_model time: 0.005404949188232422
+time for non_diag_index 3.0994415283203125e-06
+get_batch_contrastive_loss time: 0.9869399070739746
+
+  0%|                                                                                                      | 6/9000 [00:37<13:16:36,  5.31s/it]
+
+  0%|                                                                                                      | 7/9000 [00:42<12:52:46,  5.16s/it]
+abc_model time: 0.3981342315673828
+ttl_model time: 0.010014533996582031
+time for non_diag_index 3.0994415283203125e-06
+get_batch_contrastive_loss time: 0.9936153888702393
+0.0004
+batch_time: 2.9098422527313232
+abc_model time: 0.30652737617492676
+ttl_model time: 0.005497932434082031
+time for non_diag_index 3.814697265625e-06
+get_batch_contrastive_loss time: 0.9879562854766846
+
+  0%|                                                                                                      | 8/9000 [00:47<12:30:24,  5.01s/it]
+batch_time: 2.8658053874969482
+abc_model time: 0.31453824043273926
+ttl_model time: 0.005456447601318359
+
+  0%|                                                                                                      | 9/9000 [00:51<12:13:48,  4.90s/it]
+get_batch_contrastive_loss time: 0.989572286605835
+0.0004
+batch_time: 2.909355401992798
+abc_model time: 0.2930471897125244
+
+  0%|                                                                                                     | 10/9000 [00:56<12:02:21,  4.82s/it]
+time for non_diag_index 2.86102294921875e-06
+get_batch_contrastive_loss time: 0.9655041694641113
+0.0004
+batch_time: 2.906989336013794
+abc_model time: 0.3172452449798584
+ttl_model time: 0.005583286285400391
+time for non_diag_index 3.5762786865234375e-06
+
+  0%|                                                                                                     | 11/9000 [01:01<12:01:26,  4.82s/it]
+0.0004
+batch_time: 2.8870904445648193
+abc_model time: 0.2972743511199951
+ttl_model time: 0.005507707595825195
+
+  0%|▏                                                                                                    | 12/9000 [01:05<11:53:19,  4.76s/it]
+get_batch_contrastive_loss time: 0.9709386825561523
+0.0004
+batch_time: 2.849224090576172
+abc_model time: 0.29117250442504883
+
+  0%|▏                                                                                                    | 13/9000 [01:10<11:55:08,  4.77s/it]
+time for non_diag_index 3.0994415283203125e-06
+get_batch_contrastive_loss time: 0.969825029373169
+0.0004
+batch_time: 2.9290671348571777
+abc_model time: 0.6166224479675293
+ttl_model time: 0.009898185729980469
+time for non_diag_index 2.384185791015625e-06
+get_batch_contrastive_loss time: 0.9708907604217529
+  0%|▏                                                                                                    | 14/9000 [01:15<13:31:43,  5.42s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 167, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 80, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 573, in __getitem__
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 573, in <listcomp>
+    tune_in_idx = [self.vocab(token, new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 356, in __call__
+    return self(wrd) + self.encode_m_idx(m_idx) + self.encode_m_offset(m_offset, header)
+KeyboardInterrupt
