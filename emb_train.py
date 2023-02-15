@@ -57,16 +57,16 @@ def get_argument_parser():
   parser.add_argument('--model_type', type=str, default='cnn_reducedemb')
   parser.add_argument('--abc_model_name', type=str, default='ABC_cnn_emb_Model')
   parser.add_argument('--ttl_model_name', type=str, default='TTLembModel')
-  parser.add_argument('--name_of_model_to_save', type=str, default='irish106_only')
+  parser.add_argument('--name_of_model_to_save', type=str, default='OAbaseline')
 
   # ST_embedding_withsongtitle, OA_embedding_withsongtitle, OA_embedding_withsongtitle_genre, OA_embedding_titleonly
   parser.add_argument('--pretrnd_ttl_emb_type', type=str, default='OA_embedding_withsongtitle')
   parser.add_argument('--dataset_name_ttl', type=str, default='ABCsetTitle_vartune')
   # 'list300_ttl-ttlsong.pkl'
-  parser.add_argument('--ambiguous_title', type=str, default='list300_ttl-ttlsong.pkl')
+  parser.add_argument('--ambiguous_title', type=str, default=None)
   parser.add_argument('--ambiguous_title_delnum', type=int, default=100)
   # 'not_english_title_azure.pkl'
-  parser.add_argument('--language_detect', type=str, default='not_english_title_azure.pkl')
+  parser.add_argument('--language_detect', type=str, default=None)
 
   parser.add_argument('--save_dir', type=Path, default=Path('experiments/'))
   parser.add_argument('--no_log', action='store_true')
@@ -112,9 +112,10 @@ if __name__ == '__main__':
     #checkpoint = torch.load(checkpoint_path, map_location= 'cpu')
     #model.load_state_dict(checkpoint['model'])
   
-  dataset_abc = getattr(emb_data_utils, args.dataset_name_ttl)(score_dir, vocab_path, make_vocab=False, key_aug=data_param.key_aug, vocab_name=net_param.vocab_name, args=args)
-  dataset_abc.vocab = vocab
-  dataset_abc.vocab_tok2idx = copy.deepcopy(vocab.tok2idx)
+  dataset_abc = getattr(emb_data_utils, args.dataset_name_ttl)(score_dir, vocab_path, make_vocab=False, key_aug=data_param.key_aug, vocab_name=net_param.vocab_name, args=args, pre_vocab=vocab)
+  #dataset_abc.vocab = vocab
+  dataset_abc.vocab_dictionary = vocab_utils.Vocab_dictionary(dataset_abc.vocab)
+  #dataset_abc.vocab_tok2idx = copy.deepcopy(vocab.tok2idx)
   
   #rnn_gen_model = getattr(model_zoo, model_name)(vocab.get_size(), net_param)
   #rnn_gen_model.load_state_dict(torch.load('pre_trained/measure_note_xl/pitch_dur_iter99999_loss0.9795.pt')['model'])

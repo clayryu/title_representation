@@ -366,3 +366,19 @@ class NoteMusicTokenVocab(MusicTokenVocab):
       else:
         print('Error: {} is not in the vocab'.format(word))
         return None
+
+class Vocab_dictionary:
+  def __init__(self, vocab):
+    self.vocab = vocab
+    self.vocab_dict = {}
+    self.encode_m_idx_dict = {}
+
+  def encode_m_idx(self, m_idx):
+    if m_idx not in self.encode_m_idx_dict:
+      self.encode_m_idx_dict[m_idx] = self.vocab.encode_m_idx(m_idx)
+    return self.encode_m_idx_dict[m_idx]
+
+  def __call__(self, token):
+    if token not in self.vocab_dict:
+      self.vocab_dict[token] = self.vocab(token)
+    return self.vocab_dict[token]

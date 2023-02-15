@@ -1,0 +1,25 @@
+
+0.0004
+  0%|                                                                                                                                                                                                                                      | 0/9000 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 178, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 83, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 586, in __getitem__
+    tune_in_idx = [self.vocab_dictionary(token[0]) + self.vocab_dictionary.encode_m_idx(token[1]) + self.vocab.encode_m_offset(token[2], new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 586, in <listcomp>
+    tune_in_idx = [self.vocab_dictionary(token[0]) + self.vocab_dictionary.encode_m_idx(token[1]) + self.vocab.encode_m_offset(token[2], new_header) for token in tune]
+  File "/home/clay/userdata/title_generation/vocab_utils.py", line 377, in encode_m_idx
+    if m_idx not in self.vocab_m_dix:
+AttributeError: 'Vocab_dictionary' object has no attribute 'vocab_m_dix'
