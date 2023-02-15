@@ -6,6 +6,8 @@
 
 *.ipynb
 
-/saved_models
+credential.py
 
+/saved_models
+ 
 /notebooks
