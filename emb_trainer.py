@@ -10,11 +10,15 @@ from torch.nn import CosineEmbeddingLoss
 import time
 import datetime
 import os
+import csv
+import pickle
 
+import torch.nn.functional as F
 from sklearn.metrics.pairwise import cosine_similarity
+from collections import defaultdict
 
 from data_utils import decode_melody
-from emb_loss import ContrastiveLoss, get_batch_euclidean_loss, clip_crossentropy_loss
+from emb_loss import ContrastiveLoss, ContrastiveLoss_euclidean, clip_crossentropy_loss
 
 def cos_sim(A, B):
   return dot(A, B)/(norm(A)*norm(B))
@@ -38,6 +42,7 @@ class EmbTrainer:
       self.scheduler_ttl = torch.optim.lr_scheduler.StepLR(self.ttl_optimizer, step_size=args.scheduler_patience, gamma=0.5)
     
     self.loss_fn = loss_fn
+    self.topk = args.topk
     self.train_loader = train_loader
     self.valid_loader = valid_loader
     
@@ -58,6 +63,8 @@ class EmbTrainer:
     self.ttl_model_name = args.name_of_model_to_save + '_ttl'
     
     self.make_log = not args.no_log
+
+    self.position_tracker = defaultdict(list)
     
     '''
     if isinstance(self.train_loader.dataset, torch.utils.data.dataset.Subset):
@@ -72,6 +79,23 @@ class EmbTrainer:
   
   def save_ttl_model(self, path):
     torch.save({'model':self.ttl_model.state_dict(), 'optim':self.ttl_optimizer.state_dict()}, path)
+
+  def save_dict_to_csv(self, dict_to_save, filename):
+    # Specify the filename and mode for writing to the CSV file
+    mode = "w"
+    sorted_dict = dict(sorted(dict_to_save.items(), key=lambda x: x[1][-1]))
+
+    # Open the file for writing and create a CSV writer object
+    with open(filename, mode, newline="") as file:
+        writer = csv.writer(file)
+
+        # Write the header row with the column names
+        writer.writerow(["Key", "Value"])
+
+        # Write each key-value pair to a new row in the CSV file
+        for key, value in sorted_dict.items():
+            writer.writerow([key, value])
+  
     
   def train_by_num_epoch(self, num_epochs):
     date = datetime.datetime.now().strftime("%Y%m%d") # for saving model
@@ -129,13 +153,16 @@ class EmbTrainer:
       if epoch % 40 == 0:
         self.abc_model.eval()
         self.ttl_model.eval()
-        validation_dict_train = self.validate(external_loader=self.train_loader)
-        validation_dict_valid = self.validate()
+        validation_dict_train = self.validate(external_loader=self.train_loader, epoch=epoch)
+        validation_dict_valid = self.validate(epoch=epoch)
         if isinstance(self.scheduler_abc, torch.optim.lr_scheduler.ReduceLROnPlateau):
           self.scheduler_abc.step(validation_dict_valid['validation_loss'])
           self.scheduler_ttl.step(validation_dict_valid['validation_loss'])
         #self.validation_loss.append(validation_loss)
         #self.validation_acc.append(validation_acc)
+        if not os.path.exists(f'saved_models/{date}/{self.args.name_of_model_to_save}'):
+          os.makedirs(f'saved_models/{date}/{self.args.name_of_model_to_save}')
+        self.save_dict_to_csv(self.position_tracker, f"saved_models/{date}/{self.args.name_of_model_to_save}/{self.args.name_of_model_to_save}_position_tracker_{epoch}.csv")
         
         if self.make_log:
           wandb.log(validation_dict_valid)
@@ -146,8 +173,6 @@ class EmbTrainer:
         self.best_valid_loss = min(validation_dict_valid['validation_loss'], self.best_valid_loss)
         if epoch % 250 == 0:
           # if directory does not exist, make directory
-          if not os.path.exists(f'saved_models/{date}/{self.args.name_of_model_to_save}'):
-            os.makedirs(f'saved_models/{date}/{self.args.name_of_model_to_save}')
           self.save_abc_model(f'saved_models/{date}/{self.args.name_of_model_to_save}/{self.abc_model_name}_{epoch}.pt')
           self.save_ttl_model(f'saved_models/{date}/{self.args.name_of_model_to_save}/{self.ttl_model_name}_{epoch}.pt')
       
@@ -327,7 +352,7 @@ class EmbTrainerMeasure(EmbTrainer):
     super().__init__(abc_model, ttl_model, loss_fn, train_loader, valid_loader, args)
     
   def get_loss_pred_from_single_batch(self, batch):
-    melody, title, measure_numbers = batch
+    melody, title, measure_numbers, ttltext = batch
     emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
     emb2 = self.ttl_model(title.to(self.device))
     
@@ -337,8 +362,8 @@ class EmbTrainerMeasure(EmbTrainer):
       start_time = time.time()
       loss = self.loss_fn(emb1, emb2)
       print(f"get_batch_contrastive_loss time: {time.time() - start_time}")
-    elif self.loss_fn == get_batch_euclidean_loss:
-      loss = get_batch_euclidean_loss(emb1, emb2)
+    elif isinstance(self.loss_fn, ContrastiveLoss_euclidean):
+      loss = self.loss_fn(emb1, emb2)
     elif self.loss_fn == clip_crossentropy_loss:
       loss = clip_crossentropy_loss(emb1, emb2, self.tau)
       
@@ -371,6 +396,9 @@ class EmbTrainerMeasure(EmbTrainer):
         emb1 = self.abc_model(melody.to(self.device))
         emb2 = self.ttl_model(title.to(self.device))
 
+        emb1 = F.normalize(emb1, p=2, dim=-1)
+        emb2 = F.normalize(emb2, p=2, dim=-1)
+
         start_idx = idx * loader.batch_size
         end_idx = start_idx + len(title)
 
@@ -383,8 +411,8 @@ class EmbTrainerMeasure(EmbTrainer):
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
         elif isinstance(self.loss_fn, ContrastiveLoss):
           loss = self.loss_fn(emb1, emb2)
-        elif self.loss_fn == get_batch_euclidean_loss:
-          loss = get_batch_euclidean_loss(emb1, emb2)
+        elif isinstance(self.loss_fn, ContrastiveLoss_euclidean):
+          loss = self.loss_fn(emb1, emb2)
         elif self.loss_fn == clip_crossentropy_loss:
           loss = clip_crossentropy_loss(emb1, emb2, self.tau)
         
@@ -410,13 +438,13 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
   def __init__(self, abc_model, ttl_model, loss_fn, train_loader, valid_loader, args):
     super().__init__(abc_model, ttl_model, loss_fn, train_loader, valid_loader, args)
   
-  def validate(self, external_loader=None, topk=20):
+  def validate(self, external_loader=None, epoch=None):
     if external_loader and isinstance(external_loader, DataLoader):
       loader = external_loader
       print('An arbitrary loader is used instead of Validation loader')
     else:
       loader = self.valid_loader
-      
+
     self.abc_model.eval()
     self.ttl_model.eval()
                           
@@ -429,10 +457,11 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
     
     abc_emb_all = torch.zeros(len(loader.dataset), self.abc_model.emb_size) # valid dataset size(10% of all) x embedding size
     ttl_emb_all = torch.zeros(len(loader.dataset), self.abc_model.emb_size)
+    ttl_text_all = []
 
     with torch.inference_mode():
       for idx, batch in enumerate(tqdm(loader, leave=False)):
-        melody, title, measure_numbers = batch
+        melody, title, measure_numbers, ttltext = batch
         
         emb1 = self.abc_model(melody.to(self.device), measure_numbers.to(self.device))
         emb2 = self.ttl_model(title.to(self.device))
@@ -440,8 +469,13 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
         start_idx = idx * loader.batch_size
         end_idx = start_idx + len(emb1)
 
+        #emb1 = F.normalize(emb1, p=2, dim=-1)
+        #emb2 = F.normalize(emb2, p=2, dim=-1)
+
         abc_emb_all[start_idx:end_idx] = emb1
         ttl_emb_all[start_idx:end_idx] = emb2
+        if loader == self.valid_loader:
+          ttl_text_all.extend(ttltext)
         
         if len(melody[3]) == 1: # got 1 batch
             continue
@@ -450,8 +484,8 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
           loss = self.loss_fn(emb1, emb2, torch.ones(emb1.size(0)).to(self.device))
         elif isinstance(self.loss_fn, ContrastiveLoss):
           loss = self.loss_fn(emb1, emb2)
-        elif self.loss_fn == get_batch_euclidean_loss:
-          loss = get_batch_euclidean_loss(emb1, emb2)
+        elif isinstance(self.loss_fn, ContrastiveLoss_euclidean):
+          loss = self.loss_fn(emb1, emb2)
         elif self.loss_fn == clip_crossentropy_loss:
           loss = clip_crossentropy_loss(emb1, emb2, self.tau)
         
@@ -465,10 +499,28 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
       ttl_emb_all = torch.rand(len(self.valid_loader.dataset), 128)
       '''
       
+      if self.topk != 0:
+        topk = self.topk
+      else:
+        topk = len(loader.dataset)
+
       if isinstance(self.loss_fn, ContrastiveLoss) or self.loss_fn == CosineEmbeddingLoss or self.loss_fn == clip_crossentropy_loss:
         # calculate MRR
         mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
-        cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy()) 
+        dot_product_value = torch.matmul(abc_emb_all, ttl_emb_all.T)
+        abc_emb_norm = norm(abc_emb_all, dim=-1)
+        ttl_emb_norm = norm(ttl_emb_all, dim=-1)
+
+        if loader == self.valid_loader:
+          torch.save(abc_emb_all, f'embedding_tracker/abc_emb_{epoch}.pt')
+          torch.save(ttl_emb_all, f'embedding_tracker/ttl_emb_{epoch}.pt')
+          with open(f'embedding_tracker/ttl_text_all_{epoch}.pkl', 'wb') as f:
+            pickle.dump(ttl_text_all, f)
+
+        cos_sim_value = dot_product_value / abc_emb_norm.unsqueeze(1) / ttl_emb_norm.unsqueeze(0)
+        
+        cos_sim = cos_sim_value.detach().cpu().numpy()
+        #cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy()) 
         # tokens x emb(128) mat emb(128) x tokens = tokens x tokens of cosine similarity
         sorted_cos_idx = np.argsort(cos_sim, axis=-1) # the most similar one goes to the end
         for idx in range(len(loader.dataset)):
@@ -476,6 +528,12 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
             position = np.argwhere(sorted_cos_idx[idx][-topk:][::-1] == idx).item() # changing into ascending order
             quality_score = mrrdict[position]
             sum_mrr += quality_score
+          if loader == self.valid_loader:
+            self.position_tracker[ttl_text_all[idx]].append(position)
+            # if len(self.position_tracker[ttl_text_all[idx]]) >= 2: 
+            #   if position < self.position_tracker[ttl_text_all[idx]][-2]:
+            #     self.position_tracker[ttl_text_all[idx]].insert(-1, f'up_{self.position_tracker[ttl_text_all[idx]][-2] - position}')
+              
         
         # calculate DCG
         dcg_dict = {i-1: (2**1 - 1) / np.log2(i + 1) for i in range(1, topk+1)} # {0:1.0, 1:0.6309297535714574, ...}
@@ -494,8 +552,15 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
         # when [correct, pred, pred, pred, ...]
         # so sum_dcg can be considered as nDCG
                 
-      elif self.loss_fn == get_batch_euclidean_loss:
+      elif isinstance(self.loss_fn, ContrastiveLoss_euclidean):
         mrrdict = {i-1:1/i for i in range(1, topk+1)} # {0:1.0, 1:0.5, ...}
+
+        if loader == self.valid_loader:
+          torch.save(abc_emb_all, f'embedding_tracker/abc_emb_{epoch}.pt')
+          torch.save(ttl_emb_all, f'embedding_tracker/ttl_emb_{epoch}.pt')
+          with open(f'embedding_tracker/ttl_text_all_{epoch}.pkl', 'wb') as f:
+            pickle.dump(ttl_text_all, f)
+
         euc_sim = torch.norm(abc_emb_all[:, None] - ttl_emb_all, p=2, dim=-1)
         sorted_euc_idx = torch.argsort(euc_sim, dim=-1)
         for idx in range(len(loader.dataset)):
@@ -503,6 +568,22 @@ class EmbTrainerMeasureMRR(EmbTrainerMeasure):
             position = torch.argwhere(sorted_euc_idx[idx][-topk:].flip(-1) == idx).item() # changing into ascending order
             quality_score = mrrdict[position]
             sum_mrr += quality_score
+          if loader == self.valid_loader:
+            self.position_tracker[ttl_text_all[idx]].append(position)
+            # if len(self.position_tracker[ttl_text_all[idx]]) >= 2: 
+            #   if position < self.position_tracker[ttl_text_all[idx]][-2]:
+            #     self.position_tracker[ttl_text_all[idx]].insert(-1, f'up_{self.position_tracker[ttl_text_all[idx]][-2] - position}')
+
+        dcg_dict = {i-1: (2**1 - 1) / np.log2(i + 1) for i in range(1, topk+1)} # {0:1.0, 1:0.6309297535714574, ...}
+        #cos_sim = cosine_similarity(abc_emb_all.detach().cpu().numpy(), ttl_emb_all.detach().cpu().numpy())
+        #sorted_cos_idx = np.argsort(cos_sim, axis=-1)
+        sum_dcg = 0
+        for idx in range(len(loader.dataset)):
+          if idx in sorted_euc_idx[idx][-topk:]:
+            position = np.argwhere(sorted_euc_idx[idx][-topk:].flip(-1) == idx).item()
+            relevance_score = 1 # you can replace 1 with your own relevance score
+            dcg = relevance_score * dcg_dict[position]
+            sum_dcg += dcg
 
       validation_dict = {'validation_loss': validation_loss / num_total_tokens, 'validation_acc': sum_mrr / len(loader.dataset), 'validation_nDCG': sum_dcg / len(loader.dataset)}
 

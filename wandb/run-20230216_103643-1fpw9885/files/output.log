@@ -1,0 +1,17 @@
+1e-05
+batch_time: 0.25050997734069824
+  0%|                                                                                                                                                                                                                                         | 0/9000 [00:00<?, ?it/s]
+passed train_by_single_batch
+batch_time: 3.072384834289551
+passed train_by_single_batch
+batch_time: 3.7937896251678467
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+Traceback (most recent call last):
+  File "emb_train.py", line 182, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 155, in train_by_num_epoch
+    validation_dict_train = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 538, in validate
+    elif self.loss_fn == get_batch_euclidean_loss:
+NameError: name 'get_batch_euclidean_loss' is not defined

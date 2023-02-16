@@ -1,0 +1,19 @@
+1e-05
+batch_time: 0.4005260467529297
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 1.2333273887634277
+  0%|                                                                                                                                                                                                                                                                              | 0/2 [00:00<?, ?it/s]
+passed train_by_single_batch
+batch_time: 4.257141828536987
+get_batch_contrastive_loss time: 0.9706418514251709
+passed train_by_single_batch
+
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:09<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 183, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 157, in train_by_num_epoch
+    validation_dict_valid = self.validate(epoch=epoch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 518, in validate
+    pickle.dupm(ttl_text_all, f)
+AttributeError: module 'pickle' has no attribute 'dupm'

@@ -547,10 +547,9 @@ class ABCsetTitle_vartune(MeasureNumberSet):
 
   def _prepare_data(self):
     start_time = time.time()
-    self.data_str = defaultdict(list)
-    self.data_tensor = defaultdict(list)
+    self.abc_tensor = defaultdict(list)
     self.header = defaultdict(list)
-    title_to_del = ['untitled']
+    title_to_del = ['Untitled', 'x']
     # ambiguous title is the titles which have unclear meaning by itself, 
     # It is measured by calculating the cosine similarity between the title with info and the title only
     # for, home, apple, etc.
@@ -567,31 +566,30 @@ class ABCsetTitle_vartune(MeasureNumberSet):
     # process is simple : token(str) to idx to tensor
     for tune in self.tune_list:
       if tune.header["tune title"] not in title_to_del:
-        tune_str = self._tune_to_list_of_str(tune)
-        tune_str = [x[:-1] for x in tune_str] + [['<end>', '<end>', '<end>']]
-        #self.data_str[tune.header["tune title"]].append(self._tune_to_list_of_str(tune))
-        self.data_tensor[tune.header["tune title"]].append(self._str_to_tensor(tune_str, tune.header))
-        self.header[tune.header["tune title"]].append(tune.header)
-    self.idx2ttl = list(self.data_tensor.keys())
+        if tune.header['rhythm'] == 'reel':
+          tune_str = self._tune_to_list_of_str(tune)
+          tune_str = [x[:-1] for x in tune_str] + [['<end>', '<end>', '<end>']]
+          self.abc_tensor[tune.header["tune title"]].append(self._str_to_tensor(tune_str, tune.header))
+          self.header[tune.header["tune title"]].append(tune.header)
+    self.idx2ttl = list(self.abc_tensor.keys())
     
-    df_embedding = pd.read_csv('unique_titles_with_embedding_langdetct.csv')
+    df_embedding = pd.read_csv('unq_ttl_emb_6283.csv')
     df_embedding[self.pretrnd_ttl_emb_type] = df_embedding[self.pretrnd_ttl_emb_type].apply(lambda x: np.array(eval(x)))
-    self.dict_embedding = df_embedding.set_index('Title')[self.pretrnd_ttl_emb_type].to_dict()
-    #model = SentenceTransformer('all-MiniLM-L6-v2')
-    #self.ttl2emb = model.encode(self.idx2ttl, device='cuda')
+    self.dict_embedding = df_embedding.set_index('title')[self.pretrnd_ttl_emb_type].to_dict()
+
     print (f"Time taken to prepare data : {time.time() - start_time}")
 
   def __len__(self):
-    return len(self.data_tensor)
+    return len(self.abc_tensor)
       
   def __getitem__(self, idx):
     picked_ttl = self.idx2ttl[idx]
-    sampled_idx = random.randint(0, len(self.data_tensor[picked_ttl])-1)
+    sampled_idx = random.randint(0, len(self.abc_tensor[picked_ttl])-1)
     # example of x : ['<start>', 'm_idx:0', 'm_offset:0.0', 0] so x[:-1] = ['<start>', 'm_idx:0', 'm_offset:0.0']
     # tune = [x[:-1] for x in self.data[picked_ttl][sampled_idx]]  + [['<end>', '<end>', '<end>']] # ['<start>', 'm_idx:0', 'm_offset:0.0', 8]
     header = self.header[picked_ttl][sampled_idx]
 
-    measure_numbers = [x[-1] for x in self.data_tensor[picked_ttl][sampled_idx]]
+    measure_numbers = [x[-1] for x in self.abc_tensor[picked_ttl][sampled_idx]]
 
     # if not using augmentation code out for lower calculation cost
     # tune, new_key = self.augmentor(tune, header)
@@ -603,15 +601,19 @@ class ABCsetTitle_vartune(MeasureNumberSet):
     #tune_in_idx = [self.vocab_dictionary(token[0]) + self.vocab_dictionary.encode_m_idx(token[1]) + self.vocab.encode_m_offset(token[2], new_header) for token in tune]
     # this is the new code to calculate the tune_in_idx in dictionary
     # but hash table is not good for this case, because the tokens of every tune is too large
-    tune_in_idx = self.data_tensor[picked_ttl][sampled_idx]
+    tune_in_idx = self.abc_tensor[picked_ttl][sampled_idx]
 
     tune_tensor = torch.LongTensor(tune_in_idx)
     header_tensor = torch.LongTensor(self.vocab.encode_header(new_header))
     tune_tensor = torch.cat([tune_tensor, header_tensor.repeat(len(tune_tensor), 1)], dim=-1)
 
     #title = self.ttl2emb[idx]
-    title = self.dict_embedding[picked_ttl]
-    title_tensor = torch.FloatTensor(title)
+    if picked_ttl.split(' ')[-1] == 'The':
+      list_title = picked_ttl.split(' ')[:-1]
+      list_title.insert(0, 'The')
+      picked_ttl = ' '.join(list_title)[:-1]
+    title_tensor = self.dict_embedding[picked_ttl]
+    title_tensor = torch.FloatTensor(title_tensor)
     return tune_tensor[:-1], title_tensor, torch.tensor(measure_numbers, dtype=torch.long), picked_ttl
 
   def parse_meter(self, meter):

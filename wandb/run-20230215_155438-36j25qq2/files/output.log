@@ -1,0 +1,16 @@
+0.0004
+batch_time: 0.5764269828796387
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 4.343478202819824
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:11<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 179, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 160, in train_by_num_epoch
+    self.save_dict_to_csv(self.position_tracker, f"saved_models/{date}/{self.args.name_of_model_to_save}/{self.args.name_of_model_to_save}_position_tracker_{epoch}.csv")
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 86, in save_dict_to_csv
+    with open(filename, mode, newline="") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'saved_models/20230215/baseline_STttlonly/baseline_STttlonly_position_tracker_0.csv'

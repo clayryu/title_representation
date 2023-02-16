@@ -1,0 +1,514 @@
+
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+0.0004
+batch_time: 0.5244905948638916
+get_batch_contrastive_loss time: 4.349005222320557
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+
+
+  0%|                                                                                                                                                                                                                                                                | 1/9000 [00:11<28:01:54, 11.21s/it]
+0.0004
+
+  0%|                                                                                                                                                                                                                                                                | 2/9000 [00:13<15:18:58,  6.13s/it]
+get_batch_contrastive_loss time: 1.885653018951416
+passed train_by_single_batch
+0.0004
+batch_time: 0.49558472633361816
+get_batch_contrastive_loss time: 1.7240638732910156
+passed train_by_single_batch
+0.0004
+
+  0%|                                                                                                                                                                                                                                                                | 3/9000 [00:16<11:06:36,  4.45s/it]
+get_batch_contrastive_loss time: 1.7245879173278809
+passed train_by_single_batch
+
+
+  0%|▏                                                                                                                                                                                                                                                                | 5/9000 [00:21<8:06:01,  3.24s/it]
+batch_time: 0.4665403366088867
+get_batch_contrastive_loss time: 1.8559520244598389
+passed train_by_single_batch
+0.0004
+
+  0%|▏                                                                                                                                                                                                                                                                | 6/9000 [00:23<7:23:53,  2.96s/it]
+get_batch_contrastive_loss time: 1.7170774936676025
+passed train_by_single_batch
+0.0004
+
+  0%|▏                                                                                                                                                                                                                                                                | 7/9000 [00:25<6:57:06,  2.78s/it]
+get_batch_contrastive_loss time: 1.729752540588379
+passed train_by_single_batch
+0.0004
+batch_time: 0.46335935592651367
+get_batch_contrastive_loss time: 1.7271208763122559
+passed train_by_single_batch
+
+  0%|▏                                                                                                                                                                                                                                                                | 8/9000 [00:28<6:39:01,  2.66s/it]
+batch_time: 0.4721541404724121
+get_batch_contrastive_loss time: 1.73915696144104
+passed train_by_single_batch
+
+
+  0%|▎                                                                                                                                                                                                                                                               | 10/9000 [00:33<6:20:20,  2.54s/it]
+batch_time: 0.45335960388183594
+get_batch_contrastive_loss time: 1.7571802139282227
+passed train_by_single_batch
+0.0004
+
+  0%|▎                                                                                                                                                                                                                                                               | 11/9000 [00:35<6:14:34,  2.50s/it]
+get_batch_contrastive_loss time: 1.7336750030517578
+passed train_by_single_batch
+0.0004
+
+  0%|▎                                                                                                                                                                                                                                                               | 12/9000 [00:38<6:09:54,  2.47s/it]
+get_batch_contrastive_loss time: 1.7210350036621094
+passed train_by_single_batch
+
+  0%|▎                                                                                                                                                                                                                                                               | 13/9000 [00:40<6:05:31,  2.44s/it]
+batch_time: 0.44844627380371094
+get_batch_contrastive_loss time: 1.7097582817077637
+passed train_by_single_batch
+0.0004
+
+  0%|▍                                                                                                                                                                                                                                                               | 14/9000 [00:42<6:01:00,  2.41s/it]
+get_batch_contrastive_loss time: 1.6825902462005615
+passed train_by_single_batch
+
+  0%|▍                                                                                                                                                                                                                                                               | 15/9000 [00:45<6:00:12,  2.41s/it]
+batch_time: 0.4521768093109131
+get_batch_contrastive_loss time: 1.7273330688476562
+passed train_by_single_batch
+0.0004
+
+  0%|▍                                                                                                                                                                                                                                                               | 16/9000 [00:47<5:59:18,  2.40s/it]
+get_batch_contrastive_loss time: 1.7165913581848145
+passed train_by_single_batch
+0.0004
+batch_time: 0.4519526958465576
+get_batch_contrastive_loss time: 1.7383182048797607
+passed train_by_single_batch
+
+  0%|▍                                                                                                                                                                                                                                                               | 17/9000 [00:49<5:59:31,  2.40s/it]
+batch_time: 0.4674336910247803
+get_batch_contrastive_loss time: 1.732804775238037
+passed train_by_single_batch
+
+
+  0%|▌                                                                                                                                                                                                                                                               | 19/9000 [00:54<6:00:08,  2.41s/it]
+batch_time: 0.4560542106628418
+get_batch_contrastive_loss time: 1.7363934516906738
+passed train_by_single_batch
+0.0004
+batch_time: 0.46556782722473145
+get_batch_contrastive_loss time: 1.7317535877227783
+passed train_by_single_batch
+0.0004
+
+  0%|▌                                                                                                                                                                                                                                                               | 20/9000 [00:57<6:00:26,  2.41s/it]
+get_batch_contrastive_loss time: 1.745563268661499
+passed train_by_single_batch
+
+  0%|▌                                                                                                                                                                                                                                                               | 21/9000 [00:59<6:00:50,  2.41s/it]
+batch_time: 0.46983885765075684
+get_batch_contrastive_loss time: 1.6907742023468018
+passed train_by_single_batch
+
+  0%|▋                                                                                                                                                                                                                                                               | 22/9000 [01:01<5:59:12,  2.40s/it]
+batch_time: 0.4598417282104492
+get_batch_contrastive_loss time: 1.697807788848877
+passed train_by_single_batch
+0.0004
+
+  0%|▋                                                                                                                                                                                                                                                               | 23/9000 [01:04<5:57:51,  2.39s/it]
+get_batch_contrastive_loss time: 1.7573370933532715
+passed train_by_single_batch
+
+
+  0%|▋                                                                                                                                                                                                                                                               | 25/9000 [01:09<6:01:30,  2.42s/it]
+batch_time: 0.4738888740539551
+get_batch_contrastive_loss time: 1.7588627338409424
+passed train_by_single_batch
+0.0004
+
+  0%|▋                                                                                                                                                                                                                                                               | 26/9000 [01:11<6:02:16,  2.42s/it]
+get_batch_contrastive_loss time: 1.7569854259490967
+passed train_by_single_batch
+0.0004
+
+  0%|▊                                                                                                                                                                                                                                                               | 27/9000 [01:14<6:03:40,  2.43s/it]
+get_batch_contrastive_loss time: 1.767866611480713
+passed train_by_single_batch
+0.0004
+batch_time: 0.467273473739624
+get_batch_contrastive_loss time: 1.7351963520050049
+passed train_by_single_batch
+
+  0%|▊                                                                                                                                                                                                                                                               | 28/9000 [01:16<6:02:58,  2.43s/it]
+batch_time: 0.4677102565765381
+get_batch_contrastive_loss time: 1.7377901077270508
+passed train_by_single_batch
+
+
+  0%|▊                                                                                                                                                                                                                                                               | 30/9000 [01:21<6:02:17,  2.42s/it]
+batch_time: 0.46410107612609863
+get_batch_contrastive_loss time: 1.7369980812072754
+passed train_by_single_batch
+0.0004
+batch_time: 0.4658851623535156
+get_batch_contrastive_loss time: 1.7494115829467773
+passed train_by_single_batch
+
+
+  0%|▉                                                                                                                                                                                                                                                               | 32/9000 [01:26<6:02:30,  2.43s/it]
+batch_time: 0.4681541919708252
+get_batch_contrastive_loss time: 1.7421205043792725
+passed train_by_single_batch
+0.0004
+batch_time: 0.45963072776794434
+get_batch_contrastive_loss time: 1.7405126094818115
+passed train_by_single_batch
+
+
+  0%|▉                                                                                                                                                                                                                                                               | 34/9000 [01:31<6:02:14,  2.42s/it]
+batch_time: 0.4694712162017822
+get_batch_contrastive_loss time: 1.738661527633667
+passed train_by_single_batch
+
+  0%|▉                                                                                                                                                                                                                                                               | 35/9000 [01:33<6:01:23,  2.42s/it]
+batch_time: 0.48819494247436523
+get_batch_contrastive_loss time: 1.6980111598968506
+passed train_by_single_batch
+0.0004
+
+  0%|█                                                                                                                                                                                                                                                               | 36/9000 [01:35<6:01:27,  2.42s/it]
+get_batch_contrastive_loss time: 1.7394754886627197
+passed train_by_single_batch
+0.0004
+
+  0%|█                                                                                                                                                                                                                                                               | 37/9000 [01:38<6:01:24,  2.42s/it]
+get_batch_contrastive_loss time: 1.726700782775879
+passed train_by_single_batch
+
+  0%|█                                                                                                                                                                                                                                                               | 38/9000 [01:40<6:00:26,  2.41s/it]
+batch_time: 0.4776628017425537
+get_batch_contrastive_loss time: 1.7048423290252686
+passed train_by_single_batch
+0.0004
+batch_time: 0.46037721633911133
+get_batch_contrastive_loss time: 1.7349510192871094
+passed train_by_single_batch
+
+  0%|█                                                                                                                                                                                                                                                               | 39/9000 [01:43<6:00:14,  2.41s/it]
+
+  0%|█▏                                                                                                                                                                                                                                                              | 40/9000 [01:46<7:03:54,  2.84s/it]
+get_batch_contrastive_loss time: 1.7421462535858154
+passed train_by_single_batch
+0.0004
+batch_time: 0.46383047103881836
+get_batch_contrastive_loss time: 1.734428882598877
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+0.0004
+
+  0%|█▏                                                                                                                                                                                                                                                              | 42/9000 [01:55<8:39:08,  3.48s/it]
+get_batch_contrastive_loss time: 1.711364984512329
+passed train_by_single_batch
+0.0004
+batch_time: 0.490006685256958
+get_batch_contrastive_loss time: 1.7089622020721436
+passed train_by_single_batch
+0.0004
+
+  0%|█▏                                                                                                                                                                                                                                                              | 43/9000 [01:58<7:51:28,  3.16s/it]
+get_batch_contrastive_loss time: 1.7309091091156006
+passed train_by_single_batch
+0.0004
+
+  0%|█▎                                                                                                                                                                                                                                                              | 44/9000 [02:00<7:17:52,  2.93s/it]
+get_batch_contrastive_loss time: 1.699974775314331
+passed train_by_single_batch
+0.0004
+
+  0%|█▎                                                                                                                                                                                                                                                              | 45/9000 [02:03<6:53:45,  2.77s/it]
+get_batch_contrastive_loss time: 1.7044141292572021
+passed train_by_single_batch
+0.0004
+
+
+  1%|█▎                                                                                                                                                                                                                                                              | 47/9000 [02:07<6:23:46,  2.57s/it]
+get_batch_contrastive_loss time: 1.691749095916748
+passed train_by_single_batch
+0.0004
+
+  1%|█▎                                                                                                                                                                                                                                                              | 48/9000 [02:10<6:17:09,  2.53s/it]
+get_batch_contrastive_loss time: 1.7395193576812744
+passed train_by_single_batch
+0.0004
+
+  1%|█▍                                                                                                                                                                                                                                                              | 49/9000 [02:12<6:10:43,  2.49s/it]
+get_batch_contrastive_loss time: 1.7017056941986084
+passed train_by_single_batch
+0.0004
+batch_time: 0.46610331535339355
+get_batch_contrastive_loss time: 1.6983821392059326
+passed train_by_single_batch
+0.0004
+
+
+  1%|█▍                                                                                                                                                                                                                                                              | 51/9000 [02:17<6:05:17,  2.45s/it]
+get_batch_contrastive_loss time: 1.7499520778656006
+passed train_by_single_batch
+0.0004
+
+  1%|█▍                                                                                                                                                                                                                                                              | 52/9000 [02:20<6:10:06,  2.48s/it]
+get_batch_contrastive_loss time: 1.8536088466644287
+passed train_by_single_batch
+0.0004
+batch_time: 0.4563429355621338
+get_batch_contrastive_loss time: 1.7304744720458984
+passed train_by_single_batch
+0.0004
+
+
+  1%|█▌                                                                                                                                                                                                                                                              | 54/9000 [02:24<6:03:19,  2.44s/it]
+get_batch_contrastive_loss time: 1.706336498260498
+passed train_by_single_batch
+0.0004
+
+  1%|█▌                                                                                                                                                                                                                                                              | 55/9000 [02:27<5:59:10,  2.41s/it]
+get_batch_contrastive_loss time: 1.6876332759857178
+passed train_by_single_batch
+0.0004
+
+  1%|█▌                                                                                                                                                                                                                                                              | 56/9000 [02:29<5:56:52,  2.39s/it]
+get_batch_contrastive_loss time: 1.6935741901397705
+passed train_by_single_batch
+0.0004
+
+  1%|█▌                                                                                                                                                                                                                                                              | 57/9000 [02:31<5:58:29,  2.41s/it]
+get_batch_contrastive_loss time: 1.7304892539978027
+passed train_by_single_batch
+0.0004
+
+  1%|█▋                                                                                                                                                                                                                                                              | 58/9000 [02:34<5:57:51,  2.40s/it]
+get_batch_contrastive_loss time: 1.708451271057129
+passed train_by_single_batch
+0.0004
+
+  1%|█▋                                                                                                                                                                                                                                                              | 59/9000 [02:36<5:55:14,  2.38s/it]
+get_batch_contrastive_loss time: 1.6781468391418457
+passed train_by_single_batch
+0.0004
+batch_time: 0.46880483627319336
+get_batch_contrastive_loss time: 1.7122247219085693
+passed train_by_single_batch
+0.0004
+
+  1%|█▋                                                                                                                                                                                                                                                              | 60/9000 [02:39<5:55:46,  2.39s/it]
+get_batch_contrastive_loss time: 1.7225611209869385
+passed train_by_single_batch
+0.0004
+
+  1%|█▋                                                                                                                                                                                                                                                              | 61/9000 [02:41<5:56:00,  2.39s/it]
+get_batch_contrastive_loss time: 1.722303867340088
+passed train_by_single_batch
+0.0004
+
+  1%|█▊                                                                                                                                                                                                                                                              | 62/9000 [02:43<5:56:38,  2.39s/it]
+get_batch_contrastive_loss time: 1.6746366024017334
+passed train_by_single_batch
+0.0004
+
+  1%|█▊                                                                                                                                                                                                                                                              | 63/9000 [02:46<5:54:17,  2.38s/it]
+get_batch_contrastive_loss time: 1.6892733573913574
+passed train_by_single_batch
+0.0004
+
+  1%|█▊                                                                                                                                                                                                                                                              | 64/9000 [02:48<5:53:14,  2.37s/it]
+get_batch_contrastive_loss time: 1.7127933502197266
+passed train_by_single_batch
+0.0004
+
+
+  1%|█▉                                                                                                                                                                                                                                                              | 66/9000 [02:53<5:55:31,  2.39s/it]
+get_batch_contrastive_loss time: 1.7286701202392578
+passed train_by_single_batch
+0.0004
+
+  1%|█▉                                                                                                                                                                                                                                                              | 67/9000 [02:55<5:54:18,  2.38s/it]
+get_batch_contrastive_loss time: 1.680091142654419
+passed train_by_single_batch
+0.0004
+
+  1%|█▉                                                                                                                                                                                                                                                              | 68/9000 [02:58<5:59:51,  2.42s/it]
+get_batch_contrastive_loss time: 1.837216854095459
+passed train_by_single_batch
+0.0004
+
+  1%|█▉                                                                                                                                                                                                                                                              | 69/9000 [03:00<5:58:12,  2.41s/it]
+get_batch_contrastive_loss time: 1.7100348472595215
+passed train_by_single_batch
+0.0004
+
+  1%|█▉                                                                                                                                                                                                                                                              | 70/9000 [03:03<5:57:55,  2.40s/it]
+get_batch_contrastive_loss time: 1.7288975715637207
+passed train_by_single_batch
+0.0004
+batch_time: 0.4592099189758301
+get_batch_contrastive_loss time: 1.6963257789611816
+passed train_by_single_batch
+0.0004
+
+
+  1%|██                                                                                                                                                                                                                                                              | 72/9000 [03:07<5:55:21,  2.39s/it]
+get_batch_contrastive_loss time: 1.7027978897094727
+passed train_by_single_batch
+0.0004
+batch_time: 0.47006726264953613
+get_batch_contrastive_loss time: 1.6978342533111572
+passed train_by_single_batch
+0.0004
+
+
+  1%|██                                                                                                                                                                                                                                                              | 74/9000 [03:12<5:54:55,  2.39s/it]
+get_batch_contrastive_loss time: 1.7042949199676514
+passed train_by_single_batch
+0.0004
+
+  1%|██▏                                                                                                                                                                                                                                                             | 75/9000 [03:14<5:54:16,  2.38s/it]
+get_batch_contrastive_loss time: 1.6957848072052002
+passed train_by_single_batch
+0.0004
+
+  1%|██▏                                                                                                                                                                                                                                                             | 76/9000 [03:17<5:59:56,  2.42s/it]
+get_batch_contrastive_loss time: 1.832305908203125
+passed train_by_single_batch
+0.0004
+
+  1%|██▏                                                                                                                                                                                                                                                             | 77/9000 [03:19<5:58:59,  2.41s/it]
+get_batch_contrastive_loss time: 1.7249395847320557
+passed train_by_single_batch
+0.0004
+
+  1%|██▏                                                                                                                                                                                                                                                             | 78/9000 [03:22<5:58:28,  2.41s/it]
+get_batch_contrastive_loss time: 1.7018098831176758
+passed train_by_single_batch
+0.0004
+
+  1%|██▏                                                                                                                                                                                                                                                             | 79/9000 [03:24<5:57:26,  2.40s/it]
+get_batch_contrastive_loss time: 1.697272777557373
+passed train_by_single_batch
+0.0004
+batch_time: 0.4716670513153076
+get_batch_contrastive_loss time: 1.7036914825439453
+passed train_by_single_batch
+0.0004
+
+  1%|██▎                                                                                                                                                                                                                                                             | 80/9000 [03:27<5:56:48,  2.40s/it]
+  0%|                                                                                                                                                                                                                                                                              | 0/1 [00:00<?, ?it/s]
+get_batch_contrastive_loss time: 1.7389130592346191
+passed train_by_single_batch
+An arbitrary loader is used instead of Validation loader
+
+0.0004
+batch_time: 0.5319297313690186
+get_batch_contrastive_loss time: 1.7690072059631348
+passed train_by_single_batch
+0.0004
+
+  1%|██▎                                                                                                                                                                                                                                                             | 82/9000 [03:36<8:12:11,  3.31s/it]
+get_batch_contrastive_loss time: 1.7585980892181396
+passed train_by_single_batch
+0.0004
+
+
+  1%|██▍                                                                                                                                                                                                                                                             | 84/9000 [03:41<7:06:05,  2.87s/it]
+get_batch_contrastive_loss time: 1.747614860534668
+passed train_by_single_batch
+0.0004
+batch_time: 0.4590315818786621
+get_batch_contrastive_loss time: 1.7223446369171143
+passed train_by_single_batch
+0.0004
+
+  1%|██▍                                                                                                                                                                                                                                                             | 85/9000 [03:43<6:45:03,  2.73s/it]
+get_batch_contrastive_loss time: 1.737342119216919
+passed train_by_single_batch
+0.0004
+
+  1%|██▍                                                                                                                                                                                                                                                             | 86/9000 [03:45<6:31:46,  2.64s/it]
+get_batch_contrastive_loss time: 1.7531967163085938
+passed train_by_single_batch
+0.0004
+
+
+  1%|██▌                                                                                                                                                                                                                                                             | 88/9000 [03:50<6:15:03,  2.53s/it]
+get_batch_contrastive_loss time: 1.7077059745788574
+passed train_by_single_batch
+0.0004
+
+  1%|██▌                                                                                                                                                                                                                                                             | 89/9000 [03:53<6:08:39,  2.48s/it]
+get_batch_contrastive_loss time: 1.7003090381622314
+passed train_by_single_batch
+0.0004
+
+  1%|██▌                                                                                                                                                                                                                                                             | 90/9000 [03:55<6:05:48,  2.46s/it]
+get_batch_contrastive_loss time: 1.7490997314453125
+passed train_by_single_batch
+0.0004
+
+  1%|██▌                                                                                                                                                                                                                                                             | 91/9000 [03:57<6:04:35,  2.46s/it]
+get_batch_contrastive_loss time: 1.749042272567749
+passed train_by_single_batch
+0.0004
+batch_time: 0.4696469306945801
+get_batch_contrastive_loss time: 1.735280990600586
+passed train_by_single_batch
+0.0004
+
+
+  1%|██▋                                                                                                                                                                                                                                                             | 93/9000 [04:02<6:01:52,  2.44s/it]
+get_batch_contrastive_loss time: 1.739922046661377
+passed train_by_single_batch
+0.0004
+
+  1%|██▋                                                                                                                                                                                                                                                             | 94/9000 [04:05<6:03:08,  2.45s/it]
+get_batch_contrastive_loss time: 1.757556676864624
+passed train_by_single_batch
+0.0004
+
+  1%|██▋                                                                                                                                                                                                                                                             | 95/9000 [04:08<6:58:15,  2.82s/it]
+get_batch_contrastive_loss time: 1.6946415901184082
+passed train_by_single_batch
+0.0004
+batch_time: 0.46349287033081055
+get_batch_contrastive_loss time: 1.738966941833496
+passed train_by_single_batch
+0.0004
+
+  1%|██▋                                                                                                                                                                                                                                                             | 96/9000 [04:11<6:40:26,  2.70s/it]
+get_batch_contrastive_loss time: 1.7372033596038818
+passed train_by_single_batch
+  1%|██▊                                                                                                                                                                                                                                                             | 97/9000 [04:14<6:28:38,  2.62s/it]
+Traceback (most recent call last):
+  File "emb_train.py", line 179, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 104, in train_by_num_epoch
+    for batch in self.train_loader:
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 681, in __next__
+    data = self._next_data()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 721, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 290, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 591, in __getitem__
+    measure_numbers = [x[-1] for x in self.abc_tensor[picked_ttl][sampled_idx]]
+  File "/home/clay/userdata/title_generation/emb_data_utils.py", line 591, in <listcomp>
+    measure_numbers = [x[-1] for x in self.abc_tensor[picked_ttl][sampled_idx]]
+KeyboardInterrupt

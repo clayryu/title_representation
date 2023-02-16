@@ -33,6 +33,34 @@ class ContrastiveLoss():
     loss  = torch.clamp(self.margin - (positive_sim - negative_sim), min=0)
     return loss.mean()
 
+class ContrastiveLoss_euclidean():
+  def __init__(self, margin=0.4):
+    self.margin = margin
+    self.non_diag_index_dict = {}
+
+  def __call__(self, emb1, emb2):
+    return self.get_batch_contrastive_loss(emb1, emb2)
+
+  def calculate_non_diag_index(self, num_batch):
+    if num_batch not in self.non_diag_index_dict:
+      self.non_diag_index_dict[num_batch] = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(num_batch) for y in range(num_batch) if x!=y]
+    return self.non_diag_index_dict[num_batch]
+
+  def get_batch_contrastive_loss(self, emb1, emb2):
+    num_batch = len(emb1)
+    emb1 = F.normalize(emb1, dim=-1)
+    emb2 = F.normalize(emb2, dim=-1)
+    euclidean_distance = torch.norm(emb1[:, None] - emb2, p=2, dim=-1)
+
+    positive_distance = euclidean_distance.diag().unsqueeze(1) # N x 1 
+    non_diag_index = self.calculate_non_diag_index(num_batch)
+    # tuple of two lists, each list has len = N*(N-1)
+    # 512 * 511
+    negative_distance = euclidean_distance[non_diag_index].reshape(num_batch, num_batch-1)
+
+    loss  = torch.clamp(self.margin - (positive_distance - negative_distance), min=0)
+    return loss.mean()
+
 def get_batch_euclidean_loss(emb1, emb2, margin=0.4):
   num_batch = len(emb1)
   euclidean_distance = torch.norm(emb1[:, None] - emb2, p=2, dim=-1) # calculate the euclidean distance between the two embeddings

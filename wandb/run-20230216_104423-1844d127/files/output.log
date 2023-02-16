@@ -1,0 +1,20 @@
+
+  0%|                                                                                                                                                                                                                                                      | 0/9000 [00:00<?, ?it/s]
+1e-05
+batch_time: 0.25638747215270996
+passed train_by_single_batch
+batch_time: 3.054805040359497
+passed train_by_single_batch
+batch_time: 3.777581214904785
+ 67%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                                                | 2/3 [00:01<00:00,  1.94it/s]
+passed train_by_single_batch
+
+  0%|                                                                                                                                                                                                                                                      | 0/9000 [00:22<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 182, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 155, in train_by_num_epoch
+    validation_dict_train = self.validate(external_loader=self.train_loader)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 562, in validate
+    position = np.argwhere(sorted_euc_idx[idx][-topk:][::-1] == idx).item()
+ValueError: step must be greater than zero

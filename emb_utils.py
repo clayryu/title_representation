@@ -190,7 +190,7 @@ def pack_collate_title_sampling_valid(raw_batch:list, sample_num=30):
   else:
     raise ValueError("Unknown raw_batch format")
 
-def pack_collate_title_sampling_textttl(raw_batch:list, sample_num=30):
+def pack_collate_title_sampling_textttl(raw_batch:list, sample_num=150):
   #random.seed(42)
   torch.manual_seed(42)
   melody = []

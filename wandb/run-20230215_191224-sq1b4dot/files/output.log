@@ -1,0 +1,16 @@
+1e-05
+batch_time: 0.4450387954711914
+  0%|                                                                                                                                                                                                                                                           | 0/9000 [00:00<?, ?it/s]
+  0%|                                                                                                                                                                                                                                                           | 0/9000 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 179, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 114, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 185, in _train_by_single_batch
+    loss.backward()
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/clay/.local/lib/python3.8/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: CUDA out of memory. Tried to allocate 5.13 GiB (GPU 0; 23.69 GiB total capacity; 10.64 GiB already allocated; 3.43 GiB free; 18.54 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

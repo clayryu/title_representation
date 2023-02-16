@@ -6,8 +6,16 @@
 
 *.ipynb
 
+*.png
+
 credential.py
 
 /saved_models
  
 /notebooks
+
+/embedding_tracker
+
+/embedding_tracker_plot
+
+/emb_csv_old_files

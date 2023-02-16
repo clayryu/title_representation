@@ -1,0 +1,21 @@
+1e-05
+batch_time: 0.39296889305114746
+  0%|                                                                                                                                                                                                                                                                           | 0/9000 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "emb_train.py", line 183, in <module>
+    trainer.train_by_num_epoch(args.num_epochs)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 116, in train_by_num_epoch
+    loss_value, loss_dict = self._train_by_single_batch(batch, reg_abc_loss=None, reg_ttl_loss=None)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 182, in _train_by_single_batch
+    loss, loss_dict = self.get_loss_pred_from_single_batch(batch)
+  File "/home/clay/userdata/title_generation/emb_trainer.py", line 363, in get_loss_pred_from_single_batch
+    loss = self.loss_fn(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 13, in __call__
+    return self.get_batch_contrastive_loss(emb1, emb2)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 28, in get_batch_contrastive_loss
+    non_diag_index = self.calculate_non_diag_index(num_batch)
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 17, in calculate_non_diag_index
+    self.non_diag_index_dict[num_batch] = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(num_batch) for y in range(num_batch) if x!=y]
+  File "/home/clay/userdata/title_generation/emb_loss.py", line 17, in <listcomp>
+    self.non_diag_index_dict[num_batch] = [x for x in range(num_batch) for y in range(num_batch) if x!=y], [y for x in range(num_batch) for y in range(num_batch) if x!=y]
+KeyboardInterrupt
